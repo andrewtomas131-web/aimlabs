@@ -6,7 +6,9 @@ const MOUSE_SENSITIVITY = 0.003
 
 var anim_player: AnimationPlayer
 
-@onready var camera_pivot: Node3D = $Head
+#TODO HACER UN ENUM PARA LAS ANIMACIONES
+
+@onready var head: Node3D = $Head
 @onready var camera = $Head/Camera3D
 
 
@@ -24,11 +26,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		
 		# Rota el PIVOTE (arriba/abajo) - ahora afecta cámara Y modelo
-		camera_pivot.rotate_x(event.relative.y * MOUSE_SENSITIVITY)
-		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+		head.rotate_x(event.relative.y * MOUSE_SENSITIVITY)
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 	if event.is_action_pressed("click"):
 		anim_player.stop()
 		anim_player.play("WEP_Fire")
+	if event.is_action_pressed("inspeccionar"):
+		anim_player.stop()
+		anim_player.play("WEP_Inspect_01")
+	
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -47,12 +53,12 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if anim_player and anim_player.current_animation != "WEP_Fire":
+		if anim_player and anim_player.current_animation != "WEP_Fire" and anim_player.current_animation != "WEP_Inspect_01":
 			anim_player.play("WEP_Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		if anim_player and anim_player.current_animation != "WEP_Fire":
+		if anim_player and anim_player.current_animation != "WEP_Fire" and anim_player.current_animation != "WEP_Inspect_01":
 			anim_player.play("WEP_Idle")
 
 
