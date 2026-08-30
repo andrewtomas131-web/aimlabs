@@ -2,7 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player.tscn" id="1_o5qli"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
+sky_top_color = Color(0.23921569, 0.5176471, 0.7764706, 1)
+sky_horizon_color = Color(0.65882355, 0.78431374, 0.8627451, 1)
+ground_bottom_color = Color(0.28593543, 0.24450892, 0.19792822, 1)
+ground_horizon_color = Color(0.56078434, 0.56078434, 0.56078434, 1)
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
+
 [sub_resource type="Environment" id="Environment_0kdyo"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+ambient_light_source = 1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
 size = Vector2(5, 5)
@@ -27,4 +39,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056152344, -0.012084961, 
 shape = SubResource("BoxShape3D_onsl3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1032305831]
-transform = Transform3D(0.9999635, -2.7755576e-17, 0.008544895, -0.0056919926, 0.74583757, 0.6661036, -0.006373103, -0.6661279, 0.74581033, 0.10292214, 0.6410227, 0.77927864)
+transform = Transform3D(0.9999635, -2.7755576e-17, 0.008544895, -0.0056919926, 0.74583757, 0.6661036, -0.006373103, -0.6661279, 0.74581033, 0.10292214, 7.0473804, 5.4553657)
