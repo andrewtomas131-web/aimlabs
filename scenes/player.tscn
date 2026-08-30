@@ -22,3 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.745359, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1205912045]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 fov = 90.0
+
+[node name="ShootRay" type="RayCast3D" parent="Head/Camera3D" unique_id=451775514]
+target_position = Vector3(0, 0, -100)
+collide_with_areas = true

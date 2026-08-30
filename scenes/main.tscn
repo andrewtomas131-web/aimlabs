@@ -25,6 +25,10 @@ size = Vector2(5, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
 size = Vector3(4.994629, 0.03930664, 4.9902344)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ostoq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajtct"]
+
 [node name="main" type="Node3D" unique_id=694436847]
 script = ExtResource("1_sugp2")
 
@@ -68,3 +72,13 @@ offset_right = 626.0
 offset_bottom = 342.0
 texture = ExtResource("4_jyhfs")
 expand_mode = 1
+
+[node name="TestTarget" type="StaticBody3D" parent="." unique_id=1271878624]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestTarget" unique_id=2123086303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+mesh = SubResource("BoxMesh_ostoq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestTarget" unique_id=704056382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+shape = SubResource("BoxShape3D_ajtct")

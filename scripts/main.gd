@@ -1,4 +1,5 @@
 extends Node3D
+@onready var player = $Player
 @onready var crosshair = $UI/Crosshair
 @onready var crosshair_hit = $UI/Crosshair_hit
 
@@ -13,6 +14,8 @@ func _ready() -> void:
 	# Al comenzar, mostramos el normal y ocultamos el de impacto
 	crosshair.visible = true
 	crosshair_hit.visible = false
+	
+	player.target_hit.connect(crosshair_hit_effect)
 
 
 

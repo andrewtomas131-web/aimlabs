@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal target_hit
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.003
@@ -8,6 +10,7 @@ var anim_player: AnimationPlayer
 
 #TODO HACER UN ENUM PARA LAS ANIMACIONES
 
+@onready var shoot_ray = $Head/Camera3D/ShootRay
 @onready var head: Node3D = $Head
 @onready var camera = $Head/Camera3D
 
@@ -31,6 +34,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		anim_player.stop()
 		anim_player.play("WEP_Fire")
+		if shoot_ray.is_colliding():
+			var target =shoot_ray.get_collider()
+			print("Golpeaste: ", target.name)
+			target_hit.emit()
+			
 	if event.is_action_pressed("inspeccionar"):
 		anim_player.stop()
 		anim_player.play("WEP_Inspect_01")
