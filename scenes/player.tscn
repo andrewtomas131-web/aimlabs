@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bjsf3q6hvbyji"]
+
+[ext_resource type="PackedScene" uid="uid://bpwwamctccgk" path="res://assets/player/p9_manny_fps_animations.glb" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://ukprslqefj6s" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1414830256]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=872136881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045573592, 1.020265, -0.15341234)
+shape = SubResource("CapsuleShape3D_g2els")
+
+[node name="Head" type="Node3D" parent="." unique_id=1116314625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.745359, 0)
+
+[node name="Sketchfab_Scene" parent="Head" unique_id=623691136 instance=ExtResource("1_3vyb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.745359, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1205912045]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+fov = 90.0

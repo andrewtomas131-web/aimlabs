@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
+[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player.tscn" id="1_o5qli"]
+
 [sub_resource type="Environment" id="Environment_0kdyo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
@@ -10,20 +12,19 @@ size = Vector3(4.994629, 0.03930664, 4.9902344)
 
 [node name="main" type="Node3D" unique_id=694436847]
 
+[node name="Player" parent="." unique_id=1414830256 groups=["player"] instance=ExtResource("1_o5qli")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=908145143]
 environment = SubResource("Environment_0kdyo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2131770012]
-mesh = SubResource("PlaneMesh_onsl3")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=330330659]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2131770012]
+mesh = SubResource("PlaneMesh_onsl3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=572826680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056152344, -0.012084961, -0.00390625)
 shape = SubResource("BoxShape3D_onsl3")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1237934851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14718306, 0.1580872, 1.1959051)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1032305831]
 transform = Transform3D(0.9999635, -2.7755576e-17, 0.008544895, -0.0056919926, 0.74583757, 0.6661036, -0.006373103, -0.6661279, 0.74581033, 0.10292214, 0.6410227, 0.77927864)
