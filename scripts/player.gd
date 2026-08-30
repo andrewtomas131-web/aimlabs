@@ -35,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		anim_player.stop()
 		anim_player.play("WEP_Fire")
 		if shoot_ray.is_colliding():
-			var target =shoot_ray.get_collider()
+			var target = shoot_ray.get_collider()
 			print("Golpeaste: ", target.name)
 			target_hit.emit()
 			
