@@ -3,6 +3,7 @@ extends Node3D
 @onready var crosshair = $UI/Crosshair
 @onready var crosshair_hit = $UI/Crosshair_hit
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
