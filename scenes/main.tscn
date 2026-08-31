@@ -25,18 +25,18 @@ size = Vector2(20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
 size = Vector3(20, 0.05, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+albedo_color = Color(0.35, 0.37, 0.4, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_target"]
 radius = 0.35
 height = 0.7
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_target"]
-radius = 0.35
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
-albedo_color = Color(0.35, 0.37, 0.4, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_target"]
 albedo_color = Color(0.9, 0.15, 0.15, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_target"]
+radius = 0.35
 
 [node name="main" type="Node3D" unique_id=694436847]
 script = ExtResource("1_sugp2")
@@ -54,34 +54,36 @@ mesh = SubResource("PlaneMesh_onsl3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=572826680]
 shape = SubResource("BoxShape3D_onsl3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1032305831]
-transform = Transform3D(0.9999635, -3.1019e-10, 0.008544895, -0.008544634, 0.007824093, 0.999933, -6.685499e-05, -0.9999694, 0.007823706, 0.10292214, 7.0473804, 0.4887941)
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1300406330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9156189, 8.450378, 0.9856472)
+light_energy = 9.676
+omni_range = 23.331
 
-[node name="Walls" type="Node3D" parent="."]
+[node name="Walls" type="Node3D" parent="." unique_id=943145373]
 
-[node name="WallNorte" type="CSGBox3D" parent="Walls"]
+[node name="WallNorte" type="CSGBox3D" parent="Walls" unique_id=1816781820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+use_collision = true
 size = Vector3(20, 4, 0.3)
 material = SubResource("StandardMaterial3D_wall")
-use_collision = true
 
-[node name="WallSur" type="CSGBox3D" parent="Walls"]
+[node name="WallSur" type="CSGBox3D" parent="Walls" unique_id=397810258]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+use_collision = true
 size = Vector3(20, 4, 0.3)
 material = SubResource("StandardMaterial3D_wall")
-use_collision = true
 
-[node name="WallEste" type="CSGBox3D" parent="Walls"]
+[node name="WallEste" type="CSGBox3D" parent="Walls" unique_id=2122089652]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
+use_collision = true
 size = Vector3(0.3, 4, 20)
 material = SubResource("StandardMaterial3D_wall")
-use_collision = true
 
-[node name="WallOeste" type="CSGBox3D" parent="Walls"]
+[node name="WallOeste" type="CSGBox3D" parent="Walls" unique_id=1348340057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0)
+use_collision = true
 size = Vector3(0.3, 4, 20)
 material = SubResource("StandardMaterial3D_wall")
-use_collision = true
 
 [node name="UI" type="Control" parent="." unique_id=1641871643]
 layout_mode = 3
@@ -107,64 +109,64 @@ offset_bottom = 342.0
 texture = ExtResource("4_jyhfs")
 expand_mode = 1
 
-[node name="Targets" type="Node3D" parent="."]
+[node name="Targets" type="Node3D" parent="." unique_id=165256827]
 
-[node name="Target1" type="StaticBody3D" parent="Targets" groups=["target"]]
+[node name="Target1" type="StaticBody3D" parent="Targets" unique_id=1994010137 groups=["target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.3, -8.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target1" unique_id=1962490404]
 mesh = SubResource("SphereMesh_target")
 surface_material_override/0 = SubResource("StandardMaterial3D_target")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target1" unique_id=1323317005]
 shape = SubResource("SphereShape3D_target")
 
-[node name="Target2" type="StaticBody3D" parent="Targets" groups=["target"]]
+[node name="Target2" type="StaticBody3D" parent="Targets" unique_id=440011202 groups=["target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -8.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target2" unique_id=1421770832]
 mesh = SubResource("SphereMesh_target")
 surface_material_override/0 = SubResource("StandardMaterial3D_target")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target2" unique_id=734496650]
 shape = SubResource("SphereShape3D_target")
 
-[node name="Target3" type="StaticBody3D" parent="Targets" groups=["target"]]
+[node name="Target3" type="StaticBody3D" parent="Targets" unique_id=1701387309 groups=["target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.3, -8.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target3" unique_id=1917299648]
 mesh = SubResource("SphereMesh_target")
 surface_material_override/0 = SubResource("StandardMaterial3D_target")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target3" unique_id=283925031]
 shape = SubResource("SphereShape3D_target")
 
-[node name="Target4" type="StaticBody3D" parent="Targets" groups=["target"]]
+[node name="Target4" type="StaticBody3D" parent="Targets" unique_id=114232480 groups=["target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.3, -8.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target4" unique_id=1319811671]
 mesh = SubResource("SphereMesh_target")
 surface_material_override/0 = SubResource("StandardMaterial3D_target")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target4" unique_id=862061784]
 shape = SubResource("SphereShape3D_target")
 
-[node name="Target5" type="StaticBody3D" parent="Targets" groups=["target"]]
+[node name="Target5" type="StaticBody3D" parent="Targets" unique_id=1278945561 groups=["target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, -8.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target5" unique_id=810135194]
 mesh = SubResource("SphereMesh_target")
 surface_material_override/0 = SubResource("StandardMaterial3D_target")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target5" unique_id=1452415448]
 shape = SubResource("SphereShape3D_target")
 
-[node name="Target6" type="StaticBody3D" parent="Targets" groups=["target"]]
+[node name="Target6" type="StaticBody3D" parent="Targets" unique_id=1166386494 groups=["target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.3, -8.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target6"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Targets/Target6" unique_id=657400986]
 mesh = SubResource("SphereMesh_target")
 surface_material_override/0 = SubResource("StandardMaterial3D_target")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Targets/Target6" unique_id=877629673]
 shape = SubResource("SphereShape3D_target")
