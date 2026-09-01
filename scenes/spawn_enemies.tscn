@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ktmv5c5fu863"]
+
+[ext_resource type="Script" uid="uid://bbi2b080f7il6" path="res://spawn_enemies.gd" id="1_tjmvd"]
+[ext_resource type="PackedScene" uid="uid://dju1wkhpxunhb" path="res://scenes/enemy.tscn" id="2_3tsfd"]
+
+[node name="SpawnEnemies" type="Node3D" unique_id=1121686366]
+script = ExtResource("1_tjmvd")
+enemy_scene = ExtResource("2_3tsfd")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2076065699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=1408840337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2)
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=1185469132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
+
+[node name="Marker3D4" type="Marker3D" parent="." unique_id=1969103528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Marker3D5" type="Marker3D" parent="." unique_id=1687681920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="Marker3D6" type="Marker3D" parent="." unique_id=52311332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="Marker3D7" type="Marker3D" parent="." unique_id=42879165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 2)
+
+[node name="Marker3D8" type="Marker3D" parent="." unique_id=125404898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Marker3D9" type="Marker3D" parent="." unique_id=733099777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -2)
+
+[node name="Timer" type="Timer" parent="." unique_id=950909534]
