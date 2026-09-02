@@ -5,50 +5,98 @@ signal target_hit
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.003
+const SHOOT_DISTANCE = 10000.0
 
 var anim_player: AnimationPlayer
 
-#TODO HACER UN ENUM PARA LAS ANIMACIONES
-
-@onready var shoot_ray = $Head/Camera3D/ShootRay
 @onready var head: Node3D = $Head
 @onready var camera = $Head/Camera3D
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	anim_player = find_child("AnimationPlayer", true, false)
+	
 	if anim_player:
-		print(anim_player.get_animation_list()) # para ver los nombres exactos
+		print(anim_player.get_animation_list())
 	else:
 		push_warning("No se encontró AnimationPlayer")
-		
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		# Rota el CUERPO (izquierda/derecha)
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		
-		# Rota el PIVOTE (arriba/abajo) - ahora afecta cámara Y modelo
 		head.rotate_x(event.relative.y * MOUSE_SENSITIVITY)
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+		head.rotation.x = clamp(
+			head.rotation.x,
+			deg_to_rad(-80),
+			deg_to_rad(80)
+		)
+
 	if event.is_action_pressed("click"):
 		anim_player.stop()
 		anim_player.play("WEP_Fire")
-		if shoot_ray.is_colliding():
-			var target = shoot_ray.get_collider()
-			if target.is_in_group("target"):
-				print("Golpeaste: ", target.name)
-				target_hit.emit()
-				target.queue_free()
-			
+		
+		shoot()
+
 	if event.is_action_pressed("inspeccionar"):
 		anim_player.stop()
 		anim_player.play("WEP_Inspect_01")
-	
 
-func _input(event):
+
+func shoot() -> void:
+	var space_state = get_world_3d().direct_space_state
+
+	var from = camera.global_position
+	var direction = -camera.global_transform.basis.z
+	var to = from + direction * SHOOT_DISTANCE
+
+	var query = PhysicsRayQueryParameters3D.new()
+
+	query.from = from
+	query.to = to
+
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	query.collision_mask = 0xFFFFFFFF
+
+	var result = space_state.intersect_ray(query)
+
+	print("Disparo")
+	print("Origen: ", from)
+	print("Destino: ", to)
+
+	if result.is_empty():
+		print("NO SE DETECTÓ NADA")
+	else:
+		var target = result["collider"]
+
+		print("OBJETO DETECTADO")
+		print("Nombre: ", target.name)
+		print("Tipo: ", target.get_class())
+		print("Posición: ", target.global_position)
+
+		var distancia = from.distance_to(target.global_position)
+		print("Distancia: ", distancia)
+
+		if target.is_in_group("target"):
+			print("ES UNA BOLITA")
+			target.hit()
+		else:
+			print("NO ES UNA BOLITA")
+
+
+
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
+		Input.mouse_mode = (
+			Input.MOUSE_MODE_VISIBLE
+			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+			else Input.MOUSE_MODE_CAPTURED
+		)
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -57,19 +105,37 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var input_dir := Input.get_vector("derecha", "izquierda", "atras", "adelante")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir := Input.get_vector(
+		"derecha",
+		"izquierda",
+		"atras",
+		"adelante"
+	)
+
+	var direction := (
+		transform.basis *
+		Vector3(input_dir.x, 0, input_dir.y)
+	).normalized()
 
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if anim_player and anim_player.current_animation != "WEP_Fire" and anim_player.current_animation != "WEP_Inspect_01":
-			anim_player.play("WEP_Walk")
+		#aqui quite temporalmente la animacion de caminar
+		#if (
+			#anim_player
+			#and anim_player.current_animation != "WEP_Fire"
+			#and anim_player.current_animation != "WEP_Inspect_01"
+		#):
+			#anim_player.play("WEP_Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		if anim_player and anim_player.current_animation != "WEP_Fire" and anim_player.current_animation != "WEP_Inspect_01":
+		
+		if (
+			anim_player
+			and anim_player.current_animation != "WEP_Fire"
+			and anim_player.current_animation != "WEP_Inspect_01"
+		):
 			anim_player.play("WEP_Idle")
-
-
-	move_and_slide()
+	#comente el move and slide para que se quede fijo
+	#move_and_slide()
