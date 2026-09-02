@@ -38,12 +38,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.021225, 0, -0.7157496
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=908145143]
 environment = SubResource("Environment_0kdyo")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=330330659]
+[node name="Piso" type="StaticBody3D" parent="." unique_id=330330659]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2131770012]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=2131770012]
 mesh = SubResource("PlaneMesh_onsl3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=572826680]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=572826680]
 shape = SubResource("BoxShape3D_onsl3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1300406330]
@@ -85,19 +85,19 @@ offset_bottom = 40.0
 
 [node name="Crosshair" type="TextureRect" parent="UI" unique_id=1163721190]
 layout_mode = 0
-offset_left = 537.0
-offset_top = 289.0
-offset_right = 601.0
-offset_bottom = 353.0
+offset_left = 496.0
+offset_top = 278.0
+offset_right = 532.0
+offset_bottom = 320.0
 texture = ExtResource("3_jyhfs")
 expand_mode = 1
 
 [node name="Crosshair_hit" type="TextureRect" parent="UI" unique_id=1445161741]
 layout_mode = 0
-offset_left = 536.0
-offset_top = 289.0
-offset_right = 600.0
-offset_bottom = 353.0
+offset_left = 497.0
+offset_top = 281.0
+offset_right = 532.0
+offset_bottom = 319.0
 texture = ExtResource("4_jyhfs")
 expand_mode = 1
 
