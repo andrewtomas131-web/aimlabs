@@ -4,10 +4,6 @@ extends Node3D
 @onready var crosshair = $UI/Crosshair
 @onready var crosshair_hit = $UI/Crosshair_hit
 
-# Reducir offset_x mueve la cruz a la DERECHA (30.0)
-# Reducir offset_y mueve la cruz ABAJO (54.0)
-@export var offset_x: float = 30.0
-@export var offset_y: float = 50.0
 
 func _ready() -> void:
 	# Evita que las imágenes de la UI bloqueen el movimiento del mouse
