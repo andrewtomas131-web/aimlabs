@@ -11,11 +11,11 @@ var anim_player: AnimationPlayer
 
 @onready var head: Node3D = $Head
 @onready var camera = $Head/Camera3D
+@onready var shootRay = $Head/Camera3D/ShootRay
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
 	anim_player = find_child("AnimationPlayer", true, false)
 	
 	if anim_player:
@@ -47,45 +47,23 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func shoot() -> void:
-	var space_state = get_world_3d().direct_space_state
-
-	var from = camera.global_position
-	var direction = -camera.global_transform.basis.z
-	var to = from + direction * SHOOT_DISTANCE
-
-	var query = PhysicsRayQueryParameters3D.new()
-
-	query.from = from
-	query.to = to
-
-	query.collide_with_areas = true
-	query.collide_with_bodies = false
-	query.collision_mask = 0xFFFFFFFF
-
-	var result = space_state.intersect_ray(query)
-
 	print("Disparo")
-	print("Origen: ", from)
-	print("Destino: ", to)
-
-	if result.is_empty():
+	
+	if not shootRay.is_colliding():
 		print("NO SE DETECTÓ NADA")
+		return
+	
+	var target = shootRay.get_collider()
+	print("OBJETO DETECTADO")
+	print("Nombre: ", target.name)
+	print("Tipo: ", target.get_class())
+	print("Posición: ", target.global_position)
+	
+	if target.is_in_group("target"):
+		print("ES UNA BOLITA")
+		target.hit()
 	else:
-		var target = result["collider"]
-
-		print("OBJETO DETECTADO")
-		print("Nombre: ", target.name)
-		print("Tipo: ", target.get_class())
-		print("Posición: ", target.global_position)
-
-		var distancia = from.distance_to(target.global_position)
-		print("Distancia: ", distancia)
-
-		if target.is_in_group("target"):
-			print("ES UNA BOLITA")
-			target.hit()
-		else:
-			print("NO ES UNA BOLITA")
+		print("NO ES UNA BOLITA")
 
 
 
