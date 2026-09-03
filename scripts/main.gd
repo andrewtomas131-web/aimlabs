@@ -34,7 +34,7 @@ func crosshair_hit_effect() -> void:
 	crosshair.visible = false
 	crosshair_hit.visible = true
 
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 
 	crosshair.visible = true
 	crosshair_hit.visible = false
