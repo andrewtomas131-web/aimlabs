@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dg317u5asr4vx"]
+
+[ext_resource type="Script" uid="uid://cj7bd16pw4jns" path="res://scripts/spawn_targets.gd" id="1_1w3yg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wp5od"]
+size = Vector3(4, 4, 4)
+
+[node name="spawn_2_0" type="Area3D" unique_id=203243919]
+script = ExtResource("1_1w3yg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=22682998]
+shape = SubResource("BoxShape3D_wp5od")
