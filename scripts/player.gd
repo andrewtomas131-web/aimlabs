@@ -62,6 +62,7 @@ func shoot() -> void:
 	if target.is_in_group("target"):
 		print("ES UNA BOLITA")
 		target.hit()
+		target_hit.emit()
 	else:
 		print("NO ES UNA BOLITA")
 
