@@ -33,7 +33,7 @@ albedo_color = Color(0.35, 0.37, 0.4, 1)
 script = ExtResource("1_sugp2")
 
 [node name="Player" parent="." unique_id=1414830256 groups=["player"] instance=ExtResource("1_o5qli")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.021225, 0, -0.7157496)
+transform = Transform3D(-0.14127259, 0, 0.47962698, 0, 0.5, 0, -0.47962698, 0, -0.14127259, 1.1427474, 0, -0.7157496)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=908145143]
 environment = SubResource("Environment_0kdyo")
