@@ -63,7 +63,7 @@ func _on_enemy_hit(enemy: Node) -> void:
 
 	var old_point = active_enemies[enemy]
 	active_enemies.erase(enemy)
-	enemy.queue_free()
+	
 
 	# Pequeña pausa opcional (pon 0.0 si quieres instantáneo)
 	if respawn_delay > 0.0:
