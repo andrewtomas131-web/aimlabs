@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-signal target_hit
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.003
@@ -11,6 +9,12 @@ var anim_player: AnimationPlayer
 
 @onready var head: Node3D = $Head
 @onready var camera = $Head/Camera3D
+
+# Crosshair
+@onready var crosshair = $UI/Crosshair
+@onready var crosshair_hit = $UI/Crosshair_hit
+
+#ShootRay
 @onready var shootRay = $Head/Camera3D/ShootRay
 
 
@@ -22,7 +26,14 @@ func _ready() -> void:
 		print(anim_player.get_animation_list())
 	else:
 		push_warning("No se encontró AnimationPlayer")
+# Configuración del crosshair
+	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	crosshair_hit.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+	alinear_crosshair()
+
+	crosshair.visible = true
+	crosshair_hit.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -62,10 +73,26 @@ func shoot() -> void:
 	if target.is_in_group("target"):
 		print("ES UNA BOLITA")
 		target.hit()
-		target_hit.emit()
+		crosshair_hit_effect()
 	else:
 		print("NO ES UNA BOLITA")
 
+func alinear_crosshair() -> void:
+	var screen_size = Vector2(get_viewport().size)
+	var center = screen_size / 2.0
+
+	crosshair.position = center - crosshair.size / 2.0
+	crosshair_hit.position = center - crosshair_hit.size / 2.0
+
+
+func crosshair_hit_effect() -> void:
+	crosshair.visible = false
+	crosshair_hit.visible = true
+
+	await get_tree().create_timer(0.1).timeout
+
+	crosshair.visible = true
+	crosshair_hit.visible = false
 
 
 func _input(event: InputEvent) -> void:
@@ -99,7 +126,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		#aqui quite temporalmente la animacion de caminar
+		#aqui quitamos temporalmente la animacion de caminar
 		#if (
 			#anim_player
 			#and anim_player.current_animation != "WEP_Fire"
@@ -116,5 +143,5 @@ func _physics_process(delta: float) -> void:
 			and anim_player.current_animation != "WEP_Inspect_01"
 		):
 			anim_player.play("WEP_Idle")
-	#comente el move and slide para que se quede fijo
+	#comente el move and slide para que se quede fijo (temporal)
 	#move_and_slide()
