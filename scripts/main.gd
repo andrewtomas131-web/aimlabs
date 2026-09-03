@@ -25,10 +25,8 @@ func alinear_reticula() -> void:
 	var screen_size = Vector2(get_viewport().size)
 	var center = screen_size / 2.0
 	
-	var pos_final = Vector2(center.x - offset_x, center.y - offset_y)
-	
-	crosshair.position = pos_final
-	crosshair_hit.position = pos_final
+	crosshair.position = center - crosshair.size / 2.0
+	crosshair_hit.position = center - crosshair.size / 2.0
 
 func crosshair_hit_effect() -> void:
 	crosshair.visible = false
