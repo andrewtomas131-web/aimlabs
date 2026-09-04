@@ -30,7 +30,11 @@ func _ready() -> void:
 	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	crosshair_hit.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	alinear_crosshair()
+	var screen_size = Vector2(get_viewport().size)
+	var center = screen_size / 2.0
+
+	crosshair.position = center - crosshair.size / 2.0
+	crosshair_hit.position = center - crosshair_hit.size / 2.0
 
 	crosshair.visible = true
 	crosshair_hit.visible = false
@@ -56,45 +60,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		anim_player.stop()
 		anim_player.play("WEP_Inspect_01")
 
-
-func shoot() -> void:
-	print("Disparo")
-	
-	if not shootRay.is_colliding():
-		print("NO SE DETECTÓ NADA")
-		return
-	
-	var target = shootRay.get_collider()
-	print("OBJETO DETECTADO")
-	print("Nombre: ", target.name)
-	print("Tipo: ", target.get_class())
-	print("Posición: ", target.global_position)
-	
-	if target.is_in_group("target"):
-		print("ES UNA BOLITA")
-		target.hit()
-		crosshair_hit_effect()
-	else:
-		print("NO ES UNA BOLITA")
-
-func alinear_crosshair() -> void:
-	var screen_size = Vector2(get_viewport().size)
-	var center = screen_size / 2.0
-
-	crosshair.position = center - crosshair.size / 2.0
-	crosshair_hit.position = center - crosshair_hit.size / 2.0
-
-
-func crosshair_hit_effect() -> void:
-	crosshair.visible = false
-	crosshair_hit.visible = true
-
-	await get_tree().create_timer(0.1).timeout
-
-	crosshair.visible = true
-	crosshair_hit.visible = false
-
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = (
@@ -102,7 +67,6 @@ func _input(event: InputEvent) -> void:
 			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 			else Input.MOUSE_MODE_CAPTURED
 		)
-
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -145,3 +109,24 @@ func _physics_process(delta: float) -> void:
 			anim_player.play("WEP_Idle")
 	#comente el move and slide para que se quede fijo (temporal)
 	#move_and_slide()
+
+func crosshair_hit_effect() -> void:
+	crosshair.visible = false
+	crosshair_hit.visible = true
+
+	await get_tree().create_timer(0.1).timeout
+
+	crosshair.visible = true
+	crosshair_hit.visible = false
+	
+func shoot() -> void:
+	if not shootRay.is_colliding():
+		return
+	
+	var target = shootRay.get_collider()
+	
+	if target.is_in_group("target") and target.has_method("hit"):
+		target.hit()
+		crosshair_hit_effect()
+	else:
+		print("NO ES UNA BOLITA")

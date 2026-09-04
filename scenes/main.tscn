@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://blkha4ger86nh" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -28,7 +27,6 @@ size = Vector3(20, 0.05, 20)
 albedo_color = Color(0.35, 0.37, 0.4, 1)
 
 [node name="main" type="Node3D" unique_id=694436847]
-script = ExtResource("1_sugp2")
 
 [node name="Player" parent="." unique_id=1414830256 groups=["player"] instance=ExtResource("1_o5qli")]
 transform = Transform3D(-0.14127259, 0, 0.47962698, 0, 0.5, 0, -0.47962698, 0, -0.14127259, 1.1427474, 0, -0.7157496)
