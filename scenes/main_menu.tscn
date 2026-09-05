@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://byrf77fmx1tqs"]
 
+[ext_resource type="Script" uid="uid://c8vyns1jesho0" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
 [node name="MainMenu" type="Control" unique_id=784031658]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l6cm7")
 
 [node name="Background" type="ColorRect" parent="." unique_id=701285117]
 layout_mode = 1
@@ -27,28 +30,28 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="MenuContent" unique_id=793036401]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 250.0
-offset_right = 451.0
-offset_bottom = 346.0
+offset_left = 415.0
+offset_top = 76.0
+offset_right = 716.0
+offset_bottom = 172.0
 theme_override_font_sizes/font_size = 70
 text = "AIMLABS"
 
 [node name="BtnJugar" type="Button" parent="MenuContent" unique_id=2122905666]
 layout_mode = 0
-offset_left = 571.0
-offset_top = 282.0
-offset_right = 658.0
-offset_bottom = 335.0
+offset_left = 338.0
+offset_top = 355.0
+offset_right = 425.0
+offset_bottom = 408.0
 text = "JUGAR
 "
 
 [node name="BtnConfiguracion" type="Button" parent="MenuContent" unique_id=568528882]
 layout_mode = 0
-offset_left = 538.0
-offset_top = 381.0
-offset_right = 680.0
-offset_bottom = 441.0
+offset_left = 662.0
+offset_top = 340.0
+offset_right = 804.0
+offset_bottom = 400.0
 text = "CONFIGURACION
 
 "
@@ -61,3 +64,5 @@ offset_right = 200.0
 offset_bottom = 648.0
 text = "AYUDA
 "
+
+[connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
