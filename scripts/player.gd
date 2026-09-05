@@ -120,12 +120,12 @@ func crosshair_hit_effect() -> void:
 	crosshair_hit.visible = false
 	
 func shoot() -> void:
+	Estadisticas.registrar_disparo()
 	if not shootRay.is_colliding():
 		return
-	
 	var target = shootRay.get_collider()
-	
 	if target.is_in_group("target") and target.has_method("hit"):
+		Estadisticas.registrar_acierto()
 		target.hit()
 		crosshair_hit_effect()
 	else:
