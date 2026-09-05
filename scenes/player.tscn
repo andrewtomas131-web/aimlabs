@@ -32,24 +32,41 @@ collide_with_areas = true
 
 [node name="UI" type="Control" parent="." unique_id=1965764788]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Crosshair" type="TextureRect" parent="UI" unique_id=76052561]
-layout_mode = 0
-offset_left = 496.0
-offset_top = 278.0
-offset_right = 532.0
-offset_bottom = 320.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -21.0
+offset_right = 18.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_dqkch")
 expand_mode = 1
 
 [node name="Crosshair_hit" type="TextureRect" parent="UI" unique_id=303373537]
-layout_mode = 0
-offset_left = 497.0
-offset_top = 281.0
-offset_right = 532.0
-offset_bottom = 319.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -19.0
+offset_right = 17.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_qlg0r")
 expand_mode = 1

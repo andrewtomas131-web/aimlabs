@@ -29,11 +29,14 @@ func _ready() -> void:
 	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	crosshair_hit.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	var screen_size = Vector2(get_viewport().size)
-	var center = screen_size / 2.0
+	crosshair.visible = true
+	crosshair_hit.visible = false
+	
+	#var screen_size = Vector2(get_viewport().size)
+	#var center = screen_size / 2.0
 
-	crosshair.position = center - crosshair.size / 2.0
-	crosshair_hit.position = center - crosshair_hit.size / 2.0
+	#crosshair.position = center - crosshair.size / 2.0
+	#crosshair_hit.position = center - crosshair_hit.size / 2.0
 
 	crosshair.visible = true
 	crosshair_hit.visible = false

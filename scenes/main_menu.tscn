@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://byrf77fmx1tqs"]
 
 [ext_resource type="Script" uid="uid://c8vyns1jesho0" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/panel_diagonal.gd" id="3_wu84c"]
 
 [node name="MainMenu" type="Control" unique_id=784031658]
 layout_mode = 3
@@ -11,14 +13,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="Background" type="ColorRect" parent="." unique_id=701285117]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1739259951]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+texture = ExtResource("2_bqqt6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PanelDiagonal" type="Control" parent="TextureRect" unique_id=245427365]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1057.0
+offset_bottom = 638.0
+script = ExtResource("3_wu84c")
 
 [node name="MenuContent" type="Control" parent="." unique_id=118234581]
 layout_mode = 1
@@ -122,4 +134,5 @@ text = "VOLVER"
 [connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
 [connection signal="pressed" from="MenuContent/BtnConfiguracion" to="." method="_on_btn_configuracion_pressed"]
 [connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
+[connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]

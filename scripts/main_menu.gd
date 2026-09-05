@@ -26,3 +26,10 @@ func _on_btn_volver_pressed() -> void:
 func _on_slider_sensibilidad_value_changed(value: float) -> void:
 	GameSettings.mouse_sensitivity = value
 	GameSettings.save_settings()
+
+
+func _on_check_pantalla_completa_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
