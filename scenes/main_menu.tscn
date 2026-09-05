@@ -65,4 +65,57 @@ offset_bottom = 648.0
 text = "AYUDA
 "
 
+[node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 54.0
+offset_right = 968.0
+offset_bottom = 577.0
+
+[node name="TituloConfiguracion" type="Label" parent="MenuContent/PanelConfiguracion" unique_id=339300101]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 15.0
+offset_right = 562.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 45
+text = "CONFIGURACION"
+
+[node name="Sensibilidad" type="Label" parent="MenuContent/PanelConfiguracion" unique_id=739164513]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 119.0
+offset_right = 321.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 25
+text = "Sensibilidad del Mouse"
+
+[node name="SliderSensibilidad" type="HSlider" parent="MenuContent/PanelConfiguracion" unique_id=1310414396]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 157.0
+offset_right = 324.0
+offset_bottom = 194.0
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.001
+
+[node name="CheckPantallaCompleta" type="CheckButton" parent="MenuContent/PanelConfiguracion" unique_id=1352336404]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 116.0
+offset_right = 693.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 25
+text = "Pantalla Completa"
+
+[node name="BtnVolver" type="Button" parent="MenuContent/PanelConfiguracion" unique_id=1955187609]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 474.0
+offset_right = 739.0
+offset_bottom = 509.0
+text = "VOLVER"
+
 [connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
