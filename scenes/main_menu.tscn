@@ -66,6 +66,7 @@ text = "AYUDA
 "
 
 [node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
+visible = false
 layout_mode = 0
 offset_left = 223.0
 offset_top = 54.0
@@ -119,3 +120,6 @@ offset_bottom = 509.0
 text = "VOLVER"
 
 [connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
+[connection signal="pressed" from="MenuContent/BtnConfiguracion" to="." method="_on_btn_configuracion_pressed"]
+[connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
+[connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]

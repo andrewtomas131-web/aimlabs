@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const MOUSE_SENSITIVITY = 0.003
 const SHOOT_DISTANCE = 10000.0
 
 var anim_player: AnimationPlayer
@@ -41,9 +40,9 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+		rotate_y(-event.relative.x * GameSettings.mouse_sensitivity)
 		
-		head.rotate_x(event.relative.y * MOUSE_SENSITIVITY)
+		head.rotate_x(event.relative.y * GameSettings.mouse_sensitivity)
 		head.rotation.x = clamp(
 			head.rotation.x,
 			deg_to_rad(-80),
