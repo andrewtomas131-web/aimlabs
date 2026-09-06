@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" path="res://assets/textures/checker.png" id="5_chk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_top_color = Color(0.23921569, 0.5176471, 0.7764706, 1)
@@ -23,8 +24,20 @@ size = Vector2(20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
 size = Vector3(20, 0.05, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("5_chk")
+uv1_scale = Vector3(6, 6, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
-albedo_color = Color(0.35, 0.37, 0.4, 1)
+albedo_color = Color(0.55, 0.62, 0.72, 1)
+albedo_texture = ExtResource("5_chk")
+uv1_scale = Vector3(4, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ceiling"]
+albedo_color = Color(0.4, 0.4, 0.45, 1)
+albedo_texture = ExtResource("5_chk")
+uv1_scale = Vector3(6, 6, 1)
 
 [node name="main" type="Node3D" unique_id=694436847]
 
@@ -38,40 +51,47 @@ environment = SubResource("Environment_0kdyo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=2131770012]
 mesh = SubResource("PlaneMesh_onsl3")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=572826680]
 shape = SubResource("BoxShape3D_onsl3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1300406330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9156189, 8.450378, 0.9856472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9156189, 5.5, 0.9856472)
 light_energy = 9.676
 omni_range = 23.331
 
 [node name="Walls" type="Node3D" parent="." unique_id=943145373]
 
 [node name="WallNorte" type="CSGBox3D" parent="Walls" unique_id=1816781820]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -10)
 use_collision = true
-size = Vector3(20, 4, 0.3)
+size = Vector3(20, 6, 0.3)
 material = SubResource("StandardMaterial3D_wall")
 
 [node name="WallSur" type="CSGBox3D" parent="Walls" unique_id=397810258]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 10)
 use_collision = true
-size = Vector3(20, 4, 0.3)
+size = Vector3(20, 6, 0.3)
 material = SubResource("StandardMaterial3D_wall")
 
 [node name="WallEste" type="CSGBox3D" parent="Walls" unique_id=2122089652]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, 0)
 use_collision = true
-size = Vector3(0.3, 4, 20)
+size = Vector3(0.3, 6, 20)
 material = SubResource("StandardMaterial3D_wall")
 
 [node name="WallOeste" type="CSGBox3D" parent="Walls" unique_id=1348340057]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, 0)
 use_collision = true
-size = Vector3(0.3, 4, 20)
+size = Vector3(0.3, 6, 20)
 material = SubResource("StandardMaterial3D_wall")
 
+[node name="Techo" type="CSGBox3D" parent="Walls" unique_id=1348340058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+use_collision = true
+size = Vector3(20, 0.3, 20)
+material = SubResource("StandardMaterial3D_ceiling")
+
 [node name="spawn_targets" parent="." unique_id=203243919 instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8629894, 2.5723183, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -3)
