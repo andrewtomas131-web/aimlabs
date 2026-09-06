@@ -10,6 +10,7 @@ func _ready() -> void:
 	add_to_group("target")
 
 func hit() -> void:
+	Estadisticas.registrar_acierto()
 	mesh.visible = false
 	collision.disabled = true
 	particles.emitting = true

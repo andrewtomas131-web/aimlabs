@@ -127,7 +127,6 @@ func shoot() -> void:
 		return
 	var target = shootRay.get_collider()
 	if target.is_in_group("target") and target.has_method("hit"):
-		Estadisticas.registrar_acierto()
 		target.hit()
 		crosshair_hit_effect()
 	else:
