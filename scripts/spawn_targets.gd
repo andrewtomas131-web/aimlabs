@@ -31,6 +31,7 @@ func _ready() -> void:
 		call_deferred("spawn_enemy")
 
 func spawn_enemy() -> void:
+	_actualizar_max_enemies()
 	if active_enemies.size() >= max_enemies:
 		return
 	
@@ -44,7 +45,6 @@ func spawn_enemy() -> void:
 		push_error("El enemigo no tiene la señal 'enemy_hit'. ¿Tiene asignado enemy.gd?")
 	
 	active_enemies.append(enemy)
-	print("Enemigo spawneado en: ", enemy.global_position)
 
 func _on_enemy_hit(enemy: Node) -> void:
 	if not active_enemies.has(enemy):
@@ -53,7 +53,8 @@ func _on_enemy_hit(enemy: Node) -> void:
 	
 	if respawn_delay > 0.0:
 		await get_tree().create_timer(respawn_delay).timeout
-	
+		
+	spawn_enemy()
 	spawn_enemy()
 
 func get_random_spawn_position() -> Vector3:
@@ -77,3 +78,8 @@ func get_random_spawn_position() -> Vector3:
 		).normalized() * randf_range(0, radius)
 		return global_position + random_point
 	return global_position
+	
+func _actualizar_max_enemies() -> void:
+	var nuevo_max = 3 + int(Estadisticas.puntuacion / 100)
+	if nuevo_max > max_enemies:
+		max_enemies = nuevo_max

@@ -131,4 +131,4 @@ func shoot() -> void:
 		target.hit()
 		crosshair_hit_effect()
 	else:
-		print("NO ES UNA BOLITA")
+		return

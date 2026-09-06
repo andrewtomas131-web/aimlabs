@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
-[ext_resource type="Texture2D" path="res://assets/textures/checker.png" id="5_chk"]
+[ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_top_color = Color(0.23921569, 0.5176471, 0.7764706, 1)
@@ -21,13 +21,12 @@ ambient_light_source = 1
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
 size = Vector2(20, 20)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
-size = Vector3(20, 0.05, 20)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("5_chk")
 uv1_scale = Vector3(6, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
+size = Vector3(20, 0.05, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
 albedo_color = Color(0.55, 0.62, 0.72, 1)
@@ -42,7 +41,7 @@ uv1_scale = Vector3(6, 6, 1)
 [node name="main" type="Node3D" unique_id=694436847]
 
 [node name="Player" parent="." unique_id=1414830256 groups=["player"] instance=ExtResource("1_o5qli")]
-transform = Transform3D(-0.14127259, 0, 0.47962698, 0, 0.5, 0, -0.47962698, 0, -0.14127259, 1.1427474, 0, -0.7157496)
+transform = Transform3D(-0.4992906, 0, -0.026626267, 0, 0.5, 0, 0.026626267, 0, -0.4992906, -0.07231474, 0, 7.8262386)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=908145143]
 environment = SubResource("Environment_0kdyo")
@@ -57,7 +56,22 @@ surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 shape = SubResource("BoxShape3D_onsl3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1300406330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9156189, 5.5, 0.9856472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.684954, 5.054787, 8.615618)
+light_energy = 9.676
+omni_range = 23.331
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=243671534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924439, 4.9816556, -7.0325756)
+light_energy = 9.676
+omni_range = 23.331
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=1962706005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1688404, 4.9816556, -7.0325756)
+light_energy = 9.676
+omni_range = 23.331
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=556611683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.793804, 4.9816556, 7.11334)
 light_energy = 9.676
 omni_range = 23.331
 
