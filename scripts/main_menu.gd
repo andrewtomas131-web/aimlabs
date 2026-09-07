@@ -40,3 +40,11 @@ func _on_check_pantalla_completa_toggled(toggled_on: bool) -> void:
 	GameSettings.fullscreen = toggled_on
 	GameSettings.save_settings()
 	aplicar_pantalla_completa()
+	
+	
+func _on_btn_ayuda_pressed() -> void:
+	$PanelAyuda.visible = true
+
+
+func _on_btn_entendido_pressed() -> void:
+	$PanelAyuda.visible = false

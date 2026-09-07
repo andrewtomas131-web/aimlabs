@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bp55x6q060bj6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+
+[node name="PanelConfiguracion" type="Panel" unique_id=1671682763]
+offset_left = 223.0
+offset_top = 54.0
+offset_right = 968.0
+offset_bottom = 577.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwcav")
+
+[node name="TituloConfiguracion" type="Label" parent="." unique_id=791806004]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 15.0
+offset_right = 562.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 45
+text = "CONFIGURACION"
+
+[node name="Sensibilidad" type="Label" parent="." unique_id=86502613]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 119.0
+offset_right = 321.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 25
+text = "Sensibilidad del Mouse"
+
+[node name="SliderSensibilidad" type="HSlider" parent="." unique_id=2106015346]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 157.0
+offset_right = 324.0
+offset_bottom = 194.0
+
+[node name="CheckPantallaCompleta" type="CheckButton" parent="." unique_id=1303943269]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 116.0
+offset_right = 693.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 25
+text = "Pantalla Completa"
+
+[node name="BtnVolver" type="Button" parent="." unique_id=967294743]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 474.0
+offset_right = 739.0
+offset_bottom = 509.0
+text = "VOLVER"

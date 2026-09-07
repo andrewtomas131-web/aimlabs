@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/pause_menu.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
+[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="5_tbgi4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
 size = Vector2(20, 20)
@@ -23,6 +25,9 @@ uv1_scale = Vector3(4, 3, 1)
 albedo_color = Color(0.4, 0.4, 0.45, 1)
 albedo_texture = ExtResource("5_chk")
 uv1_scale = Vector3(6, 6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 
 [node name="main" type="Node3D" unique_id=694436847]
 
@@ -106,3 +111,51 @@ material = SubResource("StandardMaterial3D_ceiling")
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -3)
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
+process_mode = 3
+script = ExtResource("4_tbgi4")
+
+[node name="Panel" type="Panel" parent="PauseMenu" unique_id=1952060667]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.5
+offset_top = -167.5
+offset_right = 357.5
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwcav")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel" unique_id=132279708]
+layout_mode = 0
+offset_left = 239.5
+offset_top = 68.5
+offset_right = 474.5
+offset_bottom = 234.5
+theme_override_constants/separation = 24
+
+[node name="ContinueButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=650157666]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+text = "CONTINUAR
+"
+
+[node name="SettingsButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=317710874]
+layout_mode = 2
+text = "CONFIGURACION"
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=1524551525]
+layout_mode = 2
+text = "MENU PRINCIPAL"
+
+[node name="PanelConfiguracion" parent="PauseMenu" unique_id=1671682763 instance=ExtResource("5_tbgi4")]
+process_mode = 2
+visible = false
+
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]

@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="2_bqqt6"]
 [ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/panel_diagonal.gd" id="3_wu84c"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+
 [node name="MainMenu" type="Control" unique_id=784031658]
 layout_mode = 3
 anchors_preset = 15
@@ -84,6 +90,7 @@ offset_left = 223.0
 offset_top = 54.0
 offset_right = 968.0
 offset_bottom = 577.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
 
 [node name="TituloConfiguracion" type="Label" parent="MenuContent/PanelConfiguracion" unique_id=339300101]
 layout_mode = 0
@@ -131,8 +138,52 @@ offset_right = 739.0
 offset_bottom = 509.0
 text = "VOLVER"
 
+[node name="PanelAyuda" type="Panel" parent="." unique_id=1238452324]
+visible = false
+layout_mode = 0
+offset_left = 234.0
+offset_top = 75.0
+offset_right = 915.0
+offset_bottom = 494.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu84c")
+
+[node name="TituloAyuda" type="Label" parent="PanelAyuda" unique_id=1999098604]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 10.0
+offset_right = 387.0
+offset_bottom = 33.0
+text = "AYUDA"
+
+[node name="TextoAyuda" type="Label" parent="PanelAyuda" unique_id=2140698275]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 53.0
+offset_right = 552.0
+offset_bottom = 365.0
+text = "Elimina la mayor cantidad de objetivos, cuida 
+tu punteria y logra el mayor numero de aciertos
+
+
+
+CONTROLES
+
+Mouse → Mirar
+Clic izquierdo → Disparar
+ESC → Menu de pausa"
+
+[node name="BtnEntendido" type="Button" parent="PanelAyuda" unique_id=1753677168]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 383.0
+offset_right = 664.0
+offset_bottom = 414.0
+text = "ENTENDIDO"
+
 [connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
 [connection signal="pressed" from="MenuContent/BtnConfiguracion" to="." method="_on_btn_configuracion_pressed"]
+[connection signal="pressed" from="MenuContent/BtnAyuda" to="." method="_on_btn_ayuda_pressed"]
 [connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
 [connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="PanelAyuda/BtnEntendido" to="." method="_on_btn_entendido_pressed"]
