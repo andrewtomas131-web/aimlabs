@@ -152,9 +152,14 @@ text = "CONFIGURACION"
 layout_mode = 2
 text = "MENU PRINCIPAL"
 
-[node name="PanelConfiguracion" parent="PauseMenu" unique_id=1671682763 instance=ExtResource("5_tbgi4")]
+[node name="PanelConfiguracion" parent="PauseMenu/Panel" unique_id=1671682763 instance=ExtResource("5_tbgi4")]
 process_mode = 2
 visible = false
+layout_mode = 0
+offset_left = -14.5
+offset_top = -95.5
+offset_right = 730.5
+offset_bottom = 427.5
 
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
