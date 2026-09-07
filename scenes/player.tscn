@@ -24,10 +24,14 @@ func _actualizar_ui() -> void:
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
-bg_color = Color(0.20392157, 0.22352941, 0.43529412, 1)
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_left = 2
+border_color = Color(0, 0.6392157, 0.5921569, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
-bg_color = Color(0.20392157, 0.22352941, 0.43529412, 1)
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_left = 2
+border_color = Color(0, 0.639105, 0.59091157, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1414830256]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
