@@ -4,11 +4,133 @@
 [ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="2_bqqt6"]
 [ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/panel_diagonal.gd" id="3_wu84c"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_top = 3
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ajci"]
+bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
+bg_color = Color(0.050980393, 0.09411765, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e235i"]
+bg_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 130
+corner_radius_top_right = 130
+corner_radius_bottom_right = 130
+corner_radius_bottom_left = 130
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_top = 3
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b55j"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7ex8"]
+bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pajh"]
+bg_color = Color(0.050980393, 0.09411765, 0.101960786, 1)
+border_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
 
 [node name="MainMenu" type="Control" unique_id=784031658]
 layout_mode = 3
@@ -34,7 +156,7 @@ stretch_mode = 6
 anchors_preset = 0
 offset_left = 1.0
 offset_top = -1.0
-offset_right = 1057.0
+offset_right = 1081.0
 offset_bottom = 638.0
 script = ExtResource("3_wu84c")
 
@@ -46,42 +168,46 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="MenuContent" unique_id=793036401]
-layout_mode = 0
-offset_left = 415.0
-offset_top = 76.0
-offset_right = 716.0
-offset_bottom = 172.0
-theme_override_font_sizes/font_size = 70
-text = "AIMLABS"
-
 [node name="BtnJugar" type="Button" parent="MenuContent" unique_id=2122905666]
 layout_mode = 0
-offset_left = 338.0
-offset_top = 355.0
-offset_right = 425.0
-offset_bottom = 408.0
+offset_left = 66.0
+offset_top = 419.0
+offset_right = 269.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "JUGAR
 "
 
 [node name="BtnConfiguracion" type="Button" parent="MenuContent" unique_id=568528882]
 layout_mode = 0
-offset_left = 662.0
-offset_top = 340.0
-offset_right = 804.0
-offset_bottom = 400.0
+offset_left = 294.0
+offset_top = 419.0
+offset_right = 497.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
 text = "CONFIGURACION
 
 "
 
 [node name="BtnAyuda" type="Button" parent="MenuContent" unique_id=1190147835]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 590.0
-offset_right = 200.0
-offset_bottom = 648.0
+offset_left = 18.0
+offset_top = 555.0
+offset_right = 214.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_hover_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
 text = "AYUDA
 "
+flat = true
 
 [node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
 visible = false
@@ -98,6 +224,7 @@ offset_left = 188.0
 offset_top = 15.0
 offset_right = 562.0
 offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 45
 text = "CONFIGURACION"
 
@@ -136,7 +263,40 @@ offset_left = 649.0
 offset_top = 474.0
 offset_right = 739.0
 offset_bottom = 509.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
 text = "VOLVER"
+
+[node name="CornerAccent" type="Panel" parent="MenuContent" unique_id=88240406]
+layout_mode = 0
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e235i")
+
+[node name="BrandLockup" type="HBoxContainer" parent="MenuContent" unique_id=176234195]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 140.0
+offset_right = 414.0
+offset_bottom = 324.0
+theme_override_constants/separation = 8
+
+[node name="BrandIcon" type="Label" parent="MenuContent/BrandLockup" unique_id=1551962478]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 65
+text = "▲
+"
+
+[node name="BrandName" type="Label" parent="MenuContent/BrandLockup" unique_id=259774989]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "AIMLABS
+"
 
 [node name="PanelAyuda" type="Panel" parent="." unique_id=1238452324]
 visible = false
@@ -149,10 +309,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wu84c")
 
 [node name="TituloAyuda" type="Label" parent="PanelAyuda" unique_id=1999098604]
 layout_mode = 0
-offset_left = 327.0
-offset_top = 10.0
-offset_right = 387.0
-offset_bottom = 33.0
+offset_left = 298.0
+offset_top = 8.0
+offset_right = 379.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 24
 text = "AYUDA"
 
 [node name="TextoAyuda" type="Label" parent="PanelAyuda" unique_id=2140698275]
@@ -178,6 +340,9 @@ offset_left = 563.0
 offset_top = 383.0
 offset_right = 664.0
 offset_bottom = 414.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7b55j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j7ex8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pajh")
 text = "ENTENDIDO"
 
 [connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
