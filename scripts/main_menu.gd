@@ -13,6 +13,7 @@ func aplicar_pantalla_completa() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_btn_jugar_pressed() -> void:
+	Estadisticas.reset()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
