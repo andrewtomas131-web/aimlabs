@@ -4,20 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
-sky_top_color = Color(0.23921569, 0.5176471, 0.7764706, 1)
-sky_horizon_color = Color(0.65882355, 0.78431374, 0.8627451, 1)
-ground_bottom_color = Color(0.28593543, 0.24450892, 0.19792822, 1)
-ground_horizon_color = Color(0.56078434, 0.56078434, 0.56078434, 1)
-
-[sub_resource type="Sky" id="Sky_0wfyh"]
-sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
-
-[sub_resource type="Environment" id="Environment_0kdyo"]
-background_mode = 2
-sky = SubResource("Sky_0wfyh")
-ambient_light_source = 1
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
 size = Vector2(20, 20)
 
@@ -43,36 +29,47 @@ uv1_scale = Vector3(6, 6, 1)
 [node name="Player" parent="." unique_id=1414830256 groups=["player"] instance=ExtResource("1_o5qli")]
 transform = Transform3D(-0.4992906, 0, -0.026626267, 0, 0.5, 0, 0.026626267, 0, -0.4992906, -0.07231474, 0, 7.8262386)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=908145143]
-environment = SubResource("Environment_0kdyo")
-
 [node name="Piso" type="StaticBody3D" parent="." unique_id=330330659]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=2131770012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06191194, 0.041352034, -0.035946846)
 mesh = SubResource("PlaneMesh_onsl3")
 surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=572826680]
 shape = SubResource("BoxShape3D_onsl3")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1300406330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.684954, 5.054787, 8.615618)
-light_energy = 9.676
+[node name="LuzIzquierdaTrasera" type="OmniLight3D" parent="." unique_id=1300406330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 6.5)
+light_energy = 5.0
 omni_range = 23.331
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=243671534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924439, 4.9816556, -7.0325756)
-light_energy = 9.676
+[node name="LuzDerechaDelantera" type="OmniLight3D" parent="." unique_id=243671534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -6.5)
+light_energy = 5.0
+light_indirect_energy = 0.0
 omni_range = 23.331
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=1962706005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1688404, 4.9816556, -7.0325756)
-light_energy = 9.676
+[node name="LuzCentral" type="OmniLight3D" parent="." unique_id=389027630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015092492, 3.4593167, 0.049402237)
+light_energy = 7.0
 omni_range = 23.331
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=556611683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.793804, 4.9816556, 7.11334)
-light_energy = 9.676
+[node name="LuzJugador" type="OmniLight3D" parent="." unique_id=1033285566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1691652, 2.4009438, 7.974805)
+light_energy = 2.0
+light_indirect_energy = 0.0
+light_specular = 0.3
+omni_range = 23.331
+
+[node name="LuzIzquierdaDelantera" type="OmniLight3D" parent="." unique_id=1962706005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -6.5)
+light_energy = 5.0
+omni_range = 23.331
+
+[node name="LuzDerechaTrasera" type="OmniLight3D" parent="." unique_id=556611683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.5)
+light_energy = 5.0
 omni_range = 23.331
 
 [node name="Walls" type="Node3D" parent="." unique_id=943145373]
@@ -107,5 +104,5 @@ use_collision = true
 size = Vector3(20, 0.3, 20)
 material = SubResource("StandardMaterial3D_ceiling")
 
-[node name="spawn_targets" parent="." unique_id=203243919 instance=ExtResource("4_jyhfs")]
+[node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -3)
