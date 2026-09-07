@@ -124,7 +124,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -300.0
 offset_right = 300.0
-offset_bottom = 87.0
+offset_bottom = 60.0
 grow_horizontal = 2
 theme_override_constants/separation = 160
 alignment = 1
@@ -142,8 +142,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "PUNTOS
-"
+text = "PUNTOS"
 
 [node name="LabelPuntosValor" type="Label" parent="UI/EstadisticasHUD/PanelPuntos/VBoxPuntos" unique_id=417443595]
 layout_mode = 2
@@ -151,7 +150,7 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 
 [node name="PanelPrecision" type="PanelContainer" parent="UI/EstadisticasHUD" unique_id=738315995]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qlg0r")
 
@@ -161,8 +160,7 @@ layout_mode = 2
 [node name="LabelPrecisionTitulo" type="Label" parent="UI/EstadisticasHUD/PanelPrecision/VBoxPrecision" unique_id=618483188]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "PRECISION
-"
+text = "PRECISION"
 
 [node name="LabelPrecisionValor" type="Label" parent="UI/EstadisticasHUD/PanelPrecision/VBoxPrecision" unique_id=893723992]
 layout_mode = 2
