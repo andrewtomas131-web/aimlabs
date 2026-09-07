@@ -51,19 +51,19 @@ grow_vertical = 2
 script = ExtResource("3_qhqgy")
 
 [node name="Top" type="Line2D" parent="UI/Crosshair" unique_id=486773223]
-points = PackedVector2Array(0, -4, 0, -14)
+points = PackedVector2Array(0, -4, 0, -10)
 width = 2.0
 
 [node name="Right" type="Line2D" parent="UI/Crosshair" unique_id=1365509669]
-points = PackedVector2Array(4, 0, 15, 0)
+points = PackedVector2Array(4, 0, 10, 0)
 width = 2.0
 
 [node name="Bottom" type="Line2D" parent="UI/Crosshair" unique_id=577782789]
-points = PackedVector2Array(0, 4, 0, 14)
+points = PackedVector2Array(0, 4, 0, 10)
 width = 2.0
 
 [node name="Left" type="Line2D" parent="UI/Crosshair" unique_id=1656457654]
-points = PackedVector2Array(-4, 0, -14, 0)
+points = PackedVector2Array(-4, 0, -10, 0)
 width = 2.0
 
 [node name="Crosshair_hit" type="CenterContainer" parent="UI" unique_id=349873090]
@@ -78,17 +78,17 @@ grow_vertical = 2
 script = ExtResource("3_qhqgy")
 
 [node name="Top" type="Line2D" parent="UI/Crosshair_hit" unique_id=827087708]
-points = PackedVector2Array(0, -8, 0, -18)
+points = PackedVector2Array(0, -8, 0, -14)
 width = 2.0
 
 [node name="Right" type="Line2D" parent="UI/Crosshair_hit" unique_id=1150503124]
-points = PackedVector2Array(8, 0, 18, 0)
+points = PackedVector2Array(8, 0, 14, 0)
 width = 2.0
 
 [node name="Bottom" type="Line2D" parent="UI/Crosshair_hit" unique_id=1717860971]
-points = PackedVector2Array(0, 8, 0, 18)
+points = PackedVector2Array(0, 8, 0, 14)
 width = 2.0
 
 [node name="Left" type="Line2D" parent="UI/Crosshair_hit" unique_id=74458787]
-points = PackedVector2Array(-8, 0, -18, 0)
+points = PackedVector2Array(-8, 0, -14, 0)
 width = 2.0
