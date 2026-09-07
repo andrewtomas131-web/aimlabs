@@ -20,27 +20,16 @@ func _ready() -> void:
 
 
 func hit() -> void:
-	
-	
 	var puntos_base = int(20 / scale.x)
-	
 	var tiempo_vivo = (Time.get_ticks_msec() - tiempo_spawn) / 1000.0
-	
 	var multiplicador = clamp(2.0 - (tiempo_vivo / 5.0), 0.5, 2.0)
-	
 	var puntos_finales = int(puntos_base * multiplicador)
 	
 	Estadisticas.registrar_acierto(puntos_finales)
-	
 	mesh.visible = false
-	
 	collision.disabled = true
-	
 	particles.emitting = true
-	
 	enemy_hit.emit()
 	
 	await get_tree().create_timer(particles.lifetime).timeout
-	
-	
 	queue_free()

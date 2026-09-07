@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjqtga8jp8ycf"
-path.s3tc="res://.godot/imported/p9_manny_fps_animations_10.png-7a5cb82c456fe8e08d8b97a6f2cf3500.s3tc.ctex"
+uid="uid://dtv5dn2ytv71r"
+path.s3tc="res://.godot/imported/beretta_pistol_fps_animation_2.png-0bed05a1d6f5847e202fd629a1918458.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "34d9825868778089add03ac2fee9c713"
+"md5": "00452e3765026d872b50d5ec4e9e0343"
 }
 
 [deps]
 
-source_file="res://assets/player/p9_manny_fps_animations_10.png"
-dest_files=["res://.godot/imported/p9_manny_fps_animations_10.png-7a5cb82c456fe8e08d8b97a6f2cf3500.s3tc.ctex"]
+source_file="res://assets/player/beretta_pistol_fps_animation_2.png"
+dest_files=["res://.godot/imported/beretta_pistol_fps_animation_2.png-0bed05a1d6f5847e202fd629a1918458.s3tc.ctex"]
 
 [params]
 

@@ -2,15 +2,11 @@ extends Area3D
 const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
 
 @export var respawn_delay: float = 0.0
-
 @export var max_enemies: int = 3
-
 @export var enemies_container: NodePath
 
-# renovacion: rango de tamaño aleatorio para cada bolita
-
 @export var min_enemy_scale: float = 0.5
-
+@export var normal_enemy_scale: float = 1.0
 @export var max_enemy_scale: float = 1.5
 
 @onready var collision: CollisionShape3D = $CollisionShape3D2
@@ -56,9 +52,9 @@ func spawn_enemy() -> void:
 	_container.add_child(enemy)
 	enemy.global_position = get_random_spawn_position()
 	
-	#lo nuevo fue que le damos un tamaño aleatorio dentro del rango
-	var random_scale = randf_range(min_enemy_scale, max_enemy_scale)
-	enemy.scale = Vector3.ONE * random_scale
+	var datos = _elegir_escala_y_puntos()
+	enemy.scale = Vector3.ONE * datos["escala"]
+	enemy.set("puntos_base", datos["puntos_base"])
 	
 	if enemy.has_signal("enemy_hit"):
 		enemy.enemy_hit.connect(_on_enemy_hit.bind(enemy))
@@ -102,9 +98,26 @@ func get_random_spawn_position() -> Vector3:
 		return global_position + random_point
 	return global_position
 	
-
+func _elegir_escala_y_puntos() -> Dictionary:
+	var categoria = randi_range(0, 2)  # 0=chica, 1=normal, 2=grande
+	var escala: float
+	var puntos_base: int
+	
+	match categoria:
+		0:
+			escala = randf_range(min_enemy_scale, normal_enemy_scale)
+			puntos_base = 40
+		1:
+			escala = normal_enemy_scale
+			puntos_base = 20
+		2:
+			escala = randf_range(normal_enemy_scale, max_enemy_scale)
+			puntos_base = 10
+	
+	return {"escala": escala, "puntos_base": puntos_base}
 
 func _actualizar_max_enemies() -> void:
-	var nuevo_max = 3 + int(Estadisticas.puntuacion / 100)
+	var nuevo_max = 3 + int(Estadisticas.puntuacion / 400)
+	nuevo_max = min(nuevo_max, 12) 
 	if nuevo_max > max_enemies:
 		max_enemies = nuevo_max

@@ -54,13 +54,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("click"):
 		anim_player.stop()
-		anim_player.play("WEP_Fire")
+		anim_player.play("Fire")
 		
 		shoot()
 
 	if event.is_action_pressed("inspeccionar"):
 		anim_player.stop()
-		anim_player.play("WEP_Inspect_01")
+		anim_player.play("Inspeecionar")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -105,10 +105,10 @@ func _physics_process(delta: float) -> void:
 		
 		if (
 			anim_player
-			and anim_player.current_animation != "WEP_Fire"
-			and anim_player.current_animation != "WEP_Inspect_01"
+			and anim_player.current_animation != "Fire"
+			and anim_player.current_animation != "Inspeecionar"
 		):
-			anim_player.play("WEP_Idle")
+			anim_player.play("Iddle")
 	#comente el move and slide para que se quede fijo (temporal)
 	#move_and_slide()
 
