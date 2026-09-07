@@ -6,16 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="5_tbgi4"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
-size = Vector2(20, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
-albedo_texture = ExtResource("5_chk")
-uv1_scale = Vector3(6, 6, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
-size = Vector3(20, 0.05, 20)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
 albedo_color = Color(0.55, 0.62, 0.72, 1)
 albedo_texture = ExtResource("5_chk")
@@ -26,6 +16,16 @@ albedo_color = Color(0.4, 0.4, 0.45, 1)
 albedo_texture = ExtResource("5_chk")
 uv1_scale = Vector3(6, 6, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_texture = ExtResource("5_chk")
+uv1_scale = Vector3(6, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
+size = Vector3(20, 0.05, 20)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 
@@ -34,45 +34,37 @@ bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 [node name="Player" parent="." unique_id=1414830256 groups=["player"] instance=ExtResource("1_o5qli")]
 transform = Transform3D(-0.4992906, 0, -0.026626267, 0, 0.5, 0, 0.026626267, 0, -0.4992906, -0.07231474, 0, 7.8262386)
 
-[node name="Piso" type="StaticBody3D" parent="." unique_id=330330659]
+[node name="Luces" type="Node3D" parent="." unique_id=229039811]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=2131770012]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06191194, 0.041352034, -0.035946846)
-mesh = SubResource("PlaneMesh_onsl3")
-surface_material_override/0 = SubResource("StandardMaterial3D_floor")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=572826680]
-shape = SubResource("BoxShape3D_onsl3")
-
-[node name="LuzIzquierdaTrasera" type="OmniLight3D" parent="." unique_id=1300406330]
+[node name="LuzIzquierdaTrasera" type="OmniLight3D" parent="Luces" unique_id=1300406330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 6.5)
 light_energy = 5.0
 omni_range = 23.331
 
-[node name="LuzDerechaDelantera" type="OmniLight3D" parent="." unique_id=243671534]
+[node name="LuzDerechaDelantera" type="OmniLight3D" parent="Luces" unique_id=243671534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -6.5)
 light_energy = 5.0
 light_indirect_energy = 0.0
 omni_range = 23.331
 
-[node name="LuzCentral" type="OmniLight3D" parent="." unique_id=389027630]
+[node name="LuzCentral" type="OmniLight3D" parent="Luces" unique_id=389027630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015092492, 3.4593167, 0.049402237)
 light_energy = 7.0
 omni_range = 23.331
 
-[node name="LuzJugador" type="OmniLight3D" parent="." unique_id=1033285566]
+[node name="LuzJugador" type="OmniLight3D" parent="Luces" unique_id=1033285566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1691652, 2.4009438, 7.974805)
 light_energy = 2.0
 light_indirect_energy = 0.0
 light_specular = 0.3
 omni_range = 23.331
 
-[node name="LuzIzquierdaDelantera" type="OmniLight3D" parent="." unique_id=1962706005]
+[node name="LuzIzquierdaDelantera" type="OmniLight3D" parent="Luces" unique_id=1962706005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -6.5)
 light_energy = 5.0
 omni_range = 23.331
 
-[node name="LuzDerechaTrasera" type="OmniLight3D" parent="." unique_id=556611683]
+[node name="LuzDerechaTrasera" type="OmniLight3D" parent="Luces" unique_id=556611683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.5)
 light_energy = 5.0
 omni_range = 23.331
@@ -108,6 +100,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 use_collision = true
 size = Vector3(20, 0.3, 20)
 material = SubResource("StandardMaterial3D_ceiling")
+
+[node name="Piso" type="StaticBody3D" parent="Walls" unique_id=330330659]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Piso" unique_id=2131770012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06191194, 0.041352034, -0.035946846)
+mesh = SubResource("PlaneMesh_onsl3")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Piso" unique_id=572826680]
+shape = SubResource("BoxShape3D_onsl3")
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -3)

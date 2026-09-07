@@ -21,22 +21,15 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	anim_player = find_child("AnimationPlayer", true, false)
 	
-	if anim_player:
-		print(anim_player.get_animation_list())
-	else:
+	if not anim_player:
 		push_warning("No se encontró AnimationPlayer")
+		
 # Configuración del crosshair
 	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	crosshair_hit.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	crosshair.visible = true
 	crosshair_hit.visible = false
-	
-	#var screen_size = Vector2(get_viewport().size)
-	#var center = screen_size / 2.0
-
-	#crosshair.position = center - crosshair.size / 2.0
-	#crosshair_hit.position = center - crosshair_hit.size / 2.0
 
 	crosshair.visible = true
 	crosshair_hit.visible = false
@@ -92,13 +85,6 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		#aqui quitamos temporalmente la animacion de caminar
-		#if (
-			#anim_player
-			#and anim_player.current_animation != "WEP_Fire"
-			#and anim_player.current_animation != "WEP_Inspect_01"
-		#):
-			#anim_player.play("WEP_Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -109,8 +95,6 @@ func _physics_process(delta: float) -> void:
 			and anim_player.current_animation != "Inspeecionar"
 		):
 			anim_player.play("Iddle")
-	#comente el move and slide para que se quede fijo (temporal)
-	#move_and_slide()
 
 func crosshair_hit_effect() -> void:
 	crosshair.visible = false
