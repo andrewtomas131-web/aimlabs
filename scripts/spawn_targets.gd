@@ -1,23 +1,38 @@
 extends Area3D
-
 const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
 
 @export var respawn_delay: float = 0.0
+
 @export var max_enemies: int = 3
+
 @export var enemies_container: NodePath
+
+# renovacion: rango de tamaño aleatorio para cada bolita
+
+@export var min_enemy_scale: float = 0.5
+
+@export var max_enemy_scale: float = 1.5
 
 @onready var collision: CollisionShape3D = $CollisionShape3D2
 
+
 var active_enemies: Array[Node] = []
+
 var _container: Node
 
+
 func _ready() -> void:
+
 	if collision.shape == null:
+
 		push_error("El CollisionShape3D no tiene un Shape asignado.")
+
 		return
+
 	
 	# Desactivamos la colisión física del spawner: solo la usamos
 	# para calcular posiciones, no queremos que el raycast choque contra ella
+
 	collision.disabled = true
 	monitoring = false
 	monitorable = false
@@ -26,9 +41,11 @@ func _ready() -> void:
 		_container = get_node(enemies_container)
 	else:
 		_container = get_tree().current_scene
+
 	
 	for i in range(max_enemies):
 		call_deferred("spawn_enemy")
+
 
 func spawn_enemy() -> void:
 	_actualizar_max_enemies()
@@ -39,12 +56,17 @@ func spawn_enemy() -> void:
 	_container.add_child(enemy)
 	enemy.global_position = get_random_spawn_position()
 	
+	#lo nuevo fue que le damos un tamaño aleatorio dentro del rango
+	var random_scale = randf_range(min_enemy_scale, max_enemy_scale)
+	enemy.scale = Vector3.ONE * random_scale
+	
 	if enemy.has_signal("enemy_hit"):
 		enemy.enemy_hit.connect(_on_enemy_hit.bind(enemy))
 	else:
 		push_error("El enemigo no tiene la señal 'enemy_hit'. ¿Tiene asignado enemy.gd?")
 	
 	active_enemies.append(enemy)
+
 
 func _on_enemy_hit(enemy: Node) -> void:
 	if not active_enemies.has(enemy):
@@ -56,6 +78,7 @@ func _on_enemy_hit(enemy: Node) -> void:
 		
 	spawn_enemy()
 	spawn_enemy()
+
 
 func get_random_spawn_position() -> Vector3:
 	var shape = collision.shape
@@ -79,6 +102,8 @@ func get_random_spawn_position() -> Vector3:
 		return global_position + random_point
 	return global_position
 	
+
+
 func _actualizar_max_enemies() -> void:
 	var nuevo_max = 3 + int(Estadisticas.puntuacion / 100)
 	if nuevo_max > max_enemies:
