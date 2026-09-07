@@ -4,6 +4,7 @@ const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
 @export var respawn_delay: float = 0.0
 @export var max_enemies: int = 3
 @export var enemies_container: NodePath
+@export var min_distancia_entre_bolas: float = 2.0
 
 @export var min_enemy_scale: float = 0.5
 @export var normal_enemy_scale: float = 1.0
@@ -11,11 +12,8 @@ const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
 
 @onready var collision: CollisionShape3D = $CollisionShape3D2
 
-
 var active_enemies: Array[Node] = []
-
 var _container: Node
-
 
 func _ready() -> void:
 
@@ -75,28 +73,45 @@ func _on_enemy_hit(enemy: Node) -> void:
 	spawn_enemy()
 	spawn_enemy()
 
-
 func get_random_spawn_position() -> Vector3:
 	var shape = collision.shape
+	var pos: Vector3
+	var intentos = 0
 	
-	if shape is BoxShape3D:
-		var extents = shape.size / 2
-		var offset = Vector3(
-			randf_range(-extents.x, extents.x),
-			randf_range(-extents.y, extents.y),
-			randf_range(-extents.z, extents.z)
-		)
-		return global_position + global_transform.basis * offset
+	while true:
+		if shape is BoxShape3D:
+			var extents = shape.size / 2
+			var offset = Vector3(
+				randf_range(-extents.x, extents.x),
+				randf_range(-extents.y, extents.y),
+				randf_range(-extents.z, extents.z)
+			)
+			pos = global_position + global_transform.basis * offset
+		
+		elif shape is SphereShape3D:
+			var radius = shape.radius
+			var random_point = Vector3(
+				randf_range(-1.0, 1.0),
+				randf_range(-1.0, 1.0),
+				randf_range(-1.0, 1.0)
+			).normalized() * randf_range(0, radius)
+			pos = global_position + random_point
+		
+		else:
+			return global_position
+		
+		if not _esta_muy_cerca(pos) or intentos >= 10:
+			return pos
+		
+		intentos += 1
 	
-	elif shape is SphereShape3D:
-		var radius = shape.radius
-		var random_point = Vector3(
-			randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0),
-			randf_range(-1.0, 1.0)
-		).normalized() * randf_range(0, radius)
-		return global_position + random_point
-	return global_position
+	return pos
+
+func _esta_muy_cerca(pos: Vector3) -> bool:
+	for enemy in active_enemies:
+		if is_instance_valid(enemy) and pos.distance_to(enemy.global_position) < min_distancia_entre_bolas:
+			return true
+	return false
 	
 func _elegir_escala_y_puntos() -> Dictionary:
 	var categoria = randi_range(0, 2)  # 0=chica, 1=normal, 2=grande
