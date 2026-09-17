@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp40lbn3u3dww"
-path.s3tc="res://.godot/imported/beretta_pistol_fps_animation_3.png-96397e00b7b34c2bea7044bfabcea9c3.s3tc.ctex"
+uid="uid://bapb2y0ryf2iu"
+path.s3tc="res://.godot/imported/fps_ak-74m_animations_1.png-35442bd46b5a93b12ed33ffac0a0b8b9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b1844a284117eedbd9ae802fdc17d5cd"
+"md5": "8ff13e06d5f44d803c8ee4bde9948595"
 }
 
 [deps]
 
-source_file="res://assets/player/beretta_pistol_fps_animation_3.png"
-dest_files=["res://.godot/imported/beretta_pistol_fps_animation_3.png-96397e00b7b34c2bea7044bfabcea9c3.s3tc.ctex"]
+source_file="res://assets/player/ak_47/fps_ak-74m_animations_1.png"
+dest_files=["res://.godot/imported/fps_ak-74m_animations_1.png-35442bd46b5a93b12ed33ffac0a0b8b9.s3tc.ctex"]
 
 [params]
 

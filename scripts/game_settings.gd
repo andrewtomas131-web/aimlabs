@@ -3,6 +3,8 @@ extends Node
 var mouse_sensitivity: float = 0.003
 var fullscreen: bool = false
 
+var selected_weapon_scene: PackedScene
+
 const SETTINGS_PATH := "user://settings.cfg"
 
 

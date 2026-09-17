@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://0mixoh03vc3c"
-path="res://.godot/imported/beretta_pistol_fps_animation.glb-bab09ff4f21adc9091c82ff6c9bcec8d.scn"
+path="res://.godot/imported/beretta_pistol_fps_animation.glb-e62e4b01123db9907a4b6cb66c017ce2.scn"
 
 [deps]
 
-source_file="res://assets/player/beretta_pistol_fps_animation.glb"
-dest_files=["res://.godot/imported/beretta_pistol_fps_animation.glb-bab09ff4f21adc9091c82ff6c9bcec8d.scn"]
+source_file="res://assets/player/beretta_pistol/beretta_pistol_fps_animation.glb"
+dest_files=["res://.godot/imported/beretta_pistol_fps_animation.glb-e62e4b01123db9907a4b6cb66c017ce2.scn"]
 
 [params]
 
