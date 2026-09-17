@@ -17,6 +17,8 @@ albedo_color = Color(0.4, 0.4, 0.45, 1)
 albedo_texture = ExtResource("5_chk")
 uv1_scale = Vector3(6, 6, 1)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7p1mj"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
 size = Vector2(20, 20)
 
@@ -42,11 +44,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="LuzIzquierdaTrasera" type="OmniLight3D" parent="Luces" unique_id=1300406330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 6.5)
+light_color = Color(1, 0.4745098, 0.6156863, 1)
 light_energy = 5.0
 omni_range = 23.331
 
 [node name="LuzDerechaDelantera" type="OmniLight3D" parent="Luces" unique_id=243671534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -6.5)
+light_color = Color(1, 1, 0.05882353, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
 omni_range = 23.331
@@ -65,11 +69,13 @@ omni_range = 23.331
 
 [node name="LuzIzquierdaDelantera" type="OmniLight3D" parent="Luces" unique_id=1962706005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -6.5)
+light_color = Color(0, 1, 1, 1)
 light_energy = 5.0
 omni_range = 23.331
 
 [node name="LuzDerechaTrasera" type="OmniLight3D" parent="Luces" unique_id=556611683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.5)
+light_color = Color(0.67669964, 0.00036666007, 0.68253934, 1)
 light_energy = 5.0
 omni_range = 23.331
 
@@ -106,6 +112,7 @@ size = Vector3(20, 0.3, 20)
 material = SubResource("StandardMaterial3D_ceiling")
 
 [node name="Piso" type="StaticBody3D" parent="Walls" unique_id=330330659]
+physics_material_override = SubResource("PhysicsMaterial_7p1mj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Piso" unique_id=2131770012]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06191194, 0.041352034, -0.035946846)
