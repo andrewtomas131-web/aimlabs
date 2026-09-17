@@ -9,6 +9,11 @@ emission = Color(0, 0.50980395, 0.47058824, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_wp5od"]
 material = SubResource("StandardMaterial3D_3tsfd")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
+albedo_color = Color(0, 0.50980395, 0.47058824, 1)
+metallic = 1.0
+roughness = 0.45
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k56px"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7p1mj"]
@@ -38,6 +43,7 @@ script = ExtResource("1_7p1mj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=589308335]
 mesh = SubResource("SphereMesh_wp5od")
+surface_material_override/0 = SubResource("StandardMaterial3D_md0e3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1174383110]
 physics_interpolation_mode = 1

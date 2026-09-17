@@ -47,6 +47,7 @@ func spawn_enemy() -> void:
 		return
 	
 	var enemy = ENEMY_SCENE.instantiate()
+	var mesh = enemy.get_node("MeshInstance3D")
 	_container.add_child(enemy)
 	enemy.global_position = get_random_spawn_position()
 	
@@ -60,7 +61,40 @@ func spawn_enemy() -> void:
 		push_error("El enemigo no tiene la señal 'enemy_hit'. ¿Tiene asignado enemy.gd?")
 	
 	active_enemies.append(enemy)
-
+	
+	var material: StandardMaterial3D = mesh.get_surface_override_material(0).duplicate() as StandardMaterial3D
+	
+	if material == null:
+		return
+	
+	mesh.set_surface_override_material(0, material)
+	
+	material.emission_enabled = true
+	material.emission = Color.WHITE
+	material.emission_energy_multiplier = 0.0
+	
+	var tween = create_tween()
+	tween.tween_property(
+		material,
+		"emission_energy_multiplier",
+		0.7,
+		0.3
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	# Mantiene ligeramente el brillo
+	tween.tween_interval(0.2)
+	
+	# Desaparece suavemente hasta 0
+	tween.tween_property(
+		material,
+		"emission_energy_multiplier",
+		0.0,
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	
+	tween.tween_callback(func():
+		material.emission_enabled = false
+	)
 
 func _on_enemy_hit(enemy: Node) -> void:
 	if not active_enemies.has(enemy):
@@ -72,6 +106,7 @@ func _on_enemy_hit(enemy: Node) -> void:
 		
 	spawn_enemy()
 	spawn_enemy()
+	
 
 func get_random_spawn_position() -> Vector3:
 	var shape = collision.shape
