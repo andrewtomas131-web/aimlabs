@@ -25,6 +25,10 @@ GameSettings="*uid://ce6imo4adu47e"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="Nuevo Proyecto de Juego"
+
 [input]
 
 ui_cancel={
