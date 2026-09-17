@@ -4,6 +4,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tsfd"]
 albedo_color = Color(1.1551381e-06, 0.508807, 0.4718411, 1)
+emission = Color(0, 0.50980395, 0.47058824, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_wp5od"]
 material = SubResource("StandardMaterial3D_3tsfd")
