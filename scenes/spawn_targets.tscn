@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg317u5asr4vx"]
 
-[ext_resource type="Script" uid="uid://cj7bd16pw4jns" path="res://scripts/spawn_targets.gd" id="1_1w3yg"]
+[ext_resource type="Script" uid="uid://cj7bd16pw4jns" path="res://scripts/gameplay/spawn_targets.gd" id="1_1w3yg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wp5od"]
 size = Vector3(16, 4, 11)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://byrf77fmx1tqs"]
 
-[ext_resource type="Script" uid="uid://c8vyns1jesho0" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://c8vyns1jesho0" path="res://scripts/ui/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="2_bqqt6"]
-[ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/panel_diagonal.gd" id="3_wu84c"]
+[ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/ui/panel_diagonal.gd" id="3_wu84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 content_margin_left = 20.0
