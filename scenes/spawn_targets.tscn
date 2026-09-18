@@ -5,8 +5,15 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wp5od"]
 size = Vector3(16, 4, 11)
 
+[sub_resource type="BoxMesh" id="BoxMesh_onsl3"]
+size = Vector3(16, 4, 11)
+
 [node name="spawn_2_0" type="Area3D" unique_id=203243919]
 script = ExtResource("1_1w3yg")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=22682998]
 shape = SubResource("BoxShape3D_wp5od")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=299701724]
+visible = false
+mesh = SubResource("BoxMesh_onsl3")

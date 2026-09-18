@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
-[ext_resource type="PackedScene" uid="uid://bn6lv0lgypl31" path="res://scenes/player_ak47.tscn" id="1_tbgi4"]
-[ext_resource type="Script" uid="uid://cdi5bjsomy2al" path="res://scripts/general/main.gd" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player_pistol.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
@@ -31,7 +30,6 @@ size = Vector3(20, 0.05, 20)
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 
 [node name="main" type="Node3D" unique_id=694436847]
-script = ExtResource("1_tefeu")
 
 [node name="Respawn" type="Node3D" parent="." unique_id=775093446]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 7.826)
@@ -42,18 +40,18 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="LuzIzquierdaTrasera" type="OmniLight3D" parent="Luces" unique_id=1300406330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 6.5)
-light_energy = 5.0
+light_energy = 3.0
 omni_range = 23.331
 
 [node name="LuzDerechaDelantera" type="OmniLight3D" parent="Luces" unique_id=243671534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -6.5)
-light_energy = 5.0
+light_energy = 3.0
 light_indirect_energy = 0.0
 omni_range = 23.331
 
 [node name="LuzCentral" type="OmniLight3D" parent="Luces" unique_id=389027630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015092492, 3.4593167, 0.049402237)
-light_energy = 7.0
+light_energy = 3.0
 omni_range = 23.331
 
 [node name="LuzJugador" type="OmniLight3D" parent="Luces" unique_id=1033285566]
@@ -65,12 +63,12 @@ omni_range = 23.331
 
 [node name="LuzIzquierdaDelantera" type="OmniLight3D" parent="Luces" unique_id=1962706005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -6.5)
-light_energy = 5.0
+light_energy = 3.0
 omni_range = 23.331
 
 [node name="LuzDerechaTrasera" type="OmniLight3D" parent="Luces" unique_id=556611683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.5)
-light_energy = 5.0
+light_energy = 3.0
 omni_range = 23.331
 
 [node name="Walls" type="Node3D" parent="." unique_id=943145373]
