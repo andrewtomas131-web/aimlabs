@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.745359, 0)
 script = ExtResource("2_jkfjb")
 
 [node name="Sketchfab_Scene" parent="Head" unique_id=1037326759 instance=ExtResource("2_qlg0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34, -0.011)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1435298, -0.34000015, -0.011)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1205912045]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
