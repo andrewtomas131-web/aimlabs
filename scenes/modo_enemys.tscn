@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://hh7ekujhogn0"]
+
+[ext_resource type="PackedScene" uid="uid://d1atp52iub04j" path="res://assets/maps/street/street_city_7_for_games_free.glb" id="1_820c7"]
+[ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="2_uwlsp"]
+[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player_pistol.tscn" id="3_3rpnn"]
+[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_8fa6i"]
+[ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_aafaw"]
+[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_nubxb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
+ground_bottom_color = Color(0.28593543, 0.24450892, 0.19792822, 1)
+
+[sub_resource type="Sky" id="Sky_xip0s"]
+sky_material = SubResource("ProceduralSkyMaterial_kohjj")
+
+[sub_resource type="Environment" id="Environment_jbj6s"]
+background_mode = 2
+sky = SubResource("Sky_xip0s")
+ambient_light_source = 3
+adjustment_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_texture = ExtResource("2_uwlsp")
+uv1_scale = Vector3(6, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
+size = Vector3(20, 0.05, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+
+[node name="main" type="Node3D" unique_id=694436847]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1334698503]
+environment = SubResource("Environment_jbj6s")
+
+[node name="Escenario" parent="." unique_id=924412649 instance=ExtResource("1_820c7")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.6809402, 0, 0)
+
+[node name="Piso" type="StaticBody3D" parent="Escenario" unique_id=330330659]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.8811011, 0, 6.7689486)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/Piso" unique_id=2131770012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.341999, 0.041352034, -0.035945892)
+visible = false
+mesh = SubResource("PlaneMesh_onsl3")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/Piso" unique_id=572826680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.816022, 0, 0)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_3rpnn")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -15.482662, 0, 29.237822)
+
+[node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_8fa6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935491, 3.1960242, 18.777792)
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
+process_mode = 3
+script = ExtResource("5_aafaw")
+
+[node name="Panel" type="Panel" parent="PauseMenu" unique_id=1952060667]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.5
+offset_top = -167.5
+offset_right = 357.5
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwcav")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel" unique_id=132279708]
+layout_mode = 0
+offset_left = 239.5
+offset_top = 68.5
+offset_right = 474.5
+offset_bottom = 234.5
+theme_override_constants/separation = 24
+
+[node name="ContinueButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=650157666]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+text = "CONTINUAR
+"
+
+[node name="SettingsButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=317710874]
+layout_mode = 2
+text = "CONFIGURACION"
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=1524551525]
+layout_mode = 2
+text = "MENU PRINCIPAL"
+
+[node name="PanelConfiguracion" parent="PauseMenu/Panel" unique_id=1671682763 instance=ExtResource("6_nubxb")]
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = -14.5
+offset_top = -95.5
+offset_right = 730.5
+offset_bottom = 427.5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=323635353]
+transform = Transform3D(-0.99836284, -0.005934728, 0.056889888, 0.056777693, 0.017614389, 0.99823165, -0.0069263135, 0.99982744, -0.017248591, -32.812706, 56.044563, 0)
+light_color = Color(1, 0.92941177, 0.8, 1)
+light_energy = 0.6
+
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]
