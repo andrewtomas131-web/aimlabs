@@ -34,7 +34,7 @@ bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 border_width_left = 2
 border_color = Color(0, 0.639105, 0.59091157, 1)
 
-[node name="Player2" type="CharacterBody3D" unique_id=1414830256]
+[node name="Player" type="CharacterBody3D" unique_id=1414830256]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_g2els")
 
@@ -42,7 +42,7 @@ script = ExtResource("1_g2els")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045573592, 1.020265, -0.15341234)
 shape = SubResource("CapsuleShape3D_g2els")
 
-[node name="Head" type="Node3D" parent="." unique_id=1116314625]
+[node name="Head" type="Node3D" parent="." unique_id=1116314625 groups=["wepon"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.745359, 0)
 script = ExtResource("2_jkfjb")
 
