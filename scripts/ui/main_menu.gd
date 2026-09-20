@@ -27,8 +27,12 @@ func _on_btn_modo_enemigos_pressed() -> void:
 
 
 func _on_btn_modo_3_pressed() -> void:
-	pass
+	Estadisticas.reset()
+	get_tree().change_scene_to_file("res://scenes/modo_enemys_life.tscn")
 
+func _on_btn_modo_4_pressed() -> void:
+	Estadisticas.reset()
+	get_tree().change_scene_to_file("res://scenes/modo_follow_enemy.tscn")
 
 func _on_btn_volver_modos_pressed() -> void:
 	$MenuContent/PanelModos.visible = false
