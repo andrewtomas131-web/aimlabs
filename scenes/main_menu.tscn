@@ -290,7 +290,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
 text = "VOLVER"
 
-[node name="PanelModos" type="Panel" parent="MenuContent"]
+[node name="PanelModos" type="Panel" parent="MenuContent" unique_id=889242943]
 visible = false
 layout_mode = 0
 offset_left = 223.0
@@ -299,7 +299,7 @@ offset_right = 968.0
 offset_bottom = 577.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
 
-[node name="TituloModos" type="Label" parent="MenuContent/PanelModos"]
+[node name="TituloModos" type="Label" parent="MenuContent/PanelModos" unique_id=907699702]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 15.0
@@ -307,10 +307,10 @@ offset_right = 685.0
 offset_bottom = 78.0
 theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 45
-horizontal_alignment = 1
 text = "MODOS DE JUEGO"
+horizontal_alignment = 1
 
-[node name="BtnModoNormal" type="Button" parent="MenuContent/PanelModos"]
+[node name="BtnModoNormal" type="Button" parent="MenuContent/PanelModos" unique_id=1373255741]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 110.0
@@ -322,7 +322,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
 text = "MODO DE JUEGO NORMAL"
 
-[node name="BtnModoEnemigos" type="Button" parent="MenuContent/PanelModos"]
+[node name="BtnModoEnemigos" type="Button" parent="MenuContent/PanelModos" unique_id=1148511792]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 188.0
@@ -334,7 +334,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
 text = "MODO DE JUEGO ENEMIGOS"
 
-[node name="BtnModo3" type="Button" parent="MenuContent/PanelModos"]
+[node name="BtnModo3" type="Button" parent="MenuContent/PanelModos" unique_id=893187728]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 266.0
@@ -346,7 +346,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
 text = "MODO DE JUEGO 3"
 
-[node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos"]
+[node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos" unique_id=1535494689]
 layout_mode = 0
 offset_left = 649.0
 offset_top = 474.0
