@@ -25,6 +25,10 @@ GameSettings="*uid://ce6imo4adu47e"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ui_cancel={

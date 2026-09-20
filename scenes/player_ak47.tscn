@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ukprslqefj6s" path="res://scripts/gameplay/player.gd" id="1_3tqcc"]
 [ext_resource type="PackedScene" uid="uid://usmh62bxkg8w" path="res://assets/player/ak_47/fps_ak-74m_animations.glb" id="2_3tqcc"]
-[ext_resource type="Script" uid="uid://5241nr4qscni" path="res://scripts/gameplay/weapon.gd" id="2_tuf0v"]
+[ext_resource type="Script" uid="uid://cbo3o351cown4" path="res://scripts/gameplay/ak47.gd" id="2_tuf0v"]
 [ext_resource type="Script" uid="uid://mmbjdmf0udmv" path="res://scripts/ui/crosshair.gd" id="3_q7073"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
@@ -45,6 +45,8 @@ shape = SubResource("CapsuleShape3D_g2els")
 [node name="Head" type="Node3D" parent="." unique_id=1116314625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.745359, 0)
 script = ExtResource("2_tuf0v")
+anim_fire = "Fire_Loop"
+is_automatic = true
 
 [node name="Sketchfab_Scene" parent="Head" unique_id=1223689195 instance=ExtResource("2_3tqcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63870525, 0)
