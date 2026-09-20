@@ -6,6 +6,9 @@ const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
 @export var enemies_container: NodePath
 @export var min_distancia_entre_bolas: float = 2.0
 
+# Distancia extra alrededor de las cajas (radio máximo de una esfera = 0.5 * 1.5)
+const MARGEN_OBSTACULO: float = 0.8
+
 @export var min_enemy_scale: float = 0.5
 @export var normal_enemy_scale: float = 1.0
 @export var max_enemy_scale: float = 1.5
@@ -100,12 +103,23 @@ func get_random_spawn_position() -> Vector3:
 		else:
 			return global_position
 		
-		if not _esta_muy_cerca(pos) or intentos >= 10:
+		if (not _esta_muy_cerca(pos) and not _dentro_de_obstaculo(pos)) or intentos >= 30:
 			return pos
 		
 		intentos += 1
 	
 	return pos
+
+# Evita que las esferas aparezcan dentro de las cajas/escalones del mapa.
+# Solo revisa nodos CSGBox3D del grupo "obstaculo" (si no hay, no hace nada).
+func _dentro_de_obstaculo(pos: Vector3) -> bool:
+	for nodo in get_tree().get_nodes_in_group("obstaculo"):
+		if nodo is CSGBox3D:
+			var local: Vector3 = nodo.global_transform.affine_inverse() * pos
+			var mitad: Vector3 = nodo.size / 2.0 + Vector3.ONE * MARGEN_OBSTACULO
+			if absf(local.x) <= mitad.x and absf(local.y) <= mitad.y and absf(local.z) <= mitad.z:
+				return true
+	return false
 
 func _esta_muy_cerca(pos: Vector3) -> bool:
 	for enemy in active_enemies:
