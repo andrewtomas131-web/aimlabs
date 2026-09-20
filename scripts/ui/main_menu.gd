@@ -27,10 +27,6 @@ func _on_btn_modo_enemigos_pressed() -> void:
 
 
 func _on_btn_modo_3_pressed() -> void:
-	# Todavía no existe una escena para este modo.
-	# Cuando la crees, conéctala aquí, por ejemplo:
-	# Estadisticas.reset()
-	# get_tree().change_scene_to_file("res://scenes/modo_3.tscn")
 	pass
 
 
