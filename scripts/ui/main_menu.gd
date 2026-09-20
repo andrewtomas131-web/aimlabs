@@ -13,8 +13,29 @@ func aplicar_pantalla_completa() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_btn_jugar_pressed() -> void:
+	$MenuContent/PanelModos.visible = true
+
+
+func _on_btn_modo_normal_pressed() -> void:
 	Estadisticas.reset()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_btn_modo_enemigos_pressed() -> void:
+	Estadisticas.reset()
+	get_tree().change_scene_to_file("res://scenes/modo_enemys.tscn")
+
+
+func _on_btn_modo_3_pressed() -> void:
+	# Todavía no existe una escena para este modo.
+	# Cuando la crees, conéctala aquí, por ejemplo:
+	# Estadisticas.reset()
+	# get_tree().change_scene_to_file("res://scenes/modo_3.tscn")
+	pass
+
+
+func _on_btn_volver_modos_pressed() -> void:
+	$MenuContent/PanelModos.visible = false
 
 
 func _on_btn_configuracion_pressed() -> void:

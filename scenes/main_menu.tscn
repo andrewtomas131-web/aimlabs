@@ -290,6 +290,74 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
 text = "VOLVER"
 
+[node name="PanelModos" type="Panel" parent="MenuContent"]
+visible = false
+layout_mode = 0
+offset_left = 223.0
+offset_top = 54.0
+offset_right = 968.0
+offset_bottom = 577.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="TituloModos" type="Label" parent="MenuContent/PanelModos"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 15.0
+offset_right = 685.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+text = "MODOS DE JUEGO"
+
+[node name="BtnModoNormal" type="Button" parent="MenuContent/PanelModos"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 110.0
+offset_right = 685.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO DE JUEGO NORMAL"
+
+[node name="BtnModoEnemigos" type="Button" parent="MenuContent/PanelModos"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 188.0
+offset_right = 685.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO DE JUEGO ENEMIGOS"
+
+[node name="BtnModo3" type="Button" parent="MenuContent/PanelModos"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 266.0
+offset_right = 685.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO DE JUEGO 3"
+
+[node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos"]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 474.0
+offset_right = 739.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
+text = "VOLVER"
+
 [node name="CornerAccent" type="Panel" parent="MenuContent" unique_id=88240406]
 layout_mode = 0
 offset_left = -130.0
@@ -351,4 +419,8 @@ text = "ENTENDIDO"
 [connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
 [connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoNormal" to="." method="_on_btn_modo_normal_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoEnemigos" to="." method="_on_btn_modo_enemigos_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModo3" to="." method="_on_btn_modo_3_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnVolverModos" to="." method="_on_btn_volver_modos_pressed"]
 [connection signal="pressed" from="PanelAyuda/BtnEntendido" to="." method="_on_btn_entendido_pressed"]
