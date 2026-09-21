@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bn6lv0lgypl31" path="res://scenes/player_ak47.tscn" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://cdi5bjsomy2al" path="res://scripts/general/main.gd" id="1_tefeu"]
+[ext_resource type="Script" uid="uid://b4b2fr4hrdtwo" path="res://scripts/general/luz_reactiva.gd" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
@@ -47,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 6.5)
 light_color = Color(1, 0.4745098, 0.6156863, 1)
 light_energy = 5.0
 omni_range = 23.331
+script = ExtResource("3_o6xl0")
 
 [node name="LuzDerechaDelantera" type="OmniLight3D" parent="Luces" unique_id=243671534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -6.5)
@@ -54,11 +56,14 @@ light_color = Color(1, 1, 0.05882353, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
 omni_range = 23.331
+script = ExtResource("3_o6xl0")
+color_alerta = Color(0.1236893, 0.45149165, 0, 1)
 
 [node name="LuzCentral" type="OmniLight3D" parent="Luces" unique_id=389027630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015092492, 3.4593167, 0.049402237)
 light_energy = 7.0
 omni_range = 23.331
+script = ExtResource("3_o6xl0")
 
 [node name="LuzJugador" type="OmniLight3D" parent="Luces" unique_id=1033285566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1691652, 2.4009438, 7.974805)
@@ -66,18 +71,23 @@ light_energy = 2.0
 light_indirect_energy = 0.0
 light_specular = 0.3
 omni_range = 23.331
+script = ExtResource("3_o6xl0")
 
 [node name="LuzIzquierdaDelantera" type="OmniLight3D" parent="Luces" unique_id=1962706005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -6.5)
 light_color = Color(0, 1, 1, 1)
 light_energy = 5.0
 omni_range = 23.331
+script = ExtResource("3_o6xl0")
+color_alerta = Color(0.16531917, 0.26545835, 1, 1)
 
 [node name="LuzDerechaTrasera" type="OmniLight3D" parent="Luces" unique_id=556611683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.5)
 light_color = Color(0.67669964, 0.00036666007, 0.68253934, 1)
 light_energy = 5.0
 omni_range = 23.331
+script = ExtResource("3_o6xl0")
+color_alerta = Color(0.58218324, 0.0014866627, 0.7549059, 1)
 
 [node name="Walls" type="Node3D" parent="." unique_id=943145373]
 
