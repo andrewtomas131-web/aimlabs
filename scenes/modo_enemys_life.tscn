@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bn6lv0lgypl31" path="res://scenes/player_ak47.tscn" id="3_rag3b"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_7d1gj"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_c12mh"]
+[ext_resource type="PackedScene" uid="uid://c1ojdfcjod2hu" path="res://scenes/enemy_vida.tscn" id="5_v2jrx"]
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_4ntqt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
@@ -50,6 +51,7 @@ transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_7d1gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.672242, 3.1960242, -79.429886)
+enemy_scene = ExtResource("5_v2jrx")
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
 process_mode = 3

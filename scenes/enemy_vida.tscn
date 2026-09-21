@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c1ojdfcjod2hu"]
+
+[ext_resource type="PackedScene" uid="uid://dju1wkhpxunhb" path="res://scenes/enemy.tscn" id="1_2eyhc"]
+[ext_resource type="Script" uid="uid://db65wb4c0q17b" path="res://scripts/gameplay/enemy_life.gd" id="2_n486t"]
+
+[node name="Enemy" unique_id=150948665 instance=ExtResource("1_2eyhc")]
+script = ExtResource("2_n486t")
+vida_maxima = 3

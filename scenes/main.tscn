@@ -20,12 +20,15 @@ uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caja"]
-albedo_color = Color(0.68, 0.74, 0.84, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
 albedo_texture = ExtResource("5_chk")
-uv1_scale = Vector3(0.25, 0.25, 0.25)
-uv1_triplanar = true
-uv1_world_triplanar = true
+uv1_scale = Vector3(5, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
+size = Vector3(20, 0.05, 20)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cielo"]
 sky_top_color = Color(0.16, 0.42, 0.86, 1)
@@ -43,15 +46,12 @@ ambient_light_source = 2
 ambient_light_color = Color(0.6, 0.65, 0.75, 1)
 ambient_light_energy = 0.5
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
-size = Vector2(20, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caja"]
+albedo_color = Color(0.68, 0.74, 0.84, 1)
 albedo_texture = ExtResource("5_chk")
-uv1_scale = Vector3(5, 5, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
-size = Vector3(20, 0.05, 20)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
@@ -83,7 +83,6 @@ omni_range = 23.331
 
 [node name="LuzJugador" type="OmniLight3D" parent="Luces" unique_id=1033285566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1691652, 2.4009438, 7.974805)
-light_energy = 1.0
 light_indirect_energy = 0.0
 light_specular = 0.3
 omni_range = 23.331
@@ -124,13 +123,13 @@ use_collision = true
 size = Vector3(0.3, 6, 20)
 material = SubResource("StandardMaterial3D_wall")
 
-[node name="TechoOeste" type="CSGBox3D" parent="Walls"]
+[node name="TechoOeste" type="CSGBox3D" parent="Walls" unique_id=1610994135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.825, 6.15, 0)
 use_collision = true
 size = Vector3(6.65, 0.6, 20.3)
 material = SubResource("StandardMaterial3D_ceiling")
 
-[node name="TechoEste" type="CSGBox3D" parent="Walls"]
+[node name="TechoEste" type="CSGBox3D" parent="Walls" unique_id=2063263703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.825, 6.15, 0)
 use_collision = true
 size = Vector3(6.65, 0.6, 20.3)
@@ -146,43 +145,43 @@ surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Piso" unique_id=572826680]
 shape = SubResource("BoxShape3D_onsl3")
 
-[node name="Cielo" type="WorldEnvironment" parent="."]
+[node name="Cielo" type="WorldEnvironment" parent="." unique_id=2147224181]
 environment = SubResource("Environment_cielo")
 
-[node name="Sol" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.906308, -0.373150, 0.198407, 0.000000, 0.469472, 0.882948, -0.422618, -0.800222, 0.425486, 0, 8, 0)
+[node name="Sol" type="DirectionalLight3D" parent="." unique_id=1330701671]
+transform = Transform3D(0.906308, -0.37315, 0.198407, 0, 0.469472, 0.882948, -0.422618, -0.800222, 0.425486, 0, 8, 0)
 light_color = Color(1, 0.95, 0.82, 1)
 light_energy = 0.9
 shadow_enabled = true
 directional_shadow_max_distance = 40.0
 
-[node name="Escalones" type="Node3D" parent="."]
+[node name="Escalones" type="Node3D" parent="." unique_id=1818493215]
 
-[node name="EscalonNorte" type="CSGBox3D" parent="Escalones" groups=["obstaculo"]]
+[node name="EscalonNorte" type="CSGBox3D" parent="Escalones" unique_id=1804066797 groups=["obstaculo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -8.6)
 use_collision = true
 size = Vector3(19.7, 1.1, 2.5)
 material = SubResource("StandardMaterial3D_caja")
 
-[node name="EscalonNorteEste" type="CSGBox3D" parent="Escalones" groups=["obstaculo"]]
+[node name="EscalonNorteEste" type="CSGBox3D" parent="Escalones" unique_id=470466253 groups=["obstaculo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35, 0.8, -8.6)
 use_collision = true
 size = Vector3(3, 1.6, 2.5)
 material = SubResource("StandardMaterial3D_caja")
 
-[node name="TorreEsquinaEste" type="CSGBox3D" parent="Escalones" groups=["obstaculo"]]
+[node name="TorreEsquinaEste" type="CSGBox3D" parent="Escalones" unique_id=550424372 groups=["obstaculo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.35, 1.05, -8.6)
 use_collision = true
 size = Vector3(3, 2.1, 2.5)
 material = SubResource("StandardMaterial3D_caja")
 
-[node name="EscalonOeste" type="CSGBox3D" parent="Escalones" groups=["obstaculo"]]
+[node name="EscalonOeste" type="CSGBox3D" parent="Escalones" unique_id=342692 groups=["obstaculo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85, 0.55, -3.85)
 use_collision = true
-size = Vector3(2.0, 1.1, 12.0)
+size = Vector3(2, 1.1, 12)
 material = SubResource("StandardMaterial3D_caja")
 
-[node name="CajaOeste" type="CSGBox3D" parent="Escalones" groups=["obstaculo"]]
+[node name="CajaOeste" type="CSGBox3D" parent="Escalones" unique_id=1227223369 groups=["obstaculo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85, 1.55, -5.6)
 use_collision = true
 size = Vector3(1.6, 0.9, 1.6)
