@@ -30,7 +30,7 @@ func registrar_puntos() -> void:
 	var base = int(puntos_base/scale.x)
 	var tiempo_vivo = (Time.get_ticks_msec() - tiempo_spawn) / 1000.0
 	var multiplicador = clamp(2.0 - (tiempo_vivo / 5.0), 0.5, 2.0)
-	var puntos_finales = int(puntos_base * multiplicador)
+	var puntos_finales = int(base * multiplicador)
 	
 	Estadisticas.registrar_acierto(puntos_finales)
 
