@@ -27,7 +27,7 @@ func fire() -> void:
 		return
 	shoot()
 	is_firing = true
-	anim_player.play(anim_fire)
+	play_anim_fire()
 	
 func _process(delta: float) -> void:
 	if is_firing and is_automatic:
@@ -38,6 +38,9 @@ func _process(delta: float) -> void:
 
 func start_fire() -> void:
 	anim_player.stop()
+
+func play_anim_fire() -> void:
+	anim_player.play(anim_fire)
 
 func stop_fire() -> void:
 	is_firing = false

@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_nubxb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
+sky_top_color = Color(0.22436085, 0.27460063, 0.3415354, 1)
+sky_horizon_color = Color(0.13707149, 0.14066091, 0.14784753, 1)
 ground_bottom_color = Color(0.28593543, 0.24450892, 0.19792822, 1)
 
 [sub_resource type="Sky" id="Sky_xip0s"]
