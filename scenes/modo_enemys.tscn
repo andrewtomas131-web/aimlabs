@@ -113,7 +113,6 @@ offset_bottom = 427.5
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=323635353]
 transform = Transform3D(-0.99836284, -0.005934728, 0.056889888, 0.056777693, 0.017614389, 0.99823165, -0.0069263135, 0.99982744, -0.017248591, -32.812706, 56.044563, 0)
 light_color = Color(1, 0.92941177, 0.8, 1)
-light_energy = 0.6
 
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
