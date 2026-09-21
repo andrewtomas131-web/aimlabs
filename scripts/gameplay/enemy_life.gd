@@ -49,7 +49,8 @@ func _physics_process(delta: float) -> void:
 func hit() -> void:
 	vida_actual -= 1
 	enemy_damaged.emit(vida_actual, vida_maxima)
-	progress_bar.value -= 34.0
+	progress_bar.max_value = vida_maxima
+	progress_bar.value = vida_actual
 	
 	if vida_actual <= 0:
 		registrar_puntos()
