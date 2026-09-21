@@ -12,8 +12,6 @@ signal enemy_damaged(vida_restante: int, vida_maxima: int)
 var tiempo_spawn: int = 0
 var puntos_base: int = 20
 
-
-
 func _ready() -> void:
 	
 	add_to_group("target")
