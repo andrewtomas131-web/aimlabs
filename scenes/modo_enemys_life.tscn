@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://daw36x25rpo6h" path="res://assets/maps/presa/map_70.glb" id="1_aldmf"]
 [ext_resource type="PackedScene" uid="uid://dpfwqk45iyd5v" path="res://assets/platform/round_platform.glb" id="2_aldmf"]
+[ext_resource type="Script" uid="uid://doa82vrxdrhbk" path="res://scripts/general/luz_reactiva.gd" id="3_7d1gj"]
 [ext_resource type="PackedScene" uid="uid://bn6lv0lgypl31" path="res://scenes/player_ak47.tscn" id="3_rag3b"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_7d1gj"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_c12mh"]
@@ -45,6 +46,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34867406, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024249315, 0.1498509, 0.010604858)
 shape = SubResource("CylinderShape3D_7igdd")
 debug_color = Color(0.9520524, 1.0588765e-06, 0.5630313, 0.41960785)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Escenario/Plataforma" unique_id=1464469697]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.02652812, 2.9355896, -0.02753067)
+light_color = Color(0.43137255, 0.23921569, 1, 1)
+spot_range = 11.0
+spot_attenuation = -1.25
+spot_angle = 41.26
+script = ExtResource("3_7d1gj")
+color_normal = Color(0.43137255, 0.23921569, 1, 1)
 
 [node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_rag3b")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.533761, 0, -80.18053)

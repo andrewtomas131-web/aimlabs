@@ -34,4 +34,4 @@ func recibir_golpe() -> void:
 	var mat = mesh.get_active_material(0)
 	if mat:
 		tween.tween_property(mat, "albedo_color", Color(1, 0.3, 0.3), 0.05)
-		tween.tween_property(mat, "albedo_color", Color.WHITE, 0.15)
+		tween.tween_property(mat, "albedo_color", Color("#00d9c9"), 0.0)

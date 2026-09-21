@@ -5,7 +5,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_wp5od"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5uy6h"]
-albedo_color = Color(0, 0.84944946, 0.7866511, 1)
+albedo_color = Color(0, 0.8509804, 0.7882353, 1)
 roughness = 0.35
 backlight_enabled = true
 backlight = Color(0, 0.50980395, 0.47058824, 1)
