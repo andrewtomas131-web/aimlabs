@@ -13,6 +13,7 @@ func _ready() -> void:
 func hit() -> void:
 	vida_actual -= 1
 	enemy_damaged.emit(vida_actual, vida_maxima)
+
 	
 	if vida_actual <= 0:
 		registrar_puntos()

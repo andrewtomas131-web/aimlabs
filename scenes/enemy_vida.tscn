@@ -3,6 +3,42 @@
 [ext_resource type="PackedScene" uid="uid://dju1wkhpxunhb" path="res://scenes/enemy.tscn" id="1_2eyhc"]
 [ext_resource type="Script" uid="uid://db65wb4c0q17b" path="res://scripts/gameplay/enemy_life.gd" id="2_n486t"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ostoq"]
+bg_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajtct"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_loq3h"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Enemy" unique_id=150948665 instance=ExtResource("1_2eyhc")]
 script = ExtResource("2_n486t")
 vida_maxima = 3
+
+[node name="SubViewport" type="SubViewport" parent="." index="3" unique_id=777431312]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" index="0" unique_id=1105697814]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 126.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ostoq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ajtct")
+value = 50.0
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="4" unique_id=1702988584]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.917383e-06, 0.69283056, 0.5843501)
+texture = SubResource("ViewportTexture_loq3h")
