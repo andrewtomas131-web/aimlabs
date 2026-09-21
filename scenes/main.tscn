@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player_pistol.tscn" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://doa82vrxdrhbk" path="res://scripts/general/luz_reactiva.gd" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
@@ -96,6 +97,16 @@ omni_range = 23.331
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 6.5)
 light_energy = 1.5
 omni_range = 23.331
+
+[node name="LuzTaller" type="SpotLight3D" parent="Luces" unique_id=1639426873]
+transform = Transform3D(1, 0, 0, 0, -0.019225694, 0.99981517, 0, -0.99981517, -0.019225694, 5.714853, 6.0692716, 2.2458205)
+light_color = Color(0.76862746, 0, 0.4745098, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 4.485
+spot_range = 11.83
+script = ExtResource("2_tefeu")
+color_normal = Color(0.9999997, 0.08761028, 0.6300918, 1)
+color_alerta = Color(0.34319985, 0.9569784, 1, 1)
 
 [node name="Walls" type="Node3D" parent="." unique_id=943145373]
 
