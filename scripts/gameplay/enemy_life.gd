@@ -3,6 +3,8 @@ class_name EnemyLife
 
 @export var vida_maxima: int = 3
 
+@onready var progress_bar = $SubViewport/ProgressBar
+
 var vida_actual: int
 
 
@@ -13,7 +15,7 @@ func _ready() -> void:
 func hit() -> void:
 	vida_actual -= 1
 	enemy_damaged.emit(vida_actual, vida_maxima)
-
+	progress_bar.value -= 34.0
 	
 	if vida_actual <= 0:
 		registrar_puntos()
