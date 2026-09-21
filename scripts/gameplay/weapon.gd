@@ -44,8 +44,9 @@ func stop_fire() -> void:
 	wants_to_fire = false
 
 func inspect() -> void:
-	anim_player.stop()
-	anim_player.play(anim_inspect)
+	if(!is_firing):
+		anim_player.stop() 
+		anim_player.play(anim_inspect)
 
 func play_idle() -> void:
 	if anim_player.current_animation != anim_fire and anim_player.current_animation != anim_inspect:
