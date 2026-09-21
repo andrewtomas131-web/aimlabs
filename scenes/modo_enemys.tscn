@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_8fa6i"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_aafaw"]
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_nubxb"]
+[ext_resource type="Script" uid="uid://btkma3t11373s" path="res://scripts/gameplay/luz_reactiva.gd" id="7_uwlsp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
+sky_top_color = Color(0.22436085, 0.27460063, 0.3415354, 1)
+sky_horizon_color = Color(0.13707149, 0.14066091, 0.14784753, 1)
 ground_bottom_color = Color(0.28593543, 0.24450892, 0.19792822, 1)
 
 [sub_resource type="Sky" id="Sky_xip0s"]
@@ -112,6 +115,38 @@ offset_bottom = 427.5
 transform = Transform3D(-0.99836284, -0.005934728, 0.056889888, 0.056777693, 0.017614389, 0.99823165, -0.0069263135, 0.99982744, -0.017248591, -32.812706, 56.044563, 0)
 light_color = Color(1, 0.92941177, 0.8, 1)
 light_energy = 0.6
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=459437473]
+transform = Transform3D(-0.06730795, 0.9171014, -0.39293092, 0.15484154, 0.39865407, 0.9039353, 0.9856438, 0, -0.16883798, -24.661427, 5.0594015, 22.943035)
+light_color = Color(0.753, 0.624, 0.467, 1)
+light_energy = 16.0
+spot_range = 13.709
+spot_attenuation = 0.0
+script = ExtResource("7_uwlsp")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1638177048]
+transform = Transform3D(0.059251215, 0.93393505, 0.35249788, 0.15832011, -0.35744074, 0.92041886, 0.98560846, 0.0012715654, -0.16903946, -7.562248, 5.0594015, 21.02913)
+light_color = Color(0.753, 0.624, 0.467, 1)
+light_energy = 16.0
+spot_range = 13.709
+spot_attenuation = 0.0
+script = ExtResource("7_uwlsp")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=94824765]
+transform = Transform3D(0.059251215, 0.93393505, 0.35249788, 0.15832011, -0.35744074, 0.92041886, 0.98560846, 0.0012715694, -0.16903949, -7.562248, 5.0594015, 0.145818)
+light_color = Color(0.753, 0.624, 0.467, 1)
+light_energy = 16.0
+spot_range = 13.709
+spot_attenuation = 0.0
+script = ExtResource("7_uwlsp")
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=443341647]
+transform = Transform3D(-0.06776345, 0.9190845, -0.38819066, 0.15486792, 0.39405867, 0.90594345, 0.98560846, 0.0012715659, -0.16903949, -24.66797, 5.0594015, 1.8263884)
+light_color = Color(0.753, 0.624, 0.467, 1)
+light_energy = 16.0
+spot_range = 13.709
+spot_attenuation = 0.0
+script = ExtResource("7_uwlsp")
 
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
