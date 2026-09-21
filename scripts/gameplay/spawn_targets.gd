@@ -1,5 +1,5 @@
 extends Area3D
-const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
+@export var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 
 @export var respawn_delay: float = 0.0
 @export var max_enemies: int = 3
@@ -49,7 +49,7 @@ func spawn_enemy() -> void:
 	if active_enemies.size() >= max_enemies:
 		return
 	
-	var enemy = ENEMY_SCENE.instantiate()
+	var enemy = enemy_scene.instantiate()
 	_container.add_child(enemy)
 	enemy.global_position = get_random_spawn_position()
 	
