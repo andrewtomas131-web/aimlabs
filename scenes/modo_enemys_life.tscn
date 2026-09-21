@@ -49,7 +49,7 @@ debug_color = Color(0.9520524, 1.0588765e-06, 0.5630313, 0.41960785)
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.533761, 0, -80.18053)
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_7d1gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935491, 3.1960242, 18.777792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.672242, 3.1960242, -79.429886)
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
 process_mode = 3

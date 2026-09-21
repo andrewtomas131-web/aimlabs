@@ -322,7 +322,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
 text = "MODO DE JUEGO NORMAL"
 
-[node name="BtnModoEnemigos" type="Button" parent="MenuContent/PanelModos" unique_id=1148511792]
+[node name="BtnModoMovimiento" type="Button" parent="MenuContent/PanelModos" unique_id=1148511792]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 188.0
@@ -332,9 +332,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO DE JUEGO ENEMIGOS"
+text = "MODO DE JUEGO ENEMIGOS CON MOVIMIENTO"
 
-[node name="BtnModo3" type="Button" parent="MenuContent/PanelModos" unique_id=893187728]
+[node name="BtnModoVidaMovimiento" type="Button" parent="MenuContent/PanelModos" unique_id=893187728]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 266.0
@@ -344,9 +344,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO DE JUEGO 3"
+text = "MODO DE JUEGO ENEMIGOS CON VIDA Y MOVIMIENTO"
 
-[node name="BtnModo4" type="Button" parent="MenuContent/PanelModos" unique_id=1964836007]
+[node name="BtnModoSeguir" type="Button" parent="MenuContent/PanelModos" unique_id=1964836007]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 336.0
@@ -356,7 +356,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO DE JUEGO 4"
+text = "MODO SEGUIR ENEMIGO"
 
 [node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos" unique_id=1535494689]
 layout_mode = 0
@@ -432,8 +432,8 @@ text = "ENTENDIDO"
 [connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]
 [connection signal="pressed" from="MenuContent/PanelModos/BtnModoNormal" to="." method="_on_btn_modo_normal_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModoEnemigos" to="." method="_on_btn_modo_enemigos_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModo3" to="." method="_on_btn_modo_3_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModo4" to="." method="_on_btn_modo_4_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoMovimiento" to="." method="_on_btn_modo_enemigos_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoVidaMovimiento" to="." method="_on_btn_modo_3_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoSeguir" to="." method="_on_btn_modo_4_pressed"]
 [connection signal="pressed" from="MenuContent/PanelModos/BtnVolverModos" to="." method="_on_btn_volver_modos_pressed"]
 [connection signal="pressed" from="PanelAyuda/BtnEntendido" to="." method="_on_btn_entendido_pressed"]
