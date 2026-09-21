@@ -4,7 +4,6 @@ extends Weapon
 @export var recoil_pattern: Array[Vector2] = []
 var shots_fired_in_burst: int = 0
 
-
 func start_fire() -> void:
 	anim_player.play("Fire_Start")
 
