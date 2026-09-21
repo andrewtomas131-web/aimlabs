@@ -30,6 +30,7 @@ func hit() -> void:
 		recibir_golpe()
 		
 func recibir_golpe() -> void:
+	Estadisticas.registrar_acierto(0)
 	var tween = create_tween()
 	var mat = mesh.get_active_material(0)
 	if mat:
