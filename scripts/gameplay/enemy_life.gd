@@ -8,7 +8,6 @@ class_name EnemyLife
 @export var velocidad_movimiento: float = 2.0
 @export var amplitud_movimiento: float = 1.5
 
-
 @onready var progress_bar = $SubViewport/ProgressBar
 
 var vida_actual: int
@@ -37,6 +36,7 @@ func _ready() -> void:
 		mat = mesh.get_active_material(0).duplicate()
 		# Asignamos la copia única de vuelta al MeshInstance3D
 		mesh.set_surface_override_material(0, mat)
+
 	
 func _physics_process(delta: float) -> void:
 	if not movimiento_habilitado:
@@ -48,7 +48,9 @@ func _physics_process(delta: float) -> void:
 	
 	tiempo += delta
 	var offset = sin(tiempo * velocidad_movimiento + fase) * amplitud_movimiento
-	global_position = posicion_inicial + global_transform.basis.y * offset
+	
+	global_position = posicion_inicial + direccion_movimiento * offset
+
 	
 func hit() -> void:	
 	vida_actual -= 1
@@ -62,6 +64,7 @@ func hit() -> void:
 		progress_bar.visible = false
 	else:
 		recibir_golpe()
+
 		
 func recibir_golpe() -> void:
 	Estadisticas.registrar_acierto(0)
