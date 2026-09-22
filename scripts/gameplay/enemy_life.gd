@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	global_position = posicion_inicial + direccion_movimiento * offset
 
 	
-func hit() -> void:
+func hit() -> void:	
 	vida_actual -= 1
 	enemy_damaged.emit(vida_actual, vida_maxima)
 	progress_bar.max_value = vida_maxima
@@ -61,6 +61,7 @@ func hit() -> void:
 	if vida_actual <= 0:
 		registrar_puntos()
 		morir()
+		progress_bar.visible = false
 	else:
 		recibir_golpe()
 
