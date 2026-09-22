@@ -17,7 +17,6 @@ var base_ray_rotation: Vector3
 
 func _ready() -> void:
 	super._ready()
-	sonido_disparo = "disparo_rifle"
 	base_ray_rotation = shootRay.rotation
 
 

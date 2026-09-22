@@ -78,7 +78,6 @@ func registrar_puntos(distancia: float = -1.0) -> void:
 	Estadisticas.registrar_acierto(puntos_finales)
 
 func recibir_golpe() -> void:
-	AudioManager.play("golpe_enemigo", -5.0, 0.06)
 	Estadisticas.registrar_acierto(0)
 	var tween = create_tween()
 	if mat:

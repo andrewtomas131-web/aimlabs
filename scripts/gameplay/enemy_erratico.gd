@@ -97,6 +97,5 @@ func registrar_puntos_parciales() -> void:
 	Estadisticas.registrar_acierto(puntos_de_este_golpe)
 
 func _feedback_golpe() -> void:
-	AudioManager.play("golpe_enemigo", -5.0, 0.06)
 	if particles:
 		particles.emitting = true

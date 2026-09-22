@@ -20,23 +20,15 @@ var base_ray_rotation: Vector3
 
 func _ready() -> void:
 	super._ready()
-	sonido_disparo = "disparo_minigun"
 	base_ray_rotation = shootRay.rotation
 
 func start_fire() -> void:
-	# Silbido de arranque del motor, sincronizado con el giro de los cañones.
-	AudioManager.play("minigun_motor_arranque", -2.0)
 	anim_player.play("rig|rig|Fire_Start")
 	await anim_player.animation_finished
-	# Si se soltó el gatillo durante el arranque, no se llega a la ráfaga continua.
-	if wants_to_fire:
-		AudioManager.play_loop("minigun_motor_bucle", -6.0)
 
 func stop_fire() -> void:
 	super.stop_fire()
 	anim_player.play("rig|rig|Fire_Stop")
-	AudioManager.stop_loop("minigun_motor_bucle", 0.05)
-	AudioManager.play("minigun_motor_freno", -3.0)
 	
 func play_idle() -> void:
 	if anim_player.current_animation not in ["rig|rig|Fire_Stop", "rig|rig|Fire_Start", "rig|rig|Fire", "rig|rig|Inspect"]:

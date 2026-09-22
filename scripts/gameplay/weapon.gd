@@ -8,8 +8,6 @@ extends Node3D
 
 @export var fire_rate: float = 0.1 
 @export var is_automatic: bool = false
-@export var sonido_disparo: String = "disparo_pistola"
-@export var sonido_variacion_tono: float = 0.03
 
 @onready var anim_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var shootRay = $Camera3D/ShootRay
@@ -72,7 +70,6 @@ func shoot() -> void:
 	emit_recoil()
 	hit_target.emit()
 	Estadisticas.registrar_disparo()
-	AudioManager.play(sonido_disparo, 0.0, sonido_variacion_tono)
 	if not shootRay.is_colliding():
 		if cilindro_activo:
 			cilindro_activo.registrar_fallo()
@@ -80,5 +77,4 @@ func shoot() -> void:
 	var target = shootRay.get_collider()
 	if target.is_in_group("target") and target.has_method("hit"):
 		var distancia = shootRay.global_position.distance_to(shootRay.get_collision_point())
-		AudioManager.play("impacto", -4.0, 0.05)
 		target.hit(distancia)
