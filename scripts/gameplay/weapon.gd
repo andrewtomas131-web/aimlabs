@@ -5,15 +5,16 @@ extends Node3D
 @export var anim_idle: String = "Iddle"
 @export var anim_inspect: String = "Inspeecionar"
 @export var fire_rate: float = 0.1 
-@export var is_automatic:bool = false
+@export var is_automatic: bool = false
 
 @onready var anim_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var shootRay = $Camera3D/ShootRay
 
 signal hit_target
+signal recoil_kick(offset: Vector2)
 
 var fire_timer: float = 0.0
-var is_firing:bool = false
+var is_firing: bool = false
 var wants_to_fire: bool = false
 
 func _ready() -> void:
@@ -55,7 +56,11 @@ func play_idle() -> void:
 	if anim_player.current_animation != anim_fire and anim_player.current_animation != anim_inspect:
 			anim_player.play(anim_idle)
 
+func emit_recoil() -> void:
+	pass  # el arma base no tiene recoil acumulativo, se queda vacío
+
 func shoot() -> void:
+	emit_recoil()
 	hit_target.emit()
 	Estadisticas.registrar_disparo()
 	if not shootRay.is_colliding():

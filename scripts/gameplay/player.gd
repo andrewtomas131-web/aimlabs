@@ -23,7 +23,6 @@ func _ready() -> void:
 	current_weapon.hit_target.connect(crosshair_hit_effect)
 	if current_weapon.has_signal("recoil_kick"):
 		current_weapon.recoil_kick.connect(_on_recoil_kick)
-	
 # Configuración del crosshair
 	crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	crosshair_hit.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -41,6 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			deg_to_rad(-80),
 			deg_to_rad(80)
 		)
+		
 	if event.is_action_pressed("click"):
 		current_weapon.fire()
 		
@@ -98,6 +98,7 @@ func crosshair_hit_effect() -> void:
 	crosshair_hit.visible = false
 	
 func _on_recoil_kick(offset: Vector2) -> void:
+	print("Offset recibido: ", offset, " | Grados aplicados en X: ", offset.y * 0.1)
 	rotate_y(-deg_to_rad(offset.x) * 0.1)
 	head.rotate_x(-deg_to_rad(offset.y) * 0.1)
 	head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
