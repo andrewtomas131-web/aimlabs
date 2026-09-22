@@ -57,7 +57,7 @@ func play_idle() -> void:
 			anim_player.play(anim_idle)
 
 func emit_recoil() -> void:
-	pass  # el arma base no tiene recoil acumulativo, se queda vacío
+	pass
 
 func shoot() -> void:
 	emit_recoil()

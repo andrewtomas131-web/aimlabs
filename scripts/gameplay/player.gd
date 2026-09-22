@@ -98,7 +98,6 @@ func crosshair_hit_effect() -> void:
 	crosshair_hit.visible = false
 	
 func _on_recoil_kick(offset: Vector2) -> void:
-	print("Offset recibido: ", offset, " | Grados aplicados en X: ", offset.y * 0.1)
 	rotate_y(-deg_to_rad(offset.x) * 0.1)
 	head.rotate_x(-deg_to_rad(offset.y) * 0.1)
 	head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
