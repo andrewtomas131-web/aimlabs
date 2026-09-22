@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_aafaw"]
 [ext_resource type="PackedScene" uid="uid://www8mldt560w" path="res://scenes/enemys/enemy_movement.tscn" id="5_hhd55"]
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/ui/settings.tscn" id="6_nubxb"]
-[ext_resource type="Script" uid="uid://cpis05kpymxf4" path="res://scenes/modes/luz_farola.gd" id="8_1e5kw"]
+[ext_resource type="Script" uid="uid://cpis05kpymxf4" path="res://scripts/general/luz_farola.gd" id="8_1e5kw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
 sky_top_color = Color(0.22436085, 0.27460063, 0.3415354, 1)
@@ -161,6 +161,7 @@ offset_bottom = 427.5
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=323635353]
 transform = Transform3D(-0.99836284, -0.005934728, 0.056889888, 0.056777693, 0.017614389, 0.99823165, -0.0069263135, 0.99982744, -0.017248591, -32.812706, 56.044563, 0)
 light_color = Color(1, 0.92941177, 0.8, 1)
+light_energy = 1.5
 
 [node name="Luces" type="Node3D" parent="." unique_id=1990090715]
 
