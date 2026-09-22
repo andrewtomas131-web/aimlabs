@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_aafaw"]
 [ext_resource type="PackedScene" uid="uid://www8mldt560w" path="res://scenes/enemys/enemy_movement.tscn" id="5_hhd55"]
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/ui/settings.tscn" id="6_nubxb"]
+[ext_resource type="Script" uid="uid://cpis05kpymxf4" path="res://scenes/modes/luz_farola.gd" id="8_1e5kw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
 sky_top_color = Color(0.22436085, 0.27460063, 0.3415354, 1)
@@ -44,7 +45,7 @@ bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 environment = SubResource("Environment_jbj6s")
 
 [node name="Escenario" parent="." unique_id=924412649 instance=ExtResource("1_820c7")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.6560454, 9.536743e-07, -0.018350601)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.6004663, 0.12636995, 0.03646183)
 
 [node name="Piso" type="StaticBody3D" parent="Escenario" unique_id=330330659]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3594499, 0, 6.768949)
@@ -160,6 +161,63 @@ offset_bottom = 427.5
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=323635353]
 transform = Transform3D(-0.99836284, -0.005934728, 0.056889888, 0.056777693, 0.017614389, 0.99823165, -0.0069263135, 0.99982744, -0.017248591, -32.812706, 56.044563, 0)
 light_color = Color(1, 0.92941177, 0.8, 1)
+
+[node name="Luces" type="Node3D" parent="." unique_id=1990090715]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Luces" unique_id=112118514]
+transform = Transform3D(0.98761696, 6.8576433e-09, -0.15688461, 0.15688461, -4.3170104e-08, 0.98761696, 0, -1, -4.3711385e-08, -24.701544, 4.86994, 44.060368)
+light_color = Color(0.7529412, 0.62352943, 0.46666667, 1)
+light_energy = 16.0
+spot_range = 13.0
+spot_attenuation = -0.5
+spot_angle = 50.69
+script = ExtResource("8_1e5kw")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Luces" unique_id=2081414062]
+transform = Transform3D(0.97083426, -1.04798845e-08, 0.23975183, -0.23975183, -4.243651e-08, 0.97083426, 0, -1, -4.3711392e-08, -7.3683586, 4.86994, 21.119751)
+light_color = Color(0.7529412, 0.62352943, 0.46666667, 1)
+light_energy = 16.0
+spot_range = 13.0
+spot_attenuation = 0.0
+spot_angle = 50.69
+script = ExtResource("8_1e5kw")
+tiempo_maximo = 60.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Luces" unique_id=1209014414]
+transform = Transform3D(0.98761696, 6.8576433e-09, -0.15688461, 0.15688461, -4.3170104e-08, 0.98761696, 0, -1, -4.3711385e-08, -24.701544, 4.86994, 1.8945484)
+light_color = Color(0.7529412, 0.62352943, 0.46666667, 1)
+light_energy = 16.0
+spot_range = 13.0
+spot_attenuation = -0.5
+spot_angle = 50.69
+script = ExtResource("8_1e5kw")
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Luces" unique_id=431502234]
+transform = Transform3D(0.98761696, 6.8576433e-09, -0.15688461, 0.15688461, -4.3170104e-08, 0.98761696, 0, -1, -4.3711385e-08, -18.206646, 5.251504, -26.386255)
+light_color = Color(0.7529412, 0.62352943, 0.46666667, 1)
+light_energy = 16.0
+spot_range = 13.0
+spot_attenuation = -0.5
+spot_angle = 50.69
+script = ExtResource("8_1e5kw")
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Luces" unique_id=1988108392]
+transform = Transform3D(0.96467865, -1.15148815e-08, 0.26342982, -0.26342982, -4.216744e-08, 0.96467865, 2.8355418e-16, -1, -4.371139e-08, -7.476903, 5.2577405, 0.037815094)
+light_color = Color(0.7529412, 0.62352943, 0.46666667, 1)
+light_energy = 16.0
+spot_range = 13.0
+spot_attenuation = -0.3
+spot_angle = 50.69
+script = ExtResource("8_1e5kw")
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Luces" unique_id=2027521431]
+transform = Transform3D(0.96467865, -1.15148815e-08, 0.26342982, -0.26342982, -4.216744e-08, 0.96467865, 2.8355418e-16, -1, -4.3711392e-08, -6.1685505, 5.2577405, -13.606536)
+light_color = Color(0.7529412, 0.62352943, 0.46666667, 1)
+light_energy = 16.0
+spot_range = 13.0
+spot_attenuation = -0.3
+spot_angle = 50.69
+script = ExtResource("8_1e5kw")
 
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
