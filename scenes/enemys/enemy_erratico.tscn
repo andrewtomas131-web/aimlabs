@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vdbsipei70lx"]
 
 [ext_resource type="PackedScene" uid="uid://dju1wkhpxunhb" path="res://scenes/enemys/enemy.tscn" id="1_gxy82"]
+[ext_resource type="Script" uid="uid://t6gqi23lpsjp" path="res://scripts/gameplay/enemy_erratico.gd" id="2_riar6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ostoq"]
 bg_color = Color(0, 0, 0, 0.5019608)
@@ -12,6 +13,13 @@ bg_color = Color(1, 0, 0, 1)
 viewport_path = NodePath("SubViewport")
 
 [node name="Enemy_Erratico" unique_id=150948665 instance=ExtResource("1_gxy82")]
+script = ExtResource("2_riar6")
+vida_maxima = 500
+velocidad_min = 3.5
+velocidad_max = 5.5
+tiempo_cambio_direccion_min = 0.5
+tiempo_cambio_direccion_max = 1.5
+variacion_vertical = 0.25
 
 [node name="SubViewport" type="SubViewport" parent="." index="3" unique_id=777431312]
 transparent_bg = true

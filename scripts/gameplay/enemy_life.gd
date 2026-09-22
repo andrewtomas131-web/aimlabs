@@ -19,14 +19,18 @@ var tiempo: float = 0.0
 var fase: float = 0.0
 var inicializada: bool = false
 
+var direccion_movimiento: Vector3 = Vector3.ZERO
+
 
 func _ready() -> void:
 	super._ready()
 	vida_actual = vida_maxima
-	#da un número aleatorio entre 0 y 1, y TAU es la constante de Godot para 2π (una vuelta completa del seno).
-	#Multiplicarlos da un punto de partida aleatorio dentro del ciclo del seno, 
-	#para desincronizar el movimiento entre enemigos.
 	fase = randf() * TAU
+	
+	if randf() > 0.5:
+		direccion_movimiento = global_transform.basis.y
+	else:
+		direccion_movimiento = global_transform.basis.z
 	
 	# Verificamos si la malla tiene un material y hacemos una copia única
 	if mesh.get_active_material(0):
@@ -55,6 +59,7 @@ func hit() -> void:
 	if vida_actual <= 0:
 		registrar_puntos()
 		morir()
+		progress_bar.visible = false
 	else:
 		recibir_golpe()
 		

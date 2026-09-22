@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b02i5evgd7xx" path="res://assets/maps/monster_house/monster_house_mayville_map.glb" id="1_cvhlv"]
 [ext_resource type="PackedScene" uid="uid://d0f6lydg7mu88" path="res://scenes/players/player_mingun.tscn" id="3_cvhlv"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/enemys/spawn_targets.tscn" id="4_x1lkx"]
+[ext_resource type="Script" uid="uid://ko3vlb4l704u" path="res://scripts/gameplay/spawner_follow_enemy.gd" id="4_yygmc"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_fhj0o"]
+[ext_resource type="PackedScene" uid="uid://vdbsipei70lx" path="res://scenes/enemys/enemy_erratico.tscn" id="5_u111d"]
 [ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/ui/settings.tscn" id="6_fb7ay"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
@@ -76,6 +78,9 @@ collision_mask = 129
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_x1lkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5955782, 3.1960242, -8.498236)
+script = ExtResource("4_yygmc")
+enemy_scene = ExtResource("5_u111d")
+respawn_delay = 0.5
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
 process_mode = 3
