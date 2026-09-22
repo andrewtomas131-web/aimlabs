@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	var offset = sin(tiempo * velocidad_movimiento + fase) * amplitud_movimiento
 	global_position = posicion_inicial + global_transform.basis.y * offset
 	
-func hit() -> void:
+func hit() -> void:	
 	vida_actual -= 1
 	enemy_damaged.emit(vida_actual, vida_maxima)
 	progress_bar.max_value = vida_maxima
