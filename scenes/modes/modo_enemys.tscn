@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1atp52iub04j" path="res://assets/maps/street/street_city_7_for_games_free.glb" id="1_820c7"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="2_uwlsp"]
-[ext_resource type="PackedScene" uid="uid://bn6lv0lgypl31" path="res://scenes/players/player_ak47.tscn" id="3_820c7"]
+[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/players/player_pistol.tscn" id="3_hhd55"]
 [ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/enemys/spawn_targets.tscn" id="4_8fa6i"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_aafaw"]
 [ext_resource type="PackedScene" uid="uid://www8mldt560w" path="res://scenes/enemys/enemy_movement.tscn" id="5_hhd55"]
@@ -99,7 +99,7 @@ transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -5
 shape = SubResource("BoxShape3D_0kdyo")
 debug_fill = false
 
-[node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_820c7")]
+[node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_hhd55")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -15.482662, 0, 29.237822)
 collision_mask = 129
 
