@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ukprslqefj6s" path="res://scripts/gameplay/player.gd" id="1_urrpl"]
 [ext_resource type="Script" uid="uid://dpspaoemt5hm6" path="res://scripts/gameplay/minigun.gd" id="2_urrpl"]
-[ext_resource type="PackedScene" uid="uid://usmh62bxkg8w" path="res://assets/player/ak_47/fps_ak-74m_animations.glb" id="3_urrpl"]
+[ext_resource type="PackedScene" uid="uid://ted0nstupx6v" path="res://assets/player/minigun/minigun-m-134_anim.glb" id="3_urrpl"]
 [ext_resource type="Script" uid="uid://mmbjdmf0udmv" path="res://scripts/ui/crosshair.gd" id="4_mcyii"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
@@ -45,16 +45,16 @@ shape = SubResource("CapsuleShape3D_g2els")
 [node name="Head" type="Node3D" parent="." unique_id=1116314625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.745359, 0)
 script = ExtResource("2_urrpl")
-anim_fire = "rig|Fire"
-anim_idle = "rig|Idle"
-anim_inspect = "rig|Inspect"
+anim_fire = "rig|rig|Fire"
+anim_idle = "rig|rig|Idle"
+anim_inspect = "rig|rig|Inspect"
 is_automatic = true
 
-[node name="Sketchfab_Scene" parent="Head" unique_id=315600753 instance=ExtResource("3_urrpl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7040801, 0)
+[node name="minigun-m-134_anim" parent="Head" unique_id=795764088 instance=ExtResource("3_urrpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6831732, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1205912045]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0.061410308, -0.14203262, -0.19857743)
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0.061410308, -0.06856489, -0.11948067)
 fov = 90.0
 
 [node name="ShootRay" type="RayCast3D" parent="Head/Camera3D" unique_id=451775514]
