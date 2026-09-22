@@ -1,5 +1,5 @@
 extends Area3D
-const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
+@export var enemy_scene: PackedScene = preload("res://scenes/enemys/enemy.tscn")
 
 @export var respawn_delay: float = 0.0
 @export var max_enemies: int = 3
@@ -45,11 +45,10 @@ func _ready() -> void:
 
 
 func spawn_enemy() -> void:
-	_actualizar_max_enemies()
 	if active_enemies.size() >= max_enemies:
 		return
 	
-	var enemy = ENEMY_SCENE.instantiate()
+	var enemy = enemy_scene.instantiate()
 	_container.add_child(enemy)
 	enemy.global_position = get_random_spawn_position()
 	
@@ -144,9 +143,3 @@ func _elegir_escala_y_puntos() -> Dictionary:
 			puntos_base = 10
 	
 	return {"escala": escala, "puntos_base": puntos_base}
-
-func _actualizar_max_enemies() -> void:
-	var nuevo_max = 3 + int(Estadisticas.puntuacion / 400)
-	nuevo_max = min(nuevo_max, 12) 
-	if nuevo_max > max_enemies:
-		max_enemies = nuevo_max

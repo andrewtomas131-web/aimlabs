@@ -1,0 +1,439 @@
+[gd_scene format=3 uid="uid://byrf77fmx1tqs"]
+
+[ext_resource type="Script" uid="uid://c8vyns1jesho0" path="res://scripts/ui/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/ui/panel_diagonal.gd" id="3_wu84c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_top = 3
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ajci"]
+bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
+bg_color = Color(0.050980393, 0.09411765, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e235i"]
+bg_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 130
+corner_radius_top_right = 130
+corner_radius_bottom_right = 130
+corner_radius_bottom_left = 130
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_top = 3
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b55j"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7ex8"]
+bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pajh"]
+bg_color = Color(0.050980393, 0.09411765, 0.101960786, 1)
+border_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+
+[node name="MainMenu" type="Control" unique_id=784031658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1739259951]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bqqt6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PanelDiagonal" type="Control" parent="TextureRect" unique_id=245427365]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1081.0
+offset_bottom = 638.0
+script = ExtResource("3_wu84c")
+
+[node name="MenuContent" type="Control" parent="." unique_id=118234581]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrandLockup" type="HBoxContainer" parent="MenuContent" unique_id=176234195]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 140.0
+offset_right = 414.0
+offset_bottom = 324.0
+theme_override_constants/separation = 8
+
+[node name="BrandIcon" type="Label" parent="MenuContent/BrandLockup" unique_id=1551962478]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 65
+text = "▲
+"
+
+[node name="BrandName" type="Label" parent="MenuContent/BrandLockup" unique_id=259774989]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "AIMLABS
+"
+
+[node name="BtnJugar" type="Button" parent="MenuContent" unique_id=2122905666]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 419.0
+offset_right = 269.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "JUGAR
+"
+
+[node name="BtnConfiguracion" type="Button" parent="MenuContent" unique_id=568528882]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 419.0
+offset_right = 497.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "CONFIGURACION
+
+"
+
+[node name="BtnAyuda" type="Button" parent="MenuContent" unique_id=1190147835]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 555.0
+offset_right = 214.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_hover_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+text = "AYUDA
+"
+flat = true
+
+[node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
+visible = false
+layout_mode = 0
+offset_left = 223.0
+offset_top = 54.0
+offset_right = 968.0
+offset_bottom = 577.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="TituloConfiguracion" type="Label" parent="MenuContent/PanelConfiguracion" unique_id=339300101]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 15.0
+offset_right = 562.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 45
+text = "CONFIGURACION"
+
+[node name="Sensibilidad" type="Label" parent="MenuContent/PanelConfiguracion" unique_id=739164513]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 119.0
+offset_right = 321.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 25
+text = "Sensibilidad del Mouse"
+
+[node name="SliderSensibilidad" type="HSlider" parent="MenuContent/PanelConfiguracion" unique_id=1310414396]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 157.0
+offset_right = 324.0
+offset_bottom = 194.0
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.001
+
+[node name="CheckPantallaCompleta" type="CheckButton" parent="MenuContent/PanelConfiguracion" unique_id=1352336404]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 116.0
+offset_right = 693.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 25
+text = "Pantalla Completa"
+
+[node name="BtnVolver" type="Button" parent="MenuContent/PanelConfiguracion" unique_id=1955187609]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 474.0
+offset_right = 739.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
+text = "VOLVER"
+
+[node name="PanelModos" type="Panel" parent="MenuContent" unique_id=889242943]
+visible = false
+layout_mode = 0
+offset_left = 223.0
+offset_top = 54.0
+offset_right = 968.0
+offset_bottom = 577.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="TituloModos" type="Label" parent="MenuContent/PanelModos" unique_id=907699702]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 15.0
+offset_right = 685.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 45
+text = "MODOS DE JUEGO"
+horizontal_alignment = 1
+
+[node name="BtnModoNormal" type="Button" parent="MenuContent/PanelModos" unique_id=1373255741]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 110.0
+offset_right = 685.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO DE JUEGO NORMAL"
+
+[node name="BtnModoMovimiento" type="Button" parent="MenuContent/PanelModos" unique_id=1148511792]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 188.0
+offset_right = 685.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO DE JUEGO ENEMIGOS CON MOVIMIENTO"
+
+[node name="BtnModoVidaMovimiento" type="Button" parent="MenuContent/PanelModos" unique_id=893187728]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 266.0
+offset_right = 685.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO DE JUEGO ENEMIGOS CON VIDA Y MOVIMIENTO"
+
+[node name="BtnModoSeguir" type="Button" parent="MenuContent/PanelModos" unique_id=1964836007]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 689.0
+offset_bottom = 394.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "MODO SEGUIR ENEMIGO"
+
+[node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos" unique_id=1535494689]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 474.0
+offset_right = 739.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
+text = "VOLVER"
+
+[node name="CornerAccent" type="Panel" parent="MenuContent" unique_id=88240406]
+layout_mode = 0
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e235i")
+
+[node name="PanelAyuda" type="Panel" parent="." unique_id=1238452324]
+visible = false
+layout_mode = 0
+offset_left = 234.0
+offset_top = 75.0
+offset_right = 915.0
+offset_bottom = 494.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu84c")
+
+[node name="TituloAyuda" type="Label" parent="PanelAyuda" unique_id=1999098604]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 8.0
+offset_right = 379.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 24
+text = "AYUDA"
+
+[node name="TextoAyuda" type="Label" parent="PanelAyuda" unique_id=2140698275]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 53.0
+offset_right = 552.0
+offset_bottom = 365.0
+text = "Elimina la mayor cantidad de objetivos, cuida 
+tu punteria y logra el mayor numero de aciertos
+
+
+
+CONTROLES
+
+Mouse → Mirar
+Clic izquierdo → Disparar
+ESC → Menu de pausa"
+
+[node name="BtnEntendido" type="Button" parent="PanelAyuda" unique_id=1753677168]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 383.0
+offset_right = 664.0
+offset_bottom = 414.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7b55j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j7ex8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pajh")
+text = "ENTENDIDO"
+
+[connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
+[connection signal="pressed" from="MenuContent/BtnConfiguracion" to="." method="_on_btn_configuracion_pressed"]
+[connection signal="pressed" from="MenuContent/BtnAyuda" to="." method="_on_btn_ayuda_pressed"]
+[connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
+[connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
+[connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoNormal" to="." method="_on_btn_modo_normal_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoMovimiento" to="." method="_on_btn_modo_enemigos_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoVidaMovimiento" to="." method="_on_btn_modo_3_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnModoSeguir" to="." method="_on_btn_modo_4_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/BtnVolverModos" to="." method="_on_btn_volver_modos_pressed"]
+[connection signal="pressed" from="PanelAyuda/BtnEntendido" to="." method="_on_btn_entendido_pressed"]

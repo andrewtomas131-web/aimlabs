@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://www8mldt560w"]
+
+[ext_resource type="PackedScene" uid="uid://dju1wkhpxunhb" path="res://scenes/enemys/enemy.tscn" id="1_o8n88"]
+[ext_resource type="Script" uid="uid://c4mx4i4pvhomw" path="res://scripts/gameplay/enemy_movement.gd" id="2_buip1"]
+
+[node name="EnemyMovement" unique_id=150948665 instance=ExtResource("1_o8n88")]
+script = ExtResource("2_buip1")
+movimiento_habilitado = true
+velocidad_movimiento = 2.0
+amplitud_movimiento = 1.5

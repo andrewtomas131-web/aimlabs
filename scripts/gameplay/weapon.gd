@@ -4,16 +4,23 @@ extends Node3D
 @export var anim_fire: String = "Fire"
 @export var anim_idle: String = "Iddle"
 @export var anim_inspect: String = "Inspeecionar"
+@export var anim_walk: String = "Walk"
+
 @export var fire_rate: float = 0.1 
-@export var is_automatic:bool = false
+@export var is_automatic: bool = false
+@export var sonido_disparo: String = "disparo_pistola"
+@export var sonido_variacion_tono: float = 0.03
 
 @onready var anim_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var shootRay = $Camera3D/ShootRay
+var cilindro_activo: EnemyErratico = null
+
 
 signal hit_target
+signal recoil_kick(offset: Vector2)
 
 var fire_timer: float = 0.0
-var is_firing:bool = false
+var is_firing: bool = false
 var wants_to_fire: bool = false
 
 func _ready() -> void:
@@ -27,7 +34,7 @@ func fire() -> void:
 		return
 	shoot()
 	is_firing = true
-	anim_player.play(anim_fire)
+	play_anim_fire()
 	
 func _process(delta: float) -> void:
 	if is_firing and is_automatic:
@@ -39,25 +46,39 @@ func _process(delta: float) -> void:
 func start_fire() -> void:
 	anim_player.stop()
 
+func play_anim_fire() -> void:
+	anim_player.play(anim_fire)
+
 func stop_fire() -> void:
 	is_firing = false
 	wants_to_fire = false
 
 func inspect() -> void:
-	anim_player.stop()
-	anim_player.play(anim_inspect)
+	if(!is_firing):
+		anim_player.stop() 
+		anim_player.play(anim_inspect)
 
 func play_idle() -> void:
 	if anim_player.current_animation != anim_fire and anim_player.current_animation != anim_inspect:
 			anim_player.play(anim_idle)
 
+func play_walk() -> void:
+	pass
+
+func emit_recoil() -> void:
+	pass
+
 func shoot() -> void:
+	emit_recoil()
 	hit_target.emit()
 	Estadisticas.registrar_disparo()
+	AudioManager.play(sonido_disparo, 0.0, sonido_variacion_tono)
 	if not shootRay.is_colliding():
+		if cilindro_activo:
+			cilindro_activo.registrar_fallo()
 		return
 	var target = shootRay.get_collider()
 	if target.is_in_group("target") and target.has_method("hit"):
-		target.hit()
-	else:
-		return
+		var distancia = shootRay.global_position.distance_to(shootRay.get_collision_point())
+		AudioManager.play("impacto", -4.0, 0.05)
+		target.hit(distancia)
