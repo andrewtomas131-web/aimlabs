@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bvfmbt2oat6od"]
 
 [ext_resource type="PackedScene" uid="uid://b02i5evgd7xx" path="res://assets/maps/monster_house/monster_house_mayville_map.glb" id="1_cvhlv"]
-[ext_resource type="PackedScene" uid="uid://d0f6lydg7mu88" path="res://scenes/player_mingun.tscn" id="3_cvhlv"]
-[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_x1lkx"]
+[ext_resource type="PackedScene" uid="uid://d0f6lydg7mu88" path="res://scenes/players/player_mingun.tscn" id="3_cvhlv"]
+[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/enemys/spawn_targets.tscn" id="4_x1lkx"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_fhj0o"]
-[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_fb7ay"]
+[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/ui/settings.tscn" id="6_fb7ay"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
 ground_bottom_color = Color(0.1882353, 0.1882353, 0.1882353, 1)

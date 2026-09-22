@@ -1,5 +1,5 @@
 extends Area3D
-@export var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+@export var enemy_scene: PackedScene = preload("res://scenes/enemys/enemy.tscn")
 
 @export var respawn_delay: float = 0.0
 @export var max_enemies: int = 3

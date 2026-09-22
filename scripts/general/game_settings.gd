@@ -6,8 +6,6 @@ var fullscreen: bool = false
 var selected_weapon_scene: PackedScene
 
 const SETTINGS_PATH := "user://settings.cfg"
-const PLAYER_PISTOL = preload("res://scenes/player_pistol.tscn")
-const PLAYER_AK = preload("res://scenes/player_ak47.tscn")
 
 func _ready() -> void:
 	load_settings()

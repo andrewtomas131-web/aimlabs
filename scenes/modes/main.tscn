@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
-[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/player_pistol.tscn" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/players/player_pistol.tscn" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/enemys/spawn_targets.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cpehlnftv7xoi" path="res://assets/textures/checker.png" id="5_chk"]
-[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/ui/settings.tscn" id="5_tbgi4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
 albedo_color = Color(0.55, 0.62, 0.72, 1)
