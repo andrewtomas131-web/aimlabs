@@ -4,6 +4,8 @@ extends Node3D
 @export var anim_fire: String = "Fire"
 @export var anim_idle: String = "Iddle"
 @export var anim_inspect: String = "Inspeecionar"
+@export var anim_walk: String = "Walk"
+
 @export var fire_rate: float = 0.1 
 @export var is_automatic: bool = false
 
@@ -55,6 +57,9 @@ func inspect() -> void:
 func play_idle() -> void:
 	if anim_player.current_animation != anim_fire and anim_player.current_animation != anim_inspect:
 			anim_player.play(anim_idle)
+
+func play_walk() -> void:
+	pass
 
 func emit_recoil() -> void:
 	pass

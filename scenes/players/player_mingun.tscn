@@ -48,6 +48,7 @@ script = ExtResource("2_urrpl")
 anim_fire = "rig|rig|Fire"
 anim_idle = "rig|rig|Idle"
 anim_inspect = "rig|rig|Inspect"
+anim_walk = "rig|rig|Walk"
 is_automatic = true
 
 [node name="minigun-m-134_anim" parent="Head" unique_id=795764088 instance=ExtResource("3_urrpl")]

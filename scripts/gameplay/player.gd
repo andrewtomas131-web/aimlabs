@@ -1,7 +1,9 @@
 extends CharacterBody3D
 
-@export var SPEED = 7.0
-@export var JUMP_VELOCITY = 5
+@export var speed:float = 7.0
+@export var jump_velocity:float = 5.0
+@export var aceleracion: float = 25.0
+@export var friccion: float = 25.0
 
 var anim_player: AnimationPlayer
 
@@ -65,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 
 	var input_dir := Input.get_vector(
 		"derecha",
@@ -73,19 +75,21 @@ func _physics_process(delta: float) -> void:
 		"atras",
 		"adelante"
 	)
-
+	if input_dir and not current_weapon.wants_to_fire: 
+		current_weapon.play_walk()
+	else:
+		current_weapon.play_idle()
 	var direction := (
 		transform.basis *
 		Vector3(input_dir.x, 0, input_dir.y)
 	).normalized()
-
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-	current_weapon.play_idle()
+	var objetivo := direction * speed
+	var ritmo := aceleracion if direction.length() > 0.1 else friccion
+	
+	velocity.x = move_toward(velocity.x, objetivo.x, ritmo * delta)
+	velocity.z = move_toward(velocity.z, objetivo.z, ritmo * delta)
+	
+	
 	move_and_slide()
 
 func crosshair_hit_effect() -> void:
