@@ -13,6 +13,3 @@ export_credentials.cfg
 data_/**
 mono_crash.*
 *.json
-
-# Ignore minigun player assets
-/assets/player/minigun/
