@@ -45,7 +45,6 @@ func _ready() -> void:
 
 
 func spawn_enemy() -> void:
-	_actualizar_max_enemies()
 	if active_enemies.size() >= max_enemies:
 		return
 	
@@ -144,9 +143,3 @@ func _elegir_escala_y_puntos() -> Dictionary:
 			puntos_base = 10
 	
 	return {"escala": escala, "puntos_base": puntos_base}
-
-func _actualizar_max_enemies() -> void:
-	var nuevo_max = 3 + int(Estadisticas.puntuacion / 400)
-	nuevo_max = min(nuevo_max, 12) 
-	if nuevo_max > max_enemies:
-		max_enemies = nuevo_max
