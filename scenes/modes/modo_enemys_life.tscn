@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://dba2xfjh4bvu"]
+[gd_scene format=3 uid="uid://cjsivriiukvwe"]
 
 [ext_resource type="PackedScene" uid="uid://daw36x25rpo6h" path="res://assets/maps/presa/map_70.glb" id="1_aldmf"]
 [ext_resource type="PackedScene" uid="uid://dpfwqk45iyd5v" path="res://assets/platform/round_platform.glb" id="2_aldmf"]
-[ext_resource type="PackedScene" uid="uid://bn6lv0lgypl31" path="res://scenes/player_ak47.tscn" id="3_rag3b"]
-[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_7d1gj"]
+[ext_resource type="PackedScene" path="res://scenes/players/player_ak47.tscn" id="3_rag3b"]
+[ext_resource type="PackedScene" path="res://scenes/enemys/spawn_targets.tscn" id="4_7d1gj"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_c12mh"]
-[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_4ntqt"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings.tscn" id="6_4ntqt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
 ground_bottom_color = Color(0.28593543, 0.24450892, 0.19792822, 1)
@@ -22,6 +22,9 @@ adjustment_enabled = true
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7igdd"]
 height = 0.59472656
 radius = 2.5483398
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
+size = Vector3(1.5, 1, 0.15)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
@@ -80,7 +83,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_hhd55")
 Button/styles/normal = SubResource("StyleBoxFlat_1e5kw")
 Button/styles/pressed = SubResource("StyleBoxFlat_ik5bc")
 
-[node name="main" type="Node3D" unique_id=694436847]
+[node name="main2" type="Node3D" unique_id=694436847]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1334698503]
 environment = SubResource("Environment_jbj6s")
@@ -99,11 +102,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024249315, 0.1498509, 0.010
 shape = SubResource("CylinderShape3D_7igdd")
 debug_color = Color(0.9520524, 1.0588765e-06, 0.5630313, 0.41960785)
 
+[node name="Paredes" type="StaticBody3D" parent="Escenario/Plataforma" unique_id=970826597]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=1582315316]
+transform = Transform3D(0.9694544, 0, -0.24527161, 0, 1, 0, 0.24527161, 0, 0.9694544, -0.7294917, 0.65211695, 2.3980465)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=2059656432]
+transform = Transform3D(0.96378356, 0, 0.2666857, 0, 1, 0, -0.2666857, 0, 0.96378356, 0.7368586, 0.65211695, 2.3855953)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=2093283416]
+transform = Transform3D(0.62570137, 0, 0.7800628, 0, 1, 0, -0.7800628, 0, 0.62570137, 1.9312289, 0.65211695, 1.5365486)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=1245959507]
+transform = Transform3D(0.15609632, 0, 0.9877419, 0, 1, 0, -0.9877419, 0, 0.15609632, 2.4931123, 0.65211695, 0.19045639)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=1553984906]
+transform = Transform3D(-0.43809077, 0, 0.8989307, 0, 1, 0, -0.8989307, 0, -0.43809077, 2.2046587, 0.65211695, -1.21908)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=517202704]
+transform = Transform3D(-0.8571844, 0, 0.5150096, 0, 1, 0, -0.5150096, 0, -0.8571844, 1.2066362, 0.65211695, -2.2010174)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=360483948]
+transform = Transform3D(-0.9999852, 0, -0.0054278374, 0, 1, 0, 0.0054278374, 0, -0.9999852, -0.1534946, 0.65211695, -2.4597187)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=169557168]
+transform = Transform3D(-0.81692487, 0, -0.5767443, 0, 1, 0, 0.5767443, 0, -0.81692487, -1.5083222, 0.65211695, -1.985796)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=1160212195]
+transform = Transform3D(-0.24879174, 0, -0.9685572, 0, 1, 0, 0.9685572, 0, -0.24879174, -2.362636, 0.65211695, -0.7758045)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=736802479]
+transform = Transform3D(0.27083752, 0, -0.96262515, 0, 1, 0, 0.96262515, 0, 0.27083752, -2.3664203, 0.65211695, 0.6995659)
+shape = SubResource("BoxShape3D_onsl3")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Escenario/Plataforma/Paredes" unique_id=671363673]
+transform = Transform3D(0.7316949, 0, -0.68163234, 0, 1, 0, 0.68163234, 0, 0.7316949, -1.8138672, 0.65211695, 1.725956)
+shape = SubResource("BoxShape3D_onsl3")
+
 [node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_rag3b")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 7.533761, 0, -80.18053)
+collision_mask = 129
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_7d1gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935491, 3.1960242, 18.777792)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.033913, 3.1960242, -79.87413)
+max_enemies = 5
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
 process_mode = 3

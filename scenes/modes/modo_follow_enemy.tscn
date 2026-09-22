@@ -1,10 +1,12 @@
-[gd_scene format=3 uid="uid://bvfmbt2oat6od"]
+[gd_scene format=3 uid="uid://bmmqx3xi44r6x"]
 
 [ext_resource type="PackedScene" uid="uid://b02i5evgd7xx" path="res://assets/maps/monster_house/monster_house_mayville_map.glb" id="1_cvhlv"]
-[ext_resource type="PackedScene" uid="uid://d0f6lydg7mu88" path="res://scenes/player_mingun.tscn" id="3_cvhlv"]
-[ext_resource type="PackedScene" uid="uid://dg317u5asr4vx" path="res://scenes/spawn_targets.tscn" id="4_x1lkx"]
+[ext_resource type="PackedScene" path="res://scenes/players/player_mingun.tscn" id="3_cvhlv"]
+[ext_resource type="PackedScene" path="res://scenes/enemys/spawn_targets.tscn" id="4_x1lkx"]
+[ext_resource type="Script" path="res://scripts/gameplay/spawner_follow_enemy.gd" id="4_yygmc"]
 [ext_resource type="Script" uid="uid://nasp246q54hj" path="res://scripts/ui/pause_menu.gd" id="5_fhj0o"]
-[ext_resource type="PackedScene" uid="uid://bp55x6q060bj6" path="res://scenes/settings.tscn" id="6_fb7ay"]
+[ext_resource type="PackedScene" path="res://scenes/enemys/enemy_erratico.tscn" id="5_u111d"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings.tscn" id="6_fb7ay"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kohjj"]
 ground_bottom_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
@@ -20,7 +22,7 @@ ambient_light_source = 3
 adjustment_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ammht"]
-size = Vector3(157.52795, 20, 1)
+size = Vector3(170.38495, 20, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_onsl3"]
 
@@ -123,12 +125,23 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.0
 shape = SubResource("BoxShape3D_ammht")
 debug_color = Color(0.84098154, 0.10814189, 0.3918025, 0.41960785)
 
+[node name="paredTrasera" type="StaticBody3D" parent="Escenario/Paredes" unique_id=770687605]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711385e-08, 39.172665, 0, 54.153297)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/Paredes/paredTrasera" unique_id=2072185035]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.014893, 5.924434, 31.78054)
+shape = SubResource("BoxShape3D_ammht")
+debug_color = Color(0.84098154, 0.10814189, 0.3918025, 0.41960785)
+
 [node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_cvhlv")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -4.80849, -0.3211527, 1.5585394)
 collision_mask = 129
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_x1lkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5955782, 3.1960242, -8.498236)
+script = ExtResource("4_yygmc")
+enemy_scene = ExtResource("5_u111d")
+respawn_delay = 0.5
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=854346163]
 process_mode = 3

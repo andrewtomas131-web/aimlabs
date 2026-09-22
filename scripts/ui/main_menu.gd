@@ -1,10 +1,13 @@
 extends Control
 
+@onready var mejor_puntaje_label: Label = $MenuContent/MejorPuntaje
+
 
 func _ready() -> void:
 	$MenuContent/PanelConfiguracion/SliderSensibilidad.value = GameSettings.mouse_sensitivity
 	$MenuContent/PanelConfiguracion/CheckPantallaCompleta.button_pressed = GameSettings.fullscreen
 	aplicar_pantalla_completa()
+	_actualizar_mejor_puntaje()
 	
 func aplicar_pantalla_completa() -> void:
 	if GameSettings.fullscreen:
@@ -59,3 +62,6 @@ func _on_btn_ayuda_pressed() -> void:
 
 func _on_btn_entendido_pressed() -> void:
 	$PanelAyuda.visible = false
+	
+func _actualizar_mejor_puntaje() -> void:
+	mejor_puntaje_label.text = "MEJOR PUNTAJE: %d" % Estadisticas.mejor_puntuacion

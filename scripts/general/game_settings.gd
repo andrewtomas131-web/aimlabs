@@ -2,6 +2,7 @@ extends Node
 
 var mouse_sensitivity: float = 0.003
 var fullscreen: bool = false
+var fov: float = 75.0
 
 var selected_weapon_scene: PackedScene
 
@@ -16,6 +17,7 @@ func save_settings() -> void:
 	var config := ConfigFile.new()
 	config.set_value("mouse", "sensitivity", mouse_sensitivity)
 	config.set_value("display", "fullscreen", fullscreen)
+	config.set_value("camera", "fov", fov)
 	config.save(SETTINGS_PATH)
 
 func load_settings() -> void:
@@ -31,3 +33,7 @@ func load_settings() -> void:
 			"fullscreen",
 			fullscreen
 		)
+		fov = config.get_value(
+			"camera",
+			"fov", 
+			fov)

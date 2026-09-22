@@ -4,8 +4,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_top = 3
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="PanelConfiguracion" type="Panel" unique_id=1671682763]
+modulate = Color(0.2784314, 0.84705883, 0.84313726, 1)
 offset_left = 204.0
 offset_top = 61.0
 offset_right = 949.0
@@ -19,6 +26,7 @@ offset_left = 188.0
 offset_top = 15.0
 offset_right = 562.0
 offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 45
 text = "CONFIGURACION"
 
@@ -28,6 +36,7 @@ offset_left = 46.0
 offset_top = 119.0
 offset_right = 321.0
 offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 25
 text = "Sensibilidad del Mouse"
 
@@ -42,13 +51,27 @@ max_value = 0.01
 step = 0.001
 value = 0.001
 
+[node name="ValorSensibilidad" type="Label" parent="." unique_id=1763283328]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 199.0
+offset_right = 203.0
+offset_bottom = 223.0
+text = "0.001"
+
 [node name="CheckPantallaCompleta" type="CheckButton" parent="." unique_id=1303943269]
 layout_mode = 0
 offset_left = 423.0
 offset_top = 116.0
 offset_right = 693.0
 offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_pressed_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_hover_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 25
+theme_override_colors/button_checked_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/button_unchecked_color = Color(0.106844716, 0.42599872, 0.4240225, 1)
 text = "Pantalla Completa"
 
 [node name="BtnVolver" type="Button" parent="." unique_id=967294743]
@@ -59,6 +82,31 @@ offset_right = 739.0
 offset_bottom = 509.0
 text = "VOLVER"
 
+[node name="FOV" type="Label" parent="." unique_id=793999267]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 256.0
+offset_right = 325.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 25
+text = "FOV (Campo de Vision)"
+
+[node name="ValorFOV" type="Label" parent="." unique_id=443112365]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 341.0
+offset_right = 205.0
+offset_bottom = 365.0
+text = "0.001"
+
+[node name="SliderFOV" type="HSlider" parent="." unique_id=11465113]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 299.0
+offset_right = 324.0
+offset_bottom = 336.0
+
 [connection signal="value_changed" from="SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
 [connection signal="toggled" from="CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="value_changed" from="SliderFOV" to="." method="_on_slider_fov_value_changed"]
