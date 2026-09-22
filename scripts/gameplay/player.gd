@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 7.0
-const JUMP_VELOCITY = 5
+@export var SPEED = 7.0
+@export var JUMP_VELOCITY = 5
 
 var anim_player: AnimationPlayer
 

@@ -3,7 +3,7 @@ class_name EnemyMovement
 
 @export_group("Movimiento")
 @export var movimiento_habilitado: bool = true
-@export var velocidad_movimiento: float = 2.0
+@export var velocidad_movimiento: float = 2.2
 @export var amplitud_movimiento: float = 1.5
 
 var posicion_inicial: Vector3
