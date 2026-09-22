@@ -8,7 +8,6 @@ class_name EnemyLife
 @export var velocidad_movimiento: float = 2.0
 @export var amplitud_movimiento: float = 1.5
 
-
 @onready var progress_bar = $SubViewport/ProgressBar
 
 var vida_actual: int
@@ -19,20 +18,25 @@ var tiempo: float = 0.0
 var fase: float = 0.0
 var inicializada: bool = false
 
+var direccion_movimiento: Vector3 = Vector3.ZERO
+
 
 func _ready() -> void:
 	super._ready()
 	vida_actual = vida_maxima
-	#da un número aleatorio entre 0 y 1, y TAU es la constante de Godot para 2π (una vuelta completa del seno).
-	#Multiplicarlos da un punto de partida aleatorio dentro del ciclo del seno, 
-	#para desincronizar el movimiento entre enemigos.
 	fase = randf() * TAU
+	
+	if randf() > 0.5:
+		direccion_movimiento = global_transform.basis.y
+	else:
+		direccion_movimiento = global_transform.basis.z
 	
 	# Verificamos si la malla tiene un material y hacemos una copia única
 	if mesh.get_active_material(0):
 		mat = mesh.get_active_material(0).duplicate()
 		# Asignamos la copia única de vuelta al MeshInstance3D
 		mesh.set_surface_override_material(0, mat)
+
 	
 func _physics_process(delta: float) -> void:
 	if not movimiento_habilitado:
@@ -44,7 +48,9 @@ func _physics_process(delta: float) -> void:
 	
 	tiempo += delta
 	var offset = sin(tiempo * velocidad_movimiento + fase) * amplitud_movimiento
-	global_position = posicion_inicial + global_transform.basis.y * offset
+	
+	global_position = posicion_inicial + direccion_movimiento * offset
+
 	
 func hit() -> void:
 	vida_actual -= 1
@@ -57,6 +63,7 @@ func hit() -> void:
 		morir()
 	else:
 		recibir_golpe()
+
 		
 func recibir_golpe() -> void:
 	Estadisticas.registrar_acierto(0)

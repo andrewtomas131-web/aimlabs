@@ -58,7 +58,7 @@ fov = 90.0
 
 [node name="ShootRay" type="RayCast3D" parent="Head/Camera3D" unique_id=451775514]
 target_position = Vector3(0, 0, -100)
-collision_mask = 65535
+collision_mask = 65407
 collide_with_areas = true
 
 [node name="UI" type="Control" parent="." unique_id=1965764788]

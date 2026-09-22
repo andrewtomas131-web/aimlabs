@@ -22,14 +22,17 @@ ambient_light_source = 3
 adjustment_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_onsl3"]
-size = Vector2(20, 20)
+size = Vector2(7, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
 albedo_texture = ExtResource("2_uwlsp")
 uv1_scale = Vector3(6, 6, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onsl3"]
-size = Vector3(20, 0.05, 20)
+size = Vector3(7, 0.05, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0kdyo"]
+size = Vector3(10, 1, 0.15)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
@@ -40,13 +43,13 @@ bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
 environment = SubResource("Environment_jbj6s")
 
 [node name="Escenario" parent="." unique_id=924412649 instance=ExtResource("1_820c7")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.6809402, 0, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.6560454, 9.536743e-07, -0.018350601)
 
 [node name="Piso" type="StaticBody3D" parent="Escenario" unique_id=330330659]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.8811011, 0, 6.7689486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3594499, 0, 6.768949)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Escenario/Piso" unique_id=2131770012]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.341999, 0.041352034, -0.035945892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.298298, 0.07471728, -0.6141777)
 visible = false
 mesh = SubResource("PlaneMesh_onsl3")
 surface_material_override/0 = SubResource("StandardMaterial3D_floor")
@@ -54,9 +57,50 @@ surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/Piso" unique_id=572826680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.816022, 0, 0)
 shape = SubResource("BoxShape3D_onsl3")
+debug_color = Color(0.96577746, 0, 0.4875564, 0.41960785)
+
+[node name="ParedDelantera" type="StaticBody3D" parent="Escenario" unique_id=225903449]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedDelantera" unique_id=1816103624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6213403, 0.5046189, 5.1882324)
+shape = SubResource("BoxShape3D_0kdyo")
+debug_fill = false
+
+[node name="ParedDerecha" type="StaticBody3D" parent="Escenario" unique_id=1309075915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4643276, 0, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedDerecha" unique_id=1053606029]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -1.6525486, 0.5046189, 6.4281325)
+shape = SubResource("BoxShape3D_0kdyo")
+debug_fill = false
+
+[node name="ParedIzquierda" type="StaticBody3D" parent="Escenario" unique_id=246527979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4643276, 0, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedIzquierda" unique_id=1611842472]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -7.070609, 0.5046189, 6.428133)
+shape = SubResource("BoxShape3D_0kdyo")
+debug_fill = false
+
+[node name="ParedTrasera" type="StaticBody3D" parent="Escenario" unique_id=312240003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4643276, 0, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedTrasera" unique_id=154373437]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -5.6238275, 0.5046189, 11.038481)
+shape = SubResource("BoxShape3D_0kdyo")
+debug_fill = false
 
 [node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_820c7")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -15.482662, 0, 29.237822)
+collision_mask = 129
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_8fa6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935491, 3.1960242, 18.777792)
