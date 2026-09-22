@@ -11,6 +11,8 @@ extends Node3D
 
 @onready var anim_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var shootRay = $Camera3D/ShootRay
+var cilindro_activo: EnemyErratico = null
+
 
 signal hit_target
 signal recoil_kick(offset: Vector2)
@@ -69,9 +71,10 @@ func shoot() -> void:
 	hit_target.emit()
 	Estadisticas.registrar_disparo()
 	if not shootRay.is_colliding():
+		if cilindro_activo:
+			cilindro_activo.registrar_fallo()
 		return
 	var target = shootRay.get_collider()
 	if target.is_in_group("target") and target.has_method("hit"):
-		target.hit()
-	else:
-		return
+		var distancia = shootRay.global_position.distance_to(shootRay.get_collision_point())
+		target.hit(distancia)

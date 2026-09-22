@@ -17,8 +17,8 @@ viewport_path = NodePath("SubViewport")
 [node name="Enemy_Erratico" unique_id=150948665 instance=ExtResource("1_gxy82")]
 script = ExtResource("2_riar6")
 vida_maxima = 500
-velocidad_min = 3.5
-velocidad_max = 5.5
+velocidad_min = 4.0
+velocidad_max = 8.0
 tiempo_cambio_direccion_min = 0.5
 tiempo_cambio_direccion_max = 1.5
 variacion_vertical = 0.25

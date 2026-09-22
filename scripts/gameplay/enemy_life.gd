@@ -5,13 +5,15 @@ class_name EnemyLife
 
 @export_group("Movimiento")
 @export var movimiento_habilitado: bool = true
-@export var velocidad_movimiento: float = 2.0
+@export var velocidad_min: float = 2.0
+@export var velocidad_max: float = 3.5
 @export var amplitud_movimiento: float = 1.5
 
 @onready var progress_bar = $SubViewport/ProgressBar
 
 var vida_actual: int
 var mat: StandardMaterial3D
+var velocidad_movimiento: float = 10.0
 
 var posicion_inicial: Vector3
 var tiempo: float = 0.0
@@ -25,6 +27,8 @@ func _ready() -> void:
 	super._ready()
 	vida_actual = vida_maxima
 	fase = randf() * TAU
+	
+	velocidad_movimiento = randf_range(velocidad_min, velocidad_max)
 	
 	if randf() > 0.5:
 		direccion_movimiento = global_transform.basis.y
@@ -52,23 +56,30 @@ func _physics_process(delta: float) -> void:
 	global_position = posicion_inicial + direccion_movimiento * offset
 
 	
-func hit() -> void:	
+func hit(distancia: float = -1.0) -> void:	
 	vida_actual -= 1
 	enemy_damaged.emit(vida_actual, vida_maxima)
 	progress_bar.max_value = vida_maxima
 	progress_bar.value = vida_actual
 	
 	if vida_actual <= 0:
-		registrar_puntos()
+		registrar_puntos(distancia)
 		morir()
 		progress_bar.visible = false
 	else:
 		recibir_golpe()
 
-		
+func registrar_puntos(distancia: float = -1.0) -> void:
+	var base = int(puntos_base / scale.x)
+	var multiplicador_velocidad = clamp(velocidad_movimiento / 2.0, 1.0, 2.5)
+	var multiplicador_distancia = clamp(distancia / 10.0, 0.5, 2.0) if distancia > 0 else 1.0
+	
+	var puntos_finales = int(base * multiplicador_velocidad * multiplicador_distancia)
+	Estadisticas.registrar_acierto(puntos_finales)
+
 func recibir_golpe() -> void:
 	Estadisticas.registrar_acierto(0)
 	var tween = create_tween()
 	if mat:
 		tween.tween_property(mat, "albedo_color", Color(1, 0.3, 0.3), 0.05)
-		tween.tween_property(mat, "albedo_color", Color.WHITE, 0.15)
+		tween.tween_property(mat, "albedo_color", Color(0.0, 0.851, 0.788), 0.15)

@@ -10,9 +10,6 @@ extends Weapon
 	Vector2(-0.1, 2.3),
 	Vector2(-0.15, 2.5),
 ]
-@export var base_spread: float = 0.3
-@export var max_spread: float = 4.0
-@export var spread_increase_per_shot: float = 0.25
 
 var shots_fired_in_burst: int = 0
 var base_ray_rotation: Vector3

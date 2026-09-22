@@ -8,21 +8,22 @@ class_name EnemyErratico
 @export var vida_maxima: int = 500
 
 @export_group("Movimiento errático")
-@export var velocidad_min: float = 3.5
-@export var velocidad_max: float = 5.5
-@export var tiempo_cambio_direccion_min: float = 0.5
-@export var tiempo_cambio_direccion_max: float = 1.5
-@export var variacion_vertical: float = 0.25  # 0 = solo se mueve en el plano XZ
+@export var velocidad_min: float = 10.0
+@export var velocidad_max: float = 15.0
+@export var tiempo_cambio_direccion_min: float = 0.7
+@export var tiempo_cambio_direccion_max: float = 1.7
+@export var variacion_vertical: float = 0.25
 
 var vida_actual: int
+var disparos_consecutivos_sin_fallar: int = 0
 
-# Asignados por el spawner con configurar_area()
 var _area_shape: Shape3D
 var _area_transform: Transform3D
 
 var _direccion: Vector3 = Vector3.ZERO
-var _velocidad: float = 2.0
 var _tiempo_restante: float = 0.0
+var _velocidad: float = 2.0
+
 
 
 func _ready() -> void:
@@ -39,18 +40,14 @@ func configurar_area(shape: Shape3D, area_global_transform: Transform3D) -> void
 func _process(delta: float) -> void:
 	if _area_shape == null:
 		return
-
 	_tiempo_restante -= delta
 	if _tiempo_restante <= 0.0:
 		_elegir_nueva_direccion()
-
 	var nueva_pos: Vector3 = global_position + _direccion * _velocidad * delta
 
 	if _dentro_del_area(nueva_pos):
 		global_position = nueva_pos
 	else:
-		# Chocó con el límite del área: elige otra dirección de inmediato
-		# en vez de quedarse pegado al borde.
 		_elegir_nueva_direccion()
 
 
@@ -62,6 +59,7 @@ func _elegir_nueva_direccion() -> void:
 	).normalized()
 	_velocidad = randf_range(velocidad_min, velocidad_max)
 	_tiempo_restante = randf_range(tiempo_cambio_direccion_min, tiempo_cambio_direccion_max)
+	
 
 
 func _dentro_del_area(pos: Vector3) -> bool:
@@ -74,19 +72,29 @@ func _dentro_del_area(pos: Vector3) -> bool:
 	return true
 
 
-# Sobrescribe el hit() de Enemy: ahora hace falta más de un disparo para morir.
-func hit() -> void:
+func hit(distancia: float = -1.0) -> void:
+	disparos_consecutivos_sin_fallar += 1
 	vida_actual -= 20
 	enemy_damaged.emit(vida_actual, vida_maxima)
 	progress_bar.max_value = vida_maxima
 	progress_bar.value = vida_actual
-
+	
+	registrar_puntos_parciales()
 	if vida_actual <= 0:
-		registrar_puntos()
 		morir()
 		progress_bar.visible = false
 	else:
 		_feedback_golpe()
+
+func registrar_fallo() -> void:
+	disparos_consecutivos_sin_fallar = 0
+
+func registrar_puntos_parciales() -> void:
+	var base_por_golpe = int(70.0/ scale.x / 25.0)
+	var multiplicador_consistencia = clamp(1.0 + (disparos_consecutivos_sin_fallar / 25.0), 1.0, 2.0)
+
+	var puntos_de_este_golpe = int(base_por_golpe * multiplicador_consistencia)
+	Estadisticas.registrar_acierto(puntos_de_este_golpe)
 
 func _feedback_golpe() -> void:
 	if particles:

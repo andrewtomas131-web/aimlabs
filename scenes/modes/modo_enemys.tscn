@@ -104,7 +104,7 @@ transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 
 collision_mask = 129
 
 [node name="SpawnTargets" parent="." unique_id=203243919 instance=ExtResource("4_8fa6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.710173, 5.208433, 14.111656)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.743234, 5.208433, 14.111656)
 enemy_scene = ExtResource("5_hhd55")
 max_enemies = 5
 

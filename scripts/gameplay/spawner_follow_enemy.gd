@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var enemy_scene: PackedScene = preload("res://scenes/enemys/enemy_erratico.tscn")
-@export var respawn_delay: float = 0.5
+@export var respawn_delay: float = 0.0
 @export var enemies_container: NodePath
 
 @onready var collision: CollisionShape3D = $CollisionShape3D2
@@ -43,6 +43,12 @@ func spawn_enemy() -> void:
 		enemy.enemy_hit.connect(_on_enemy_hit)
 	else:
 		push_error("El enemigo no tiene la señal 'enemy_hit'.")
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.cilindro_activo = enemy
+	else:
+		push_error("No se encontró un nodo en el grupo 'player'. ¿Está agregado con add_to_group('player')?")
 
 	_enemy_actual = enemy
 
