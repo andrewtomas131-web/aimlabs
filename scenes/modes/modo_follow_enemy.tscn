@@ -73,7 +73,7 @@ shape = SubResource("BoxShape3D_ammht")
 debug_color = Color(0.84098154, 0.10814189, 0.3918025, 0.41960785)
 
 [node name="paredTrasera" type="StaticBody3D" parent="Escenario/Paredes" unique_id=770687605]
-transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711385e-08, 39.172665, 0, 54.153297)
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711385e-08, 39.172672, 0, 63.291283)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/Paredes/paredTrasera" unique_id=2072185035]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.014893, 5.924434, 31.78054)
