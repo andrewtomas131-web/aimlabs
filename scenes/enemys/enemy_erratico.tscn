@@ -5,6 +5,8 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hdkcd"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yei4"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ostoq"]
 bg_color = Color(0, 0, 0, 0.5019608)
 
@@ -25,6 +27,10 @@ variacion_vertical = 0.25
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=589308335]
 mesh = SubResource("CapsuleMesh_hdkcd")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1174383110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0013442636, 0)
+shape = SubResource("CapsuleShape3D_7yei4")
 
 [node name="SubViewport" type="SubViewport" parent="." index="3" unique_id=777431312]
 transparent_bg = true
