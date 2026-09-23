@@ -19,9 +19,12 @@ func _ready() -> void:
 	super._ready()
 	base_ray_rotation = shootRay.rotation
 
-
 func start_fire() -> void:
 	anim_player.play("Fire_Start")
+
+func shoot() -> void:
+	AudioManager.play("disparo_rifle", -3.0, 0.08)
+	super.shoot()
 
 func play_anim_fire() -> void:
 	anim_player.play(anim_fire, -1, 0.45)
@@ -39,5 +42,6 @@ func emit_recoil() -> void:
 
 func play_walk() -> void:
 	anim_player.play(anim_walk)
+
 func reset_burst() -> void:
 	shots_fired_in_burst = 0

@@ -67,6 +67,7 @@ func emit_recoil() -> void:
 	pass
 
 func shoot() -> void:
+	AudioManager.play("disparo_pistola", -3.0, 0.08)
 	emit_recoil()
 	hit_target.emit()
 	Estadisticas.registrar_disparo()

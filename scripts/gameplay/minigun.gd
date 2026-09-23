@@ -41,6 +41,10 @@ func emit_recoil() -> void:
 	recoil_kick.emit(offset)
 	shots_fired_in_burst += 1
 
+func shoot() -> void:
+	AudioManager.play("disparo_minigun", -3.0, 0.08)
+	super.shoot()
+
 func play_walk() -> void:
 	anim_player.play(anim_walk)
 
