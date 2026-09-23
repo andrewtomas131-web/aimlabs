@@ -29,6 +29,132 @@ size = Vector3(170.38495, 20, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwcav"]
 bg_color = Color(0.02745098, 0.07058824, 0.078431375, 0.92156863)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wfqe"]
+bg_color = Color(0.04268863, 0.1831812, 0.17862958, 0.92156863)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqtv7"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awx16"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pacj"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kepii"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dapyr"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h175o"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm6fx"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwxt3"]
+bg_color = Color(0.043137256, 0.18431373, 0.18039216, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+shadow_size = 5
 
 [node name="main" type="Node3D" unique_id=694436847]
 
@@ -108,25 +234,44 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jwcav")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel" unique_id=132279708]
-layout_mode = 0
-offset_left = 239.5
-offset_top = 68.5
-offset_right = 474.5
-offset_bottom = 234.5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -65.5
+offset_right = 117.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 24
 
 [node name="ContinueButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=650157666]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_constants/h_separation = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8wfqe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wqtv7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_awx16")
 text = "CONTINUAR
 "
 
 [node name="SettingsButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=317710874]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pacj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kepii")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dapyr")
 text = "CONFIGURACION"
 
 [node name="MainMenuButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=1524551525]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_h175o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cm6fx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xwxt3")
 text = "MENU PRINCIPAL"
 
 [node name="PanelConfiguracion" parent="PauseMenu/Panel" unique_id=1671682763 instance=ExtResource("6_fb7ay")]

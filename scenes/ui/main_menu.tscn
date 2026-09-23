@@ -28,6 +28,7 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+shadow_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
 bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
@@ -43,6 +44,10 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
 bg_color = Color(0.019607844, 0.03137255, 0.03529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.20784314, 0.7411765, 0.7372549, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
@@ -51,9 +56,47 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
 bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
-bg_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb0q5"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q85j6"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g8jr"]
+bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -189,6 +232,16 @@ theme_override_font_sizes/font_size = 65
 text = "AIMLABS
 "
 
+[node name="MejorPuntaje" type="Label" parent="MenuContent" unique_id=1428607958]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 336.0
+offset_right = 213.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "MEJOR PUNTAJE: 0"
+
 [node name="BtnJugar" type="Button" parent="MenuContent" unique_id=2122905666]
 layout_mode = 0
 offset_left = 66.0
@@ -208,7 +261,7 @@ offset_left = 294.0
 offset_top = 419.0
 offset_right = 497.0
 offset_bottom = 479.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
@@ -218,17 +271,16 @@ text = "CONFIGURACION
 
 [node name="BtnAyuda" type="Button" parent="MenuContent" unique_id=1190147835]
 layout_mode = 0
-offset_left = 18.0
+offset_left = 31.0
 offset_top = 555.0
-offset_right = 214.0
+offset_right = 192.0
 offset_bottom = 613.0
 theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
-theme_override_colors/font_hover_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.39607844, 0.8980392, 0.89411765, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wb0q5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q85j6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
 text = "AYUDA
 "
-flat = true
 
 [node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
 visible = false
@@ -255,10 +307,12 @@ offset_left = 46.0
 offset_top = 119.0
 offset_right = 321.0
 offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 25
 text = "Sensibilidad del Mouse"
 
 [node name="SliderSensibilidad" type="HSlider" parent="MenuContent/PanelConfiguracion" unique_id=1310414396]
+modulate = Color(0.2784314, 0.84705883, 0.84313726, 1)
 layout_mode = 0
 offset_left = 53.0
 offset_top = 157.0
@@ -275,7 +329,13 @@ offset_left = 423.0
 offset_top = 116.0
 offset_right = 693.0
 offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_pressed_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_hover_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_font_sizes/font_size = 25
+theme_override_colors/button_checked_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_colors/button_unchecked_color = Color(0.105882354, 0.42745098, 0.42352942, 1)
 text = "Pantalla Completa"
 
 [node name="BtnVolver" type="Button" parent="MenuContent/PanelConfiguracion" unique_id=1955187609]
@@ -348,10 +408,10 @@ text = "MODO DE JUEGO ENEMIGOS CON VIDA Y MOVIMIENTO"
 
 [node name="BtnModoSeguir" type="Button" parent="MenuContent/PanelModos" unique_id=1964836007]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 336.0
-offset_right = 689.0
-offset_bottom = 394.0
+offset_left = 60.0
+offset_top = 344.0
+offset_right = 685.0
+offset_bottom = 402.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
