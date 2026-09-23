@@ -1,13 +1,57 @@
 extends Node
 
-const RUTA_AUDIO := "res://assets/audio/"
 const VOCES := 20
 
 var _variaciones: Dictionary = {}
 var _ultima_variacion: Dictionary = {}
 var _voces: Array[AudioStreamPlayer] = []
-var _siguiente_voz: int = 0
+var _siguiente_voz := 0
 var _loops: Dictionary = {}
+
+const ARCHIVOS_AUDIO := {
+	"disparo_minigun": [
+		"res://assets/audio/disparo_minigun_1.wav",
+		"res://assets/audio/disparo_minigun_2.wav",
+		"res://assets/audio/disparo_minigun_3.wav"
+	],
+	"disparo_pistola": [
+		"res://assets/audio/disparo_pistola_1.wav",
+		"res://assets/audio/disparo_pistola_2.wav",
+		"res://assets/audio/disparo_pistola_3.wav"
+	],
+	"disparo_rifle": [
+		"res://assets/audio/disparo_rifle_1.wav",
+		"res://assets/audio/disparo_rifle_2.wav",
+		"res://assets/audio/disparo_rifle_3.wav"
+	],
+	"golpe_enemigo": [
+		"res://assets/audio/golpe_enemigo.wav"
+	],
+	"impacto": [
+		"res://assets/audio/impacto_1.wav",
+		"res://assets/audio/impacto_2.wav"
+	],
+	"minigun_motor_arranque": [
+		"res://assets/audio/minigun_motor_arranque.wav"
+	],
+	"minigun_motor_bucle": [
+		"res://assets/audio/minigun_motor_bucle.wav"
+	],
+	"minigun_motor_freno": [
+		"res://assets/audio/minigun_motor_freno.wav"
+	],
+	"pop": [
+		"res://assets/audio/pop_1.wav",
+		"res://assets/audio/pop_2.wav"
+	],
+	"ui_click": [
+		"res://assets/audio/ui_click_1.wav",
+		"res://assets/audio/ui_click_2.wav"
+	],
+	"ui_hover": [
+		"res://assets/audio/ui_hover.wav"
+	]
+}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -24,36 +68,14 @@ func _ready() -> void:
 	_conectar_existentes.call_deferred()
 
 func _cargar_sonidos() -> void:
-	var dir := DirAccess.open(RUTA_AUDIO)
+	for nombre in ARCHIVOS_AUDIO:
+		_variaciones[nombre] = []
 
-	if dir == null:
-		push_warning("AudioManager: no existe la carpeta " + RUTA_AUDIO)
-		return
-
-	dir.list_dir_begin()
-	var archivo := dir.get_next()
-
-	while archivo != "":
-		if not dir.current_is_dir() and archivo.to_lower().ends_with(".wav"):
-			var nombre: String = archivo.substr(0, archivo.length() - 4)
-			var base := nombre
-
-			var partes := nombre.rsplit("_", true, 1)
-			if partes.size() == 2 and partes[1].is_valid_int():
-				base = partes[0]
-
-			var ruta := RUTA_AUDIO + archivo
+		for ruta in ARCHIVOS_AUDIO[nombre]:
 			var stream: AudioStream = load(ruta)
 
 			if stream != null:
-				if not _variaciones.has(base):
-					_variaciones[base] = []
-
-				_variaciones[base].append(stream)
-
-		archivo = dir.get_next()
-
-	dir.list_dir_end()
+				_variaciones[nombre].append(stream)
 
 func _normalizar_nombre(nombre: String) -> String:
 	if nombre.to_lower().ends_with(".wav"):
@@ -65,6 +87,7 @@ func play(nombre_base: String, volumen_db: float = 0.0, variacion_tono: float = 
 	nombre_base = _normalizar_nombre(nombre_base)
 
 	var stream := _elegir_variacion(nombre_base)
+
 	if stream == null:
 		return
 
@@ -80,7 +103,7 @@ func _elegir_variacion(nombre_base: String) -> AudioStream:
 	var lista: Array = _variaciones.get(nombre_base, [])
 
 	if lista.is_empty():
-		push_warning("AudioManager: falta el sonido '%s.wav' en %s" % [nombre_base, RUTA_AUDIO])
+		push_warning("AudioManager: falta el sonido '%s.wav'" % nombre_base)
 		return null
 
 	if lista.size() == 1:
@@ -92,6 +115,7 @@ func _elegir_variacion(nombre_base: String) -> AudioStream:
 		idx = (idx + 1) % lista.size()
 
 	_ultima_variacion[nombre_base] = idx
+
 	return lista[idx]
 
 func _voz_libre() -> AudioStreamPlayer:
@@ -101,6 +125,7 @@ func _voz_libre() -> AudioStreamPlayer:
 
 	var v := _voces[_siguiente_voz]
 	_siguiente_voz = (_siguiente_voz + 1) % _voces.size()
+
 	return v
 
 func play_loop(nombre: String, volumen_db: float = 0.0) -> void:
@@ -168,6 +193,9 @@ func _on_node_added(nodo: Node) -> void:
 
 		boton.mouse_entered.connect(func():
 			if not boton.disabled:
-				play("ui_hover", -6.0))
+				play("ui_hover", -6.0)
+		)
 
-		boton.pressed.connect(func(): play("ui_click"))
+		boton.pressed.connect(func():
+			play("ui_click")
+		)
