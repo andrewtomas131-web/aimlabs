@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://c8vyns1jesho0" path="res://scripts/ui/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="2_bqqt6"]
 [ext_resource type="Script" uid="uid://c51exb25ig70" path="res://scripts/ui/panel_diagonal.gd" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://g3rp3drao85y" path="res://assets/player/modo_normal.png" id="4_btxxm"]
+[ext_resource type="Texture2D" uid="uid://nriuigacwwof" path="res://assets/player/modo_enemigos.png" id="5_wb0q5"]
+[ext_resource type="Texture2D" uid="uid://dr24uy6er1ydg" path="res://assets/player/modo_enemigos_vida.png" id="6_q85j6"]
+[ext_resource type="Texture2D" uid="uid://bh5oknpyp3sa0" path="res://assets/player/modo_seguir_enemigo.png" id="7_8g5eo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 content_margin_left = 20.0
@@ -365,83 +369,246 @@ text = "VOLVER"
 
 [node name="PanelModos" type="Panel" parent="MenuContent" unique_id=889242943]
 visible = false
-layout_mode = 0
-offset_left = 223.0
-offset_top = 54.0
-offset_right = 968.0
-offset_bottom = 577.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -414.0
+offset_top = -306.0
+offset_right = 414.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
 
 [node name="TituloModos" type="Label" parent="MenuContent/PanelModos" unique_id=907699702]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 15.0
-offset_right = 685.0
-offset_bottom = 78.0
+offset_left = 86.0
+offset_right = 726.0
+offset_bottom = 63.0
 theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 25
 text = "MODOS DE JUEGO"
 horizontal_alignment = 1
 
-[node name="BtnModoNormal" type="Button" parent="MenuContent/PanelModos" unique_id=1373255741]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 110.0
-offset_right = 685.0
-offset_bottom = 168.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO DE JUEGO NORMAL"
-
-[node name="BtnModoMovimiento" type="Button" parent="MenuContent/PanelModos" unique_id=1148511792]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 188.0
-offset_right = 685.0
-offset_bottom = 246.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO DE JUEGO ENEMIGOS CON MOVIMIENTO"
-
-[node name="BtnModoVidaMovimiento" type="Button" parent="MenuContent/PanelModos" unique_id=893187728]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 266.0
-offset_right = 685.0
-offset_bottom = 324.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO DE JUEGO ENEMIGOS CON VIDA Y MOVIMIENTO"
-
-[node name="BtnModoSeguir" type="Button" parent="MenuContent/PanelModos" unique_id=1964836007]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 344.0
-offset_right = 685.0
-offset_bottom = 402.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
-text = "MODO SEGUIR ENEMIGO"
-
 [node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos" unique_id=1535494689]
 layout_mode = 0
-offset_left = 649.0
-offset_top = 474.0
-offset_right = 739.0
-offset_bottom = 509.0
+offset_left = 739.0
+offset_top = 580.0
+offset_right = 829.0
+offset_bottom = 615.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_flqon")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
 text = "VOLVER"
+
+[node name="GridModos" type="GridContainer" parent="MenuContent/PanelModos" unique_id=305794955]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -270.5
+offset_right = 325.0
+offset_bottom = 289.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 2
+
+[node name="TarjetaModoNormal" type="PanelContainer" parent="MenuContent/PanelModos/GridModos" unique_id=1716384041]
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContent/PanelModos/GridModos/TarjetaModoNormal" unique_id=249179763]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ImagenModo" type="TextureRect" parent="MenuContent/PanelModos/GridModos/TarjetaModoNormal/VBoxContainer" unique_id=410794492]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+texture = ExtResource("4_btxxm")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NombreModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoNormal/VBoxContainer" unique_id=1069288024]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "MODO NORMAL"
+horizontal_alignment = 1
+
+[node name="DescripcionModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoNormal/VBoxContainer" unique_id=687583799]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.75, 0.85)
+theme_override_font_sizes/font_size = 13
+text = "Entrena tu punteria contra objetivos aleatorios"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MejorPuntajeModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoNormal/VBoxContainer" unique_id=719685111]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 14
+text = "Mejor: 0"
+horizontal_alignment = 1
+
+[node name="BtnSeleccionar" type="Button" parent="MenuContent/PanelModos/GridModos/TarjetaModoNormal/VBoxContainer" unique_id=1414158520]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "JUGAR"
+
+[node name="TarjetaModoEnemigos" type="PanelContainer" parent="MenuContent/PanelModos/GridModos" unique_id=2098831560]
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos" unique_id=2137230029]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ImagenModo" type="TextureRect" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos/VBoxContainer" unique_id=1903697632]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+texture = ExtResource("5_wb0q5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NombreModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos/VBoxContainer" unique_id=1583702403]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "MODO ENEMIGOS"
+horizontal_alignment = 1
+
+[node name="DescripcionModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos/VBoxContainer" unique_id=1846143802]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.75, 0.85)
+theme_override_font_sizes/font_size = 13
+text = "Enfrenta enemigos en un entorno dinamico"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MejorPuntajeModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos/VBoxContainer" unique_id=653212055]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 14
+text = "Mejor: 0"
+horizontal_alignment = 1
+
+[node name="BtnSeleccionar" type="Button" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos/VBoxContainer" unique_id=1064766984]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "JUGAR"
+
+[node name="TarjetaModoEnemigosVida" type="PanelContainer" parent="MenuContent/PanelModos/GridModos" unique_id=409933395]
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida" unique_id=1074671482]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ImagenModo" type="TextureRect" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida/VBoxContainer" unique_id=1882579587]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+texture = ExtResource("6_q85j6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NombreModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida/VBoxContainer" unique_id=1748592806]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "MODO VIDA"
+horizontal_alignment = 1
+
+[node name="DescripcionModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida/VBoxContainer" unique_id=132551686]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.75, 0.85)
+theme_override_font_sizes/font_size = 13
+text = "Efrenta enemigos con una barra de vida"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MejorPuntajeModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida/VBoxContainer" unique_id=753612440]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 14
+text = "Mejor: 0"
+horizontal_alignment = 1
+
+[node name="BtnSeleccionar" type="Button" parent="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida/VBoxContainer" unique_id=1059108859]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "JUGAR"
+
+[node name="TarjetaModoSeguirEnemigo" type="PanelContainer" parent="MenuContent/PanelModos/GridModos" unique_id=587868008]
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo" unique_id=2125583807]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ImagenModo" type="TextureRect" parent="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo/VBoxContainer" unique_id=1898742173]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+texture = ExtResource("7_8g5eo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NombreModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo/VBoxContainer" unique_id=1427709821]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "MODO SEGUIMIENTO"
+horizontal_alignment = 1
+
+[node name="DescripcionModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo/VBoxContainer" unique_id=692962887]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.75, 0.85)
+theme_override_font_sizes/font_size = 13
+text = "Entrena tu agilidad siguiendo al objetivo"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MejorPuntajeModo" type="Label" parent="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo/VBoxContainer" unique_id=1273205384]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_font_sizes/font_size = 14
+text = "Mejor: 0"
+horizontal_alignment = 1
+
+[node name="BtnSeleccionar" type="Button" parent="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo/VBoxContainer" unique_id=1986140102]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "JUGAR"
 
 [node name="CornerAccent" type="Panel" parent="MenuContent" unique_id=88240406]
 layout_mode = 0
@@ -483,9 +650,10 @@ tu punteria y logra el mayor numero de aciertos
 
 CONTROLES
 
-Mouse → Mirar
-Clic izquierdo → Disparar
-ESC → Menu de pausa"
+Mouse -> Mirar
+Clic izquierdo -> Disparar
+ESC -> Menu de pausa
+WASD -> Moverse (solo aplica en algunos modos de juego)"
 
 [node name="BtnEntendido" type="Button" parent="PanelAyuda" unique_id=1753677168]
 layout_mode = 0
@@ -505,9 +673,9 @@ text = "ENTENDIDO"
 [connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
 [connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModoNormal" to="." method="_on_btn_modo_normal_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModoMovimiento" to="." method="_on_btn_modo_enemigos_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModoVidaMovimiento" to="." method="_on_btn_modo_3_pressed"]
-[connection signal="pressed" from="MenuContent/PanelModos/BtnModoSeguir" to="." method="_on_btn_modo_4_pressed"]
 [connection signal="pressed" from="MenuContent/PanelModos/BtnVolverModos" to="." method="_on_btn_volver_modos_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/GridModos/TarjetaModoNormal/VBoxContainer/BtnSeleccionar" to="." method="_on_btn_modo_normal_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/GridModos/TarjetaModoEnemigos/VBoxContainer/BtnSeleccionar" to="." method="_on_btn_modo_enemigos_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/GridModos/TarjetaModoEnemigosVida/VBoxContainer/BtnSeleccionar" to="." method="_on_btn_modo_enemys_life_pressed"]
+[connection signal="pressed" from="MenuContent/PanelModos/GridModos/TarjetaModoSeguirEnemigo/VBoxContainer/BtnSeleccionar" to="." method="_on_btn_modo_follow_enemy_pressed"]
 [connection signal="pressed" from="PanelAyuda/BtnEntendido" to="." method="_on_btn_entendido_pressed"]
