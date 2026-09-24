@@ -1,12 +1,6 @@
 extends Enemy
 class_name EnemyErratico
 
-
-@onready var progress_bar = $SubViewport/ProgressBar
-
-
-@export var vida_maxima: int = 500
-
 @export_group("Movimiento errático")
 @export var velocidad_min: float = 10.0
 @export var velocidad_max: float = 15.0
@@ -14,9 +8,7 @@ class_name EnemyErratico
 @export var tiempo_cambio_direccion_max: float = 1.7
 @export var variacion_vertical: float = 0.25
 
-var vida_actual: int
 var disparos_consecutivos_sin_fallar: int = 0
-
 var _area_shape: Shape3D
 var _area_transform: Transform3D
 
@@ -24,25 +16,22 @@ var _direccion: Vector3 = Vector3.ZERO
 var _tiempo_restante: float = 0.0
 var _velocidad: float = 2.0
 
-
-
 func _ready() -> void:
-	super._ready()
-	vida_actual = vida_maxima
+	super._ready() 
 	_elegir_nueva_direccion()
-
 
 func configurar_area(shape: Shape3D, area_global_transform: Transform3D) -> void:
 	_area_shape = shape
 	_area_transform = area_global_transform
 
-
 func _process(delta: float) -> void:
-	if _area_shape == null:
+	if _area_shape == null or esta_muerto:
 		return
+		
 	_tiempo_restante -= delta
 	if _tiempo_restante <= 0.0:
 		_elegir_nueva_direccion()
+		
 	var nueva_pos: Vector3 = global_position + _direccion * _velocidad * delta
 
 	if _dentro_del_area(nueva_pos):
@@ -50,9 +39,7 @@ func _process(delta: float) -> void:
 	else:
 		_elegir_nueva_direccion()
 
-
 func _elegir_nueva_direccion() -> void:
-	particles.emitting = false
 	_direccion = Vector3(
 		randf_range(-1.0, 1.0),
 		randf_range(-variacion_vertical, variacion_vertical),
@@ -60,8 +47,6 @@ func _elegir_nueva_direccion() -> void:
 	).normalized()
 	_velocidad = randf_range(velocidad_min, velocidad_max)
 	_tiempo_restante = randf_range(tiempo_cambio_direccion_min, tiempo_cambio_direccion_max)
-	
-
 
 func _dentro_del_area(pos: Vector3) -> bool:
 	if _area_shape is BoxShape3D:
@@ -72,32 +57,20 @@ func _dentro_del_area(pos: Vector3) -> bool:
 		return pos.distance_to(_area_transform.origin) <= _area_shape.radius
 	return true
 
+func calcular_daño_recibido() -> int:
+	return 20 
 
-func hit(distancia: float = -1.0) -> void:
+func _al_recibir_golpe() -> void:
 	disparos_consecutivos_sin_fallar += 1
-	vida_actual -= 20
-	enemy_damaged.emit(vida_actual, vida_maxima)
-	progress_bar.max_value = vida_maxima
-	progress_bar.value = vida_actual
-	
-	registrar_puntos_parciales()
-	if vida_actual <= 0:
-		morir()
-		progress_bar.visible = false
-	else:
-		_feedback_golpe()
+	_registrar_puntos_parciales()
+	if particles:
+		particles.restart()
+	AudioManager.play("pop", -10.0, 0.08)
 
 func registrar_fallo() -> void:
 	disparos_consecutivos_sin_fallar = 0
 
-func registrar_puntos_parciales() -> void:
-	var base_por_golpe = int(70.0/ scale.x / 25.0)
+func _registrar_puntos_parciales() -> void:
+	var base_por_golpe = int(70.0 / max(scale.x, 0.001) / 25.0)
 	var multiplicador_consistencia = clamp(1.0 + (disparos_consecutivos_sin_fallar / 25.0), 1.0, 2.0)
-
-	var puntos_de_este_golpe = int(base_por_golpe * multiplicador_consistencia)
-	Estadisticas.registrar_acierto(puntos_de_este_golpe)
-
-func _feedback_golpe() -> void:
-	if particles:
-		particles.restart()
-	AudioManager.play("pop", -10.0, 0.08)
+	Estadisticas.registrar_acierto(int(base_por_golpe * multiplicador_consistencia))

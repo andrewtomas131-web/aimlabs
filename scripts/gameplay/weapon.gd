@@ -10,7 +10,7 @@ extends Node3D
 @export var is_automatic: bool = false
 
 @onready var anim_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
-@onready var shootRay = $Camera3D/ShootRay
+@onready var shootRay: RayCast3D = $Camera3D/ShootRay
 var cilindro_activo: EnemyErratico = null
 
 signal hit_target
@@ -25,17 +25,12 @@ func _ready() -> void:
 		push_warning("No se encontró AnimationPlayer")
 
 func fire() -> void:
-	# Si ya está disparando o intentando disparar, ignorar clics repetidos
 	if wants_to_fire or is_firing:
 		return
-
 	wants_to_fire = true
 	await start_fire()
-	
 	if not wants_to_fire:
 		return
-
-	# Iniciar el estado de disparo y reiniciar el temporizador ANTES de disparar
 	is_firing = true
 	fire_timer = fire_rate 
 	
