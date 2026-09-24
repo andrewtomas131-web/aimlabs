@@ -3,6 +3,7 @@ extends Node
 var mouse_sensitivity: float = 0.003
 var fullscreen: bool = false
 var fov: float = 75.0
+var escena_a_cargar: String = ""
 
 var selected_weapon_scene: PackedScene
 
