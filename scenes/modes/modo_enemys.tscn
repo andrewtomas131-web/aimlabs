@@ -194,7 +194,7 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedDelantera" unique_id=1816103624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6213403, 0.5046189, 5.1882324)
 shape = SubResource("BoxShape3D_0kdyo")
-debug_fill = false
+debug_color = Color(0.94298196, 0.14780775, 0.47875196, 0.41960785)
 
 [node name="ParedDerecha" type="StaticBody3D" parent="Escenario" unique_id=1309075915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4643276, 0, 0)
@@ -204,7 +204,7 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedDerecha" unique_id=1053606029]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -1.6525486, 0.5046189, 6.4281325)
 shape = SubResource("BoxShape3D_0kdyo")
-debug_fill = false
+debug_color = Color(0.94298196, 0.14780775, 0.47875196, 0.41960785)
 
 [node name="ParedIzquierda" type="StaticBody3D" parent="Escenario" unique_id=246527979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4643276, 0, 0)
@@ -212,9 +212,9 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedIzquierda" unique_id=1611842472]
-transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -7.070609, 0.5046189, 6.428133)
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -7.03273, 0.5046189, 6.4281325)
 shape = SubResource("BoxShape3D_0kdyo")
-debug_fill = false
+debug_color = Color(0.94298196, 0.14780775, 0.47875196, 0.41960785)
 
 [node name="ParedTrasera" type="StaticBody3D" parent="Escenario" unique_id=312240003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4643276, 0, 0)
@@ -224,7 +224,7 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Escenario/ParedTrasera" unique_id=154373437]
 transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -5.6238275, 0.5046189, 11.038481)
 shape = SubResource("BoxShape3D_0kdyo")
-debug_fill = false
+debug_color = Color(0.94298196, 0.14780775, 0.47875196, 0.41960785)
 
 [node name="Player" parent="." unique_id=1414830256 instance=ExtResource("3_hhd55")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -15.482662, 0, 27.998446)
