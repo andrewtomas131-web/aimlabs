@@ -282,6 +282,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
 text = "AYUDA
 "
 
+[node name="BtnSalir" type="Button" parent="MenuContent" unique_id=461656333]
+layout_mode = 0
+offset_left = 962.0
+offset_top = 555.0
+offset_right = 1123.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wb0q5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q85j6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
+text = "SALIR
+"
+
 [node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
 visible = false
 layout_mode = 0
@@ -488,6 +501,7 @@ text = "ENTENDIDO"
 [connection signal="pressed" from="MenuContent/BtnJugar" to="." method="_on_btn_jugar_pressed"]
 [connection signal="pressed" from="MenuContent/BtnConfiguracion" to="." method="_on_btn_configuracion_pressed"]
 [connection signal="pressed" from="MenuContent/BtnAyuda" to="." method="_on_btn_ayuda_pressed"]
+[connection signal="pressed" from="MenuContent/BtnSalir" to="." method="_on_btn_salir_pressed"]
 [connection signal="value_changed" from="MenuContent/PanelConfiguracion/SliderSensibilidad" to="." method="_on_slider_sensibilidad_value_changed"]
 [connection signal="toggled" from="MenuContent/PanelConfiguracion/CheckPantallaCompleta" to="." method="_on_check_pantalla_completa_toggled"]
 [connection signal="pressed" from="MenuContent/PanelConfiguracion/BtnVolver" to="." method="_on_btn_volver_pressed"]

@@ -52,22 +52,26 @@ func _on_btn_entendido_pressed() -> void:
 
 func _on_btn_modo_normal_pressed() -> void:
 	Estadisticas.reset()
-	get_tree().change_scene_to_file("res://scenes/modes/main.tscn")
+	GameSettings.escena_a_cargar = "res://scenes/modes/main.tscn"
+	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 
 
 func _on_btn_modo_enemigos_pressed() -> void:
 	Estadisticas.reset()
-	get_tree().change_scene_to_file("res://scenes/modes/modo_enemys.tscn")
+	GameSettings.escena_a_cargar = "res://scenes/modes/modo_enemys.tscn"
+	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 
 
 func _on_btn_modo_3_pressed() -> void:
 	Estadisticas.reset()
-	get_tree().change_scene_to_file("res://scenes/modes/modo_enemys_life.tscn")
+	GameSettings.escena_a_cargar = "res://scenes/modes/modo_enemys_life.tscn"
+	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 
 
 func _on_btn_modo_4_pressed() -> void:
 	Estadisticas.reset()
-	get_tree().change_scene_to_file("res://scenes/modes/modo_follow_enemy.tscn")
+	GameSettings.escena_a_cargar = "res://scenes/modes/modo_follow_enemy.tscn"
+	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 
 
 # --- CONFIGURACIÓN ---
@@ -81,3 +85,7 @@ func _on_check_pantalla_completa_toggled(toggled_on: bool) -> void:
 	GameSettings.fullscreen = toggled_on
 	GameSettings.save_settings()
 	aplicar_pantalla_completa()
+
+
+func _on_btn_salir_pressed() -> void:
+	get_tree().quit()
