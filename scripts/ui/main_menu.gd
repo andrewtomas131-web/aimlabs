@@ -1,23 +1,17 @@
 extends Control
 
-@onready var mejor_puntaje_label: Label = $MenuContent/MejorPuntaje
-
 
 func _ready() -> void:
 	$MenuContent/PanelConfiguracion/SliderSensibilidad.value = GameSettings.mouse_sensitivity
 	$MenuContent/PanelConfiguracion/CheckPantallaCompleta.button_pressed = GameSettings.fullscreen
+	$MenuContent/PanelConfiguracion/ValorSensibilidad.text = "%.3f" % GameSettings.mouse_sensitivity
 	aplicar_pantalla_completa()
-	_actualizar_mejor_puntaje()
 	
 func aplicar_pantalla_completa() -> void:
 	if GameSettings.fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-func _actualizar_mejor_puntaje() -> void:
-	if mejor_puntaje_label:
-		mejor_puntaje_label.text = "MEJOR PUNTAJE: %d" % Estadisticas.mejor_puntuacion
 
 # --- NAVEGACIÓN Y MENÚS ---
 
@@ -76,6 +70,7 @@ func _actualizar_mejores_modos() -> void:
 func _on_slider_sensibilidad_value_changed(value: float) -> void:
 	GameSettings.mouse_sensitivity = value
 	GameSettings.save_settings()
+	$MenuContent/PanelConfiguracion/ValorSensibilidad.text = "%.3f" % value
 
 func _on_check_pantalla_completa_toggled(toggled_on: bool) -> void:
 	GameSettings.fullscreen = toggled_on

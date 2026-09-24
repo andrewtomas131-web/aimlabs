@@ -236,22 +236,12 @@ theme_override_font_sizes/font_size = 65
 text = "AIMLABS
 "
 
-[node name="MejorPuntaje" type="Label" parent="MenuContent" unique_id=1428607958]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 336.0
-offset_right = 213.0
-offset_bottom = 359.0
-theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
-theme_override_font_sizes/font_size = 20
-text = "MEJOR PUNTAJE: 0"
-
 [node name="BtnJugar" type="Button" parent="MenuContent" unique_id=2122905666]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 419.0
-offset_right = 269.0
-offset_bottom = 479.0
+offset_left = 62.0
+offset_top = 390.0
+offset_right = 265.0
+offset_bottom = 450.0
 theme_override_colors/font_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
@@ -261,10 +251,10 @@ text = "JUGAR
 
 [node name="BtnConfiguracion" type="Button" parent="MenuContent" unique_id=568528882]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 419.0
-offset_right = 497.0
-offset_bottom = 479.0
+offset_left = 290.0
+offset_top = 390.0
+offset_right = 493.0
+offset_bottom = 450.0
 theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5dd4i")
@@ -300,7 +290,6 @@ text = "SALIR
 "
 
 [node name="PanelConfiguracion" type="Panel" parent="MenuContent" unique_id=806874093]
-visible = false
 layout_mode = 0
 offset_left = 223.0
 offset_top = 54.0
@@ -340,6 +329,15 @@ max_value = 0.01
 step = 0.001
 value = 0.001
 
+[node name="ValorSensibilidad" type="Label" parent="MenuContent/PanelConfiguracion" unique_id=1098380739]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 189.0
+offset_right = 201.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(0.2784314, 0.84705883, 0.84313726, 1)
+text = "0.001"
+
 [node name="CheckPantallaCompleta" type="CheckButton" parent="MenuContent/PanelConfiguracion" unique_id=1352336404]
 layout_mode = 0
 offset_left = 423.0
@@ -377,7 +375,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -414.0
 offset_top = -306.0
-offset_right = 414.0
+offset_right = 428.0
 offset_bottom = 307.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -395,10 +393,10 @@ horizontal_alignment = 1
 
 [node name="BtnVolverModos" type="Button" parent="MenuContent/PanelModos" unique_id=1535494689]
 layout_mode = 0
-offset_left = 739.0
-offset_top = 580.0
-offset_right = 829.0
-offset_bottom = 615.0
+offset_left = 748.0
+offset_top = 573.0
+offset_right = 838.0
+offset_bottom = 608.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_flqon")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ajci")
@@ -647,12 +645,12 @@ text = "Elimina la mayor cantidad de objetivos, cuida
 tu punteria y logra el mayor numero de aciertos
 
 
-
 CONTROLES
 
 Mouse -> Mirar
 Clic izquierdo -> Disparar
 ESC -> Menu de pausa
+F -> Accion especial
 WASD -> Moverse (solo aplica en algunos modos de juego)"
 
 [node name="BtnEntendido" type="Button" parent="PanelAyuda" unique_id=1753677168]
