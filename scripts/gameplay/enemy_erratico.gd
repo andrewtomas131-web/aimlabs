@@ -52,6 +52,7 @@ func _process(delta: float) -> void:
 
 
 func _elegir_nueva_direccion() -> void:
+	particles.emitting = false
 	_direccion = Vector3(
 		randf_range(-1.0, 1.0),
 		randf_range(-variacion_vertical, variacion_vertical),
@@ -97,5 +98,5 @@ func registrar_puntos_parciales() -> void:
 	Estadisticas.registrar_acierto(puntos_de_este_golpe)
 
 func _feedback_golpe() -> void:
-	if particles:
-		particles.emitting = true
+	particles.emitting = true
+	AudioManager.play("pop", -10.0, 0.08)

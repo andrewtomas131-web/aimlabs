@@ -4,7 +4,7 @@ extends Node3D
 @export var energia_pico: float = 16.0
 
 @export var tiempo_minimo: float = 1.0
-@export var tiempo_maximo: float = 120.0
+@export var tiempo_maximo: float = 30.0
 
 var temporizador: Timer
 var luces: Array[Light3D] = []
