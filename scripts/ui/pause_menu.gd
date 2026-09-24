@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var panel = $Panel
 @onready var panel_configuracion = $Panel/PanelConfiguracion
+@onready var panel_principal = $Panel/VBoxContainer
 
 func _ready() -> void:
 	panel.hide()
@@ -25,19 +26,24 @@ func pause_game() -> void:
 
 func resume_game() -> void:
 	panel.hide()
+	_mostrar_menu_principal_pausa()
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _mostrar_menu_principal_pausa() -> void:
+	panel_configuracion.hide()
+	panel_principal.show()
 
 func _on_continue_button_pressed() -> void:
 	resume_game()
 
 func _on_settings_button_pressed() -> void:
-	$Panel/VBoxContainer.hide()
-	$Panel/PanelConfiguracion.show()
+	panel_principal.hide()
+	panel_configuracion.show()
 
 func _on_configuracion_volver() -> void:
-	$Panel/PanelConfiguracion.hide()
-	$Panel/VBoxContainer.show()
+	panel_configuracion.hide()
+	panel_principal.show()
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
