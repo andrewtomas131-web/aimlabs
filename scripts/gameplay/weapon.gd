@@ -13,7 +13,6 @@ extends Node3D
 @onready var shootRay = $Camera3D/ShootRay
 var cilindro_activo: EnemyErratico = null
 
-
 signal hit_target
 signal recoil_kick(offset: Vector2)
 
@@ -26,12 +25,21 @@ func _ready() -> void:
 		push_warning("No se encontró AnimationPlayer")
 
 func fire() -> void:
+	# Si ya está disparando o intentando disparar, ignorar clics repetidos
+	if wants_to_fire or is_firing:
+		return
+
 	wants_to_fire = true
 	await start_fire()
+	
 	if not wants_to_fire:
 		return
-	shoot()
+
+	# Iniciar el estado de disparo y reiniciar el temporizador ANTES de disparar
 	is_firing = true
+	fire_timer = fire_rate 
+	
+	shoot()
 	play_anim_fire()
 	
 func _process(delta: float) -> void:
@@ -52,13 +60,13 @@ func stop_fire() -> void:
 	wants_to_fire = false
 
 func inspect() -> void:
-	if(!is_firing):
+	if not is_firing:
 		anim_player.stop() 
 		anim_player.play(anim_inspect)
 
 func play_idle() -> void:
 	if anim_player.current_animation != anim_fire and anim_player.current_animation != anim_inspect:
-			anim_player.play(anim_idle)
+		anim_player.play(anim_idle)
 
 func play_walk() -> void:
 	pass
