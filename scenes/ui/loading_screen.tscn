@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://b48kl0x7c77qj"]
 
 [ext_resource type="Texture2D" uid="uid://b7w55qpjlh4jd" path="res://assets/player/Aimlabs_Thumbnail-1024x576.png" id="1_bg"]
+[ext_resource type="Texture2D" uid="uid://dh52aqngfur0v" path="res://assets/player/header.jpg" id="2_s41fs"]
 [ext_resource type="Script" uid="uid://bprncfd3fywnp" path="res://scripts/ui/loading_screen.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://duhbk2cw07u6h" path="res://assets/player/robot-epico.jpeg" id="3_y06jl"]
+[ext_resource type="Texture2D" uid="uid://dgb6arklrd8gn" path="res://assets/player/pantalla.jpeg" id="4_g5iak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
 bg_color = Color(0.03137255, 0.043137256, 0.050980393, 1)
@@ -30,6 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_script")
+imagenes = Array[Texture2D]([ExtResource("2_s41fs"), ExtResource("3_y06jl"), ExtResource("4_g5iak"), ExtResource("1_bg")])
 
 [node name="ImagenFondo" type="TextureRect" parent="." unique_id=724546851]
 layout_mode = 1

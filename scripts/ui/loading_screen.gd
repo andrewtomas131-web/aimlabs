@@ -22,16 +22,22 @@ var tips := [
 func _ready() -> void:
 	label_tip.text = tips[randi() % tips.size()]
 	ResourceLoader.load_threaded_request(GameSettings.escena_a_cargar)
-	
+
 	if imagenes.size() > 0:
-		imagen_fondo.texture = imagenes[0]
+		indice_imagen = randi() % imagenes.size()
+		imagen_fondo.texture = imagenes[indice_imagen]
 	timer_imagenes.timeout.connect(_rotar_imagen)
 
 
 func _rotar_imagen() -> void:
-	if imagenes.is_empty():
+	if imagenes.size() <= 1:
 		return
-	indice_imagen = (indice_imagen + 1) % imagenes.size()
+
+	var nuevo_indice := randi() % imagenes.size()
+	while nuevo_indice == indice_imagen:
+		nuevo_indice = randi() % imagenes.size()
+
+	indice_imagen = nuevo_indice
 	imagen_fondo.texture = imagenes[indice_imagen]
 
 func _process(_delta: float) -> void:
